@@ -57,35 +57,320 @@
     </style>
 </head>
 <body class="bg-white">
-    <nav class="block md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
-        <div class="flex justify-around">
-            <a href="#home" class="flex-1 py-4 text-center text-gray-700 hover:text-blue-600 transition"><i class="fas fa-home text-xl"></i></a>
-            <a href="#about" class="flex-1 py-4 text-center text-gray-700 hover:text-blue-600 transition"><i class="fas fa-info-circle text-xl"></i></a>
-            <a href="#programs" class="flex-1 py-4 text-center text-gray-700 hover:text-blue-600 transition"><i class="fas fa-book text-xl"></i></a>
-            <a href="#contact" class="flex-1 py-4 text-center text-gray-700 hover:text-blue-600 transition"><i class="fas fa-phone text-xl"></i></a>
+    <!-- Mobile Menu -->
+     
+    <div id="mobileMenu" class="hidden md:hidden fixed inset-0 z-30 bg-gradient-to-b from-transparent/80 via-blue-50/70 to-purple-50/60 backdrop-blur-lg">
+        <div class="p-4 flex flex-col space-y-4">
+            <button onclick="closeMobileMenu()" class="absolute top-4 right-4 text-3xl text-gray-700 hover:text-blue-600 transition duration-300">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#home" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 px-4 rounded-lg hover:bg-white/40">Home</a>
+            <a href="#programs" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 px-4 rounded-lg hover:bg-white/40">Programs</a>
+            <a href="#about" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 px-4 rounded-lg hover:bg-white/40">About</a>
+            <button onclick="openContactModal()" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 text-left px-4 rounded-lg hover:bg-white/40">Contact</button>
+
+            <button onclick="openModal('signup')" class="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:shadow-lg transition transform hover:scale-105 duration-300">Join Now</button>
+        
         </div>
-    </nav>
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 md:h-24">
-                <div class="flex items-center">
-                    <a href="#home" class="flex items-center hover:opacity-80 transition">
-                        <img src="https://horizons-cdn.hostinger.com/cee446de-c236-4591-b8e5-f3ace8481109/7a368cfaf01ec17726b689fc69367d25.png" alt="TSE Logo" class="h-12 w-auto mr-4 object-contain">
-                        <span class="font-bold text-2xl text-gray-900 hidden sm:block bg-gradient-animate bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">TSE</span>
-                    </a>
+    </div>
+   
+    <!-- Contact Modal -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeContactModal()">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-envelope mr-4"></i>Get In Touch</h2>
+                    <p class="text-blue-100 mt-3 text-lg">We'd love to hear from you</p>
                 </div>
-                <nav class="hidden md:flex items-center space-x-10">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 text-sm lg:text-base">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 text-sm lg:text-base">About Us</a>
-                    <a href="#programs" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 text-sm lg:text-base">Programs</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 text-sm lg:text-base">Contact</a>
-                </nav>
+                <button onclick="closeContactModal()" class="text-3xl hover:bg-white/20 p-2 rounded-lg transition flex-shrink-0">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-8 md:p-12">
+                <!-- Contact Info Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600">
+                        <i class="fas fa-phone text-blue-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Call Us</h3>
+                        <p class="text-gray-700 text-lg font-semibold">+91 98765 43210</p>
+                        <p class="text-gray-600">Mon-Sat, 9:00 AM - 6:00 PM</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-l-4 border-purple-600">
+                        <i class="fas fa-envelope text-purple-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Email Us</h3>
+                        <p class="text-gray-700 text-lg font-semibold">contact@tse.edu.in</p>
+                        <p class="text-gray-600">We'll respond within 24 hours</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl border-l-4 border-pink-600">
+                        <i class="fas fa-map-marker-alt text-pink-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Visit Us</h3>
+                        <p class="text-gray-700 text-lg font-semibold">New Delhi, India</p>
+                        <p class="text-gray-600">TSE Head Office</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-l-4 border-green-600">
+                        <i class="fas fa-headset text-green-600 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Support</h3>
+                        <p class="text-gray-700 text-lg font-semibold">+91 98765 43211</p>
+                        <p class="text-gray-600">24/7 Student Support</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2 text-lg"><i class="fas fa-user text-blue-600 mr-2"></i>Name</label>
+                        <input type="text" required placeholder="Your Name" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition text-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2 text-lg"><i class="fas fa-envelope text-purple-600 mr-2"></i>Email</label>
+                        <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition text-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2 text-lg"><i class="fas fa-phone text-pink-600 mr-2"></i>Phone</label>
+                        <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-pink-600 focus:outline-none transition text-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2 text-lg"><i class="fas fa-comment text-green-600 mr-2"></i>Message</label>
+                        <textarea required placeholder="Tell us how we can help..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-green-600 focus:outline-none transition text-lg resize-none" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600">
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" required class="w-5 h-5 accent-blue-600">
+                            <span class="text-gray-700 ml-3 text-lg">I agree to be contacted regarding my inquiry</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg">
+                        <i class="fas fa-paper-plane mr-3"></i>Send Message
+                    </button>
+                </form>
+
+                <!-- Social Links -->
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <p class="text-center text-gray-700 font-semibold mb-4">Follow Us</p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-blue-400 hover:bg-blue-500 text-white rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-blue-700 hover:bg-blue-800 text-white rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-pink-600 hover:bg-pink-700 text-white rounded-full flex items-center justify-center transition transform hover:scale-110"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- Hero Section -->
+    <script>
+    function openContactModal() {
+        document.getElementById('contactModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+        document.getElementById('contactModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeMobileMenu() {
+        document.getElementById('mobileMenu').classList.add('hidden');
+    }
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('[onclick*="mobileMenu"]');
+        if (window.innerWidth < 768) {
+            document.querySelector('[href="#home"]')?.parentElement.insertAdjacentHTML('beforebegin', 
+                '<button onclick="document.getElementById(\'mobileMenu\').classList.remove(\'hidden\')" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>');
+        }
+    });
+    </script>
+    <body class="bg-transparent">
+<!-- Digital Marketing Modal -->
+<div id="digitalModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('digital')">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+        <div class="bg-gradient-to-r from-orange-600 to-orange-800 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-bullhorn mr-4"></i>Digital Marketing</h2>
+                <p class="text-orange-100 mt-3 text-lg">Complete Digital Strategy Program</p>
+            </div>
+            <button onclick="closeModal('digital')" class="text-3xl hover:bg-orange-700 p-2 rounded-lg transition flex-shrink-0">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="p-8 md:p-12">
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-star text-yellow-500 mr-3"></i>Program Overview</h3>
+                <p class="text-gray-700 leading-relaxed text-lg">Master comprehensive digital marketing strategies including SEO, SEM, email marketing, and analytics. Learn to drive qualified traffic and maximize ROI through data-driven campaigns with real-world implementations.</p>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-book text-orange-500 mr-3"></i>What You'll Learn</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>SEO & SEM Strategies</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Google Analytics & Conversion Tracking</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Email Marketing Automation</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>PPC Campaign Management</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Marketing Funnel Optimization</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>ROI & Performance Analysis</span></div>
+                </div>
+            </div>
+            <div class="mb-8 bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-600">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3"><i class="fas fa-briefcase text-orange-600 mr-3"></i>Career Opportunities</h3>
+                <p class="text-gray-700 text-lg">Digital Marketing Manager, SEO Specialist, SEM Specialist, Marketing Analyst, Growth Hacker, Digital Strategy Consultant</p>
+            </div>
+            <div class="flex gap-4">
+                <button class="flex-1 bg-orange-600 text-white py-4 rounded-xl hover:bg-orange-700 font-bold transition transform hover:scale-105 duration-300 text-lg">
+                    <i class="fas fa-check mr-3"></i>Enroll Now
+                </button>
+                <button onclick="closeModal('digital')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Production Modal -->
+<div id="videoModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('video')">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+        <div class="bg-gradient-to-r from-indigo-600 to-indigo-800 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-video mr-4"></i>Video Production</h2>
+                <p class="text-indigo-100 mt-3 text-lg">Professional Video Content Creation</p>
+            </div>
+            <button onclick="closeModal('video')" class="text-3xl hover:bg-indigo-700 p-2 rounded-lg transition flex-shrink-0">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="p-8 md:p-12">
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-star text-yellow-500 mr-3"></i>Program Overview</h3>
+                <p class="text-gray-700 leading-relaxed text-lg">Learn professional video production from pre-production to post-production. Master cinematography, editing, motion graphics, and storytelling. Create compelling content for brands and social media platforms.</p>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-book text-indigo-500 mr-3"></i>What You'll Learn</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Cinematography & Camera Techniques</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Adobe Premiere Pro & After Effects</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Motion Graphics & Animation</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Video Storytelling & Scriptwriting</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Color Grading & Sound Design</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Portfolio Development</span></div>
+                </div>
+            </div>
+            <div class="mb-8 bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-600">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3"><i class="fas fa-briefcase text-indigo-600 mr-3"></i>Career Opportunities</h3>
+                <p class="text-gray-700 text-lg">Video Editor, Cinematographer, Motion Graphic Designer, Content Creator, Video Producer, YouTube Content Specialist</p>
+            </div>
+            <div class="flex gap-4">
+                <button class="flex-1 bg-indigo-600 text-white py-4 rounded-xl hover:bg-indigo-700 font-bold transition transform hover:scale-105 duration-300 text-lg">
+                    <i class="fas fa-check mr-3"></i>Enroll Now
+                </button>
+                <button onclick="closeModal('video')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data Analytics Modal -->
+<div id="analyticsModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('analytics')">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+        <div class="bg-gradient-to-r from-green-600 to-green-800 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-chart-line mr-4"></i>Data Analytics</h2>
+                <p class="text-green-100 mt-3 text-lg">Transform Data Into Business Insights</p>
+            </div>
+            <button onclick="closeModal('analytics')" class="text-3xl hover:bg-green-700 p-2 rounded-lg transition flex-shrink-0">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="p-8 md:p-12">
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-star text-yellow-500 mr-3"></i>Program Overview</h3>
+                <p class="text-gray-700 leading-relaxed text-lg">Master data analytics and business intelligence tools. Learn to extract, analyze, and visualize data to drive strategic business decisions. Work with real datasets and industry-standard analytics platforms.</p>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-book text-green-500 mr-3"></i>What You'll Learn</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Excel & Advanced Data Manipulation</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Python for Data Analysis</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Tableau & Data Visualization</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Power BI & Dashboard Creation</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Statistical Analysis & Insights</span></div>
+                    <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Business Intelligence & Reporting</span></div>
+                </div>
+            </div>
+            <div class="mb-8 bg-green-50 p-6 rounded-2xl border-l-4 border-green-600">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3"><i class="fas fa-briefcase text-green-600 mr-3"></i>Career Opportunities</h3>
+                <p class="text-gray-700 text-lg">Data Analyst, Business Analyst, BI Developer, Analytics Manager, Data Scientist, Market Research Analyst</p>
+            </div>
+            <div class="flex gap-4">
+                <button class="flex-1 bg-green-600 text-white py-4 rounded-xl hover:bg-green-700 font-bold transition transform hover:scale-105 duration-300 text-lg">
+                    <i class="fas fa-check mr-3"></i>Enroll Now
+                </button>
+                <button onclick="closeModal('analytics')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+        <header class="sticky top-0 z-40 bg- backdrop-blur-md shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://horizons-cdn.hostinger.com/cee446de-c236-4591-b8e5-f3ace8481109/7a368cfaf01ec17726b689fc69367d25.png" alt="TSE Logo" class="h-10 w-auto">
+                <span class="font-bold text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">TSE</span>
+            </div>
+            <div class="hidden md:flex space-x-3 items-center flex-wrap justify-center gap-2">
+                <a href="#home" class="group relative px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-white/10 hover:bg-white/20 text-gray-700 border border-gray-300/30 backdrop-blur-sm hover:shadow-lg hover:scale-105">
+                    <i class="fas fa-home mr-2"></i>Home
+                    <span class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+                
+                <a href="#about" class="group relative px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-white/10 hover:bg-white/20 text-gray-700 border border-gray-300/30 backdrop-blur-sm hover:shadow-lg hover:scale-105">
+                    <i class="fas fa-info-circle mr-2"></i>About
+                    <span class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+                
+                <a href="#programs" class="group relative px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-white/10 hover:bg-white/20 text-gray-700 border border-gray-300/30 backdrop-blur-sm hover:shadow-lg hover:scale-105">
+                    <i class="fas fa-book mr-2"></i>Programs
+                    <span class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+                
+                <button onclick="openContactModal()" class="group relative px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-white/10 hover:bg-white/20 text-gray-700 border border-gray-300/30 backdrop-blur-sm hover:shadow-lg hover:scale-105">
+                    <i class="fas fa-phone mr-2"></i>Contact
+                    <span class="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </button>
+                
+                <div class="w-px h-6 bg-gray-300/30"></div>
+                
+                <button onclick="openModal('signup')" class="group relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg hover:shadow-xl hover:scale-105 border border-blue-300/30">
+                    <i class="fas fa-user-plus mr-2"></i>Join Now
+                    <span class="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </button>
+                
+                <button onclick="openModal('employeeportal')" class="group relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg hover:shadow-xl hover:scale-105 border border-emerald-300/30">
+                    <i class="fas fa-briefcase mr-2"></i>Employee
+                    <span class="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </button>
+                
+                <button onclick="openModal('internportal')" class="group relative px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-105 border border-indigo-300/30">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Intern
+                    <span class="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </button>
+            </div>
+                
+            </div>
+        </nav>
+    </header>
+     <!-- Hero Section with Advanced Animations -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1635251595512-dc52146d5ae8" alt="Students" class="w-full h-full object-cover">
@@ -98,6 +383,9 @@
             <button class="px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 glow-button" onclick="openModal('signup')">
                 <i class="fas fa-rocket mr-3"></i>Start Your Journey
             </button>
+        </div>
+    </section>
+
 
             <!-- Signup Modal -->
             <div id="signupModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('signup')">
@@ -170,9 +458,100 @@
                             </div>
 
                             <div class="flex gap-4 pt-4">
-                                <button type="submit" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg">
-                                    <i class="fas fa-paper-plane mr-3"></i>Submit Application
+                                <button type="submit" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg relative overflow-hidden group">
+                                    <span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                                    <span class="relative flex items-center justify-center">
+                                        <i class="fas fa-paper-plane mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+                                        <span class="group-hover:tracking-widest transition-all duration-300">Complete Registration</span>
+                                    </span>
                                 </button>
+
+                                <script>
+                                // Google Sheets Integration - Signup Form
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const signupForm = document.querySelector('#signupModal form');
+                                    
+                                    if (signupForm) {
+                                        signupForm.addEventListener('submit', function(e) {
+                                            e.preventDefault();
+                                            
+                                            const fullName = this.querySelector('input[placeholder="John Doe"]')?.value || '';
+                                            const email = this.querySelector('input[type="email"]')?.value || '';
+                                            const phone = this.querySelector('input[type="tel"]')?.value || '';
+                                            const program = this.querySelector('select')?.value || '';
+                                            const education = this.querySelector('input[placeholder="e.g., Bachelor\'s in Commerce"]')?.value || '';
+                                            const goals = this.querySelector('textarea')?.value || '';
+                                            
+                                            const submitBtn = this.querySelector('button[type="submit"]');
+                                            const originalHTML = submitBtn.innerHTML;
+                                            
+                                            // Update button to loading state
+                                            submitBtn.disabled = true;
+                                            submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-spinner fa-spin mr-3"></i>Processing...</span>';
+                                            
+                                            const signupData = {
+                                                fullName: fullName,
+                                                email: email,
+                                                phone: phone,
+                                                program: program,
+                                                education: education,
+                                                goals: goals,
+                                                timestamp: new Date().toISOString(),
+                                                action: 'signup'
+                                            };
+                                            
+                                            // Google Apps Script deployment URL
+                                            const GOOGLE_SCRIPT_URL = 'https://docs.google.com/spreadsheets/d/1DcQOD7TvMS5q8g_CEBA9LsPoTjMRVTCebPT-PMkt8TY/edit?usp=sharing';
+                                            
+                                            fetch(GOOGLE_SCRIPT_URL, {
+                                                method: 'POST',
+                                                mode: 'no-cors',
+                                                body: JSON.stringify(signupData)
+                                            })
+                                            .then(() => {
+                                                submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-check mr-3 animate-pulse"></i>Registered Successfully!</span>';
+                                                submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+                                                
+                                                showNotification('✓ Registration successful! Welcome to TSE!', 'success');
+                                                signupForm.reset();
+                                                
+                                                setTimeout(() => {
+                                                    submitBtn.innerHTML = originalHTML;
+                                                    submitBtn.disabled = false;
+                                                    submitBtn.style.background = '';
+                                                    closeModal('signup');
+                                                }, 2000);
+                                            })
+                                            .catch(error => {
+                                                console.error('Error:', error);
+                                                submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-exclamation-circle mr-3"></i>Try Again</span>';
+                                                submitBtn.style.background = 'linear-gradient(to right, #dc2626, #b91c1c)';
+                                                submitBtn.disabled = false;
+                                                
+                                                showNotification('✗ Error occurred. Please try again.', 'error');
+                                                
+                                                setTimeout(() => {
+                                                    submitBtn.innerHTML = originalHTML;
+                                                    submitBtn.style.background = '';
+                                                }, 2000);
+                                            });
+                                        });
+                                    }
+                                });
+
+                                function showNotification(message, type) {
+                                    const notification = document.createElement('div');
+                                    const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+                                    notification.className = `fixed top-6 right-6 px-6 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[60] ${bgColor} animate-bounce`;
+                                    notification.innerHTML = message;
+                                    
+                                    document.body.appendChild(notification);
+                                    
+                                    setTimeout(() => {
+                                        notification.remove();
+                                    }, 4000);
+                                }
+                                </script>
                                 <button type="button" onclick="closeModal('signup')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
                                     Cancel
                                 </button>
@@ -403,141 +782,141 @@
                     <div class="relative w-full h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
                         <!-- Slideshow Container -->
                         <div class="relative w-full h-full group cursor-pointer" onclick="openModal('hr')">
-                            <!-- Slide 1: HR Management -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-100 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-users"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">HR Management</h3>
-                                        <p class="text-xl md:text-2xl text-blue-100 mb-3">Master Talent & Leadership</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Recruitment</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Employee Relations</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Payroll</span>
-                                        </div>
-                                        <p class="text-lg text-blue-200 mb-6">6 Month Internship • ₹15,000/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('hr')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 2: Graphic Design -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-pink-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-palette"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">Graphic Design</h3>
-                                        <p class="text-xl md:text-2xl text-purple-100 mb-3">Create Visual Stories</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Adobe Suite</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Branding</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">UI/UX</span>
-                                        </div>
-                                        <p class="text-lg text-purple-200 mb-6">4 Month Internship • ₹12,000/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('design')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
+                                <!-- Slide 1: HR Management -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-100 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-users"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">HR Management</h3>
+                                            <p class="text-xl md:text-2xl text-blue-100 mb-3">Master Talent & Leadership</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Recruitment</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Employee Relations</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Payroll</span>
+                                            </div>
+                                            <p class="text-lg text-blue-200 mb-6">6 Month Internship • ₹15,000/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('hr')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 3: Social Media Marketing -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-pink-600 via-pink-700 to-red-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-share-alt"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">Social Media Marketing</h3>
-                                        <p class="text-xl md:text-2xl text-pink-100 mb-3">Drive Digital Growth</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Content Strategy</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Analytics</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Campaigns</span>
-                                        </div>
-                                        <p class="text-lg text-pink-200 mb-6">5 Month Internship • ₹13,000/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('social')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
+                                <!-- Slide 2: Graphic Design -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-pink-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-palette"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">Graphic Design</h3>
+                                            <p class="text-xl md:text-2xl text-purple-100 mb-3">Create Visual Stories</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Adobe Suite</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Branding</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">UI/UX</span>
+                                            </div>
+                                            <p class="text-lg text-purple-200 mb-6">4 Month Internship • ₹12,000/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('design')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 4: Digital Marketing -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-orange-600 via-orange-700 to-red-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-bullhorn"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">Digital Marketing</h3>
-                                        <p class="text-xl md:text-2xl text-orange-100 mb-3">Master Online Growth</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">SEO/SEM</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Email Marketing</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Google Analytics</span>
-                                        </div>
-                                        <p class="text-lg text-orange-200 mb-6">6 Month Internship • ₹14,000/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('digital')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
+                                <!-- Slide 3: Social Media Marketing -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-pink-600 via-pink-700 to-red-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-share-alt"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">Social Media Marketing</h3>
+                                            <p class="text-xl md:text-2xl text-pink-100 mb-3">Drive Digital Growth</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Content Strategy</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Analytics</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Campaigns</span>
+                                            </div>
+                                            <p class="text-lg text-pink-200 mb-6">5 Month Internship • ₹13,000/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('social')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 5: Video Production -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-video"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">Video Production</h3>
-                                        <p class="text-xl md:text-2xl text-indigo-100 mb-3">Create Compelling Content</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Editing</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Cinematography</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Motion Graphics</span>
-                                        </div>
-                                        <p class="text-lg text-indigo-200 mb-6">5 Month Internship • ₹14,500/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('video')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
+                                <!-- Slide 4: Digital Marketing -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-orange-600 via-orange-700 to-red-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-bullhorn"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">Digital Marketing</h3>
+                                            <p class="text-xl md:text-2xl text-orange-100 mb-3">Master Online Growth</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">SEO/SEM</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Email Marketing</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Google Analytics</span>
+                                            </div>
+                                            <p class="text-lg text-orange-200 mb-6">6 Month Internship • ₹14,000/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('digital')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Slide 6: Data Analytics -->
-                            <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
-                                <div class="absolute inset-0 bg-gradient-to-br from-green-600 via-green-700 to-teal-800"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center text-white px-8">
-                                        <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-chart-line"></i></div>
-                                        <h3 class="text-4xl md:text-5xl font-bold mb-4">Data Analytics</h3>
-                                        <p class="text-xl md:text-2xl text-green-100 mb-3">Turn Data Into Insights</p>
-                                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Excel & Python</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Tableau</span>
-                                            <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Power BI</span>
-                                        </div>
-                                        <p class="text-lg text-green-200 mb-6">6 Month Internship • ₹16,000/Month</p>
-                                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <button onclick="event.stopPropagation(); openModal('analytics')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                <i class="fas fa-arrow-right mr-2"></i>View Program
-                                            </button>
+                                <!-- Slide 5: Video Production -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-video"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">Video Production</h3>
+                                            <p class="text-xl md:text-2xl text-indigo-100 mb-3">Create Compelling Content</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Editing</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Cinematography</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Motion Graphics</span>
+                                            </div>
+                                            <p class="text-lg text-indigo-200 mb-6">5 Month Internship • ₹14,500/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('video')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <!-- Slide 6: Data Analytics -->
+                                <div class="slideshow-slide absolute w-full h-full opacity-0 transition-opacity duration-1000">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-green-600 via-green-700 to-teal-800"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="text-center text-white px-8">
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-chart-line"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">Data Analytics</h3>
+                                            <p class="text-xl md:text-2xl text-green-100 mb-3">Turn Data Into Insights</p>
+                                            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Excel & Python</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Tableau</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Power BI</span>
+                                            </div>
+                                            <p class="text-lg text-green-200 mb-6">6 Month Internship • ₹16,000/Month</p>
+                                            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <button onclick="event.stopPropagation(); openModal('analytics')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
+                                                </button>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                                 </div>
@@ -1260,7 +1639,39 @@
                                 <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
                                 <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
                             </div>
-                            
+                            <!-- Internship Portal Card Content -->
+                            <div class="absolute inset-0 opacity-20">
+                                <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+                                <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+                            </div>
+                            <div class="relative h-full flex flex-col items-center justify-center text-center px-8">
+                                <div class="mb-8 text-7xl transform group-hover:scale-125 transition-transform duration-300 animate-bounce">
+                                    <i class="fas fa-user-graduate text-white"></i>
+                                </div>
+                                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Internship Portal</h3>
+                                <p class="text-xl md:text-2xl text-emerald-100 mb-8">Apply Now & Track Progress</p>
+                                
+                                <div class="space-y-3 mb-8 text-left max-w-xs">
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Easy Application Process</span>
+                                    </div>
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Real-time Status Updates</span>
+                                    </div>
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Connect with Mentors</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <button onclick="event.stopPropagation(); openModal('internportal')" class="px-8 py-3 bg-white/25 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/40 transition-all duration-300 border border-white/40 text-lg">
+                                        <i class="fas fa-arrow-right mr-2"></i>Enter Portal
+                                    </button>
+                                </div>
+                            </div>
                             <div class="relative h-full flex flex-col items-center justify-center text-center px-8">
                                 <div class="mb-8 text-7xl transform group-hover:scale-125 transition-transform duration-300 animate-bounce">
                                     <i class="fas fa-sign-in-alt text-white"></i>
@@ -1412,15 +1823,484 @@
                                     
                                     <!-- CTA Buttons -->
                                     <div class="flex flex-col md:flex-row gap-4">
-                                        <button class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg">
-                                            <i class="fas fa-sign-in-alt mr-3"></i>Login to Portal
+                                        <button class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg group relative overflow-hidden" onclick="openModal('login')">
+                                            <span class="absolute inset-0 bg-gradient-to-r from-emerald-700 to-teal-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                                            <span class="relative flex items-center justify-center">
+                                                <i class="fas fa-sign-in-alt mr-3"></i>Login to Portal
+                                            </span>
                                         </button>
-                                        <button class="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg">
-                                            <i class="fas fa-user-plus mr-3"></i>Create New Account
+                                        <button class="flex-1 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white py-4 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg group relative overflow-hidden" onclick="openModal('signup')">
+                                            <span class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-cyan-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                                            <span class="relative flex items-center justify-center">
+                                                <i class="fas fa-user-plus mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+                                                <span class="group-hover:tracking-widest transition-all duration-300">Create New Account</span>
+                                            </span>
                                         </button>
+
+                                        <script>
+                                        // Google Sheets Integration for New Account Signup
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const signupForm = document.querySelector('#signupModal form');
+                                            
+                                            if (signupForm) {
+                                                signupForm.addEventListener('submit', function(e) {
+                                                    e.preventDefault();
+                                                    
+                                                    const fullName = this.querySelector('input[placeholder="John Doe"]')?.value || '';
+                                                    const email = this.querySelector('input[type="email"]')?.value || '';
+                                                    const phone = this.querySelector('input[type="tel"]')?.value || '';
+                                                    const program = this.querySelector('select')?.value || '';
+                                                    const education = this.querySelector('input[placeholder="e.g., Bachelor\'s in Commerce"]')?.value || '';
+                                                    const goals = this.querySelector('textarea')?.value || '';
+                                                    
+                                                    const submitBtn = this.querySelector('button[type="submit"]');
+                                                    const originalHTML = submitBtn.innerHTML;
+                                                    
+                                                    // Update button to loading state with professional animation
+                                                    submitBtn.disabled = true;
+                                                    submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-spinner fa-spin mr-3 text-xl"></i><span class="tracking-wider">Processing...</span></span>';
+                                                    submitBtn.style.opacity = '0.8';
+                                                    
+                                                    const signupData = {
+                                                        fullName: fullName,
+                                                        email: email,
+                                                        phone: phone,
+                                                        program: program,
+                                                        education: education,
+                                                        goals: goals,
+                                                        timestamp: new Date().toISOString(),
+                                                        action: 'new_signup'
+                                                    };
+                                                    
+                                                    // Replace with your Google Apps Script deployment URL
+                                                    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/d/YOUR_DEPLOYMENT_ID/usercallable';
+                                                    
+                                                    fetch(GOOGLE_SHEET_URL, {
+                                                        method: 'POST',
+                                                        mode: 'no-cors',
+                                                        headers: {
+                                                            'Content-Type': 'application/json'
+                                                        },
+                                                        body: JSON.stringify(signupData)
+                                                    })
+                                                    .then(() => {
+                                                        // Success animation
+                                                        submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-check mr-3 text-xl animate-pulse"></i><span class="tracking-wider font-bold">Account Created!</span></span>';
+                                                        submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+                                                        submitBtn.style.opacity = '1';
+                                                        
+                                                        showNotification('✓ Account created successfully! Check your email for verification.', 'success');
+                                                        signupForm.reset();
+                                                        
+                                                        setTimeout(() => {
+                                                            submitBtn.innerHTML = originalHTML;
+                                                            submitBtn.disabled = false;
+                                                            submitBtn.style.background = '';
+                                                            submitBtn.style.opacity = '1';
+                                                            closeModal('signup');
+                                                        }, 2500);
+                                                    })
+                                                    .catch(error => {
+                                                        console.error('Error:', error);
+                                                        submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-exclamation-circle mr-3 text-xl"></i><span class="tracking-wider">Try Again</span></span>';
+                                                        submitBtn.style.background = 'linear-gradient(to right, #dc2626, #b91c1c)';
+                                                        submitBtn.disabled = false;
+                                                        submitBtn.style.opacity = '1';
+                                                        
+                                                        showNotification('✗ Error occurred. Please try again or contact support.', 'error');
+                                                        
+                                                        setTimeout(() => {
+                                                            submitBtn.innerHTML = originalHTML;
+                                                            submitBtn.style.background = '';
+                                                        }, 2500);
+                                                    });
+                                                });
+                                            }
+                                        });
+
+                                        // Professional Notification System
+                                        function showNotification(message, type) {
+                                            const notification = document.createElement('div');
+                                            const bgColor = type === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-gradient-to-r from-red-500 to-rose-600';
+                                            const icon = type === 'success' ? '✓' : '✕';
+                                            
+                                            notification.className = `fixed top-6 right-6 px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[60] backdrop-blur-lg border border-white/20 ${bgColor} animate-slide-in`;
+                                            notification.innerHTML = `
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 flex items-center justify-center bg-white/20 rounded-full">
+                                                        <span class="text-lg">${icon}</span>
+                                                    </div>
+                                                    <span>${message}</span>
+                                                </div>
+                                            `;
+                                            
+                                            document.body.appendChild(notification);
+                                            
+                                            setTimeout(() => {
+                                                notification.style.animation = 'slideOut 0.5s ease-out forwards';
+                                                setTimeout(() => notification.remove(), 500);
+                                            }, 4000);
+                                        }
+
+                                        // Add professional animations
+                                        const animationStyle = document.createElement('style');
+                                        animationStyle.textContent = `
+                                            @keyframes slideIn {
+                                                from {
+                                                    opacity: 0;
+                                                    transform: translateX(400px) translateY(-20px);
+                                                }
+                                                to {
+                                                    opacity: 1;
+                                                    transform: translateX(0) translateY(0);
+                                                }
+                                            }
+                                            
+                                            @keyframes slideOut {
+                                                from {
+                                                    opacity: 1;
+                                                    transform: translateX(0) translateY(0);
+                                                }
+                                                to {
+                                                    opacity: 0;
+                                                    transform: translateX(400px) translateY(-20px);
+                                                }
+                                            }
+                                            
+                                            .animate-slide-in {
+                                                animation: slideIn 0.5s ease-out;
+                                            }
+                                        `;
+                                        document.head.appendChild(animationStyle);
+                                    </script>
                                         <button onclick="closeModal('internportal')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
-                                            Close
+                                            <i class="fas fa-times mr-2"></i>Close
                                         </button>
+                                    </div>
+
+                                    <!-- Login Portal Modal -->
+                                    <div id="loginModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('login')">
+                                        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full modal-open" onclick="event.stopPropagation()">
+                                            <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 p-8 text-white rounded-t-3xl text-center">
+                                                <div class="mb-4 text-5xl">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                </div>
+                                                <h2 class="text-3xl font-bold">Welcome Back</h2>
+                                                <p class="text-emerald-100 mt-2">Access your internship dashboard</p>
+                                            </div>
+                                            
+                                            <div class="p-8">
+                                                <form class="space-y-6">
+                                                    <div>
+                                                        <label class="block text-gray-700 font-semibold mb-3 text-lg">
+                                                            <i class="fas fa-envelope text-emerald-600 mr-2"></i>Email Address
+                                                        </label>
+                                                        <input type="email" required placeholder="028vansh@gmail.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-emerald-600 focus:outline-none transition text-lg hover:border-gray-400 focus:ring-2 focus:ring-emerald-200">
+                                                    </div>
+
+                                                    <div>
+                                                        <label class="block text-gray-700 font-semibold mb-3 text-lg">
+                                                            <i class="fas fa-lock text-emerald-600 mr-2"></i>Password
+                                                        </label>
+                                                        <div class="relative">
+                                                            <input type="password" required placeholder="123456" id="passwordInput" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-emerald-600 focus:outline-none transition text-lg hover:border-gray-400 focus:ring-2 focus:ring-emerald-200">
+                                                            <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-600 hover:text-emerald-700 transition">
+                                                                <i class="fas fa-eye" id="toggleIcon"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-600">
+                                                        <div class="flex items-center justify-between">
+                                                            <label class="flex items-center cursor-pointer group">
+                                                                <input type="checkbox" id="rememberMe" class="w-5 h-5 accent-emerald-600 cursor-pointer">
+                                                                <span class="text-gray-700 ml-3 text-lg font-medium group-hover:text-emerald-600 transition">Remember me for 30 days</span>
+                                                            </label>
+                                                            <a href="#" class="text-emerald-600 hover:text-emerald-700 font-semibold text-lg transition hover:underline">
+                                                                <i class="fas fa-redo mr-1"></i>Reset Password
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white py-4 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg relative overflow-hidden group">
+                                                        <span class="absolute inset-0 bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                                                        <span class="relative flex items-center justify-center">
+                                                            <i class="fas fa-sign-in-alt mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
+                                                            <span class="group-hover:tracking-widest transition-all duration-300">Sign In Securely</span>
+                                                        </span>
+                                                    </button>
+
+                                                    <div class="relative">
+                                                        <div class="absolute inset-0 flex items-center">
+                                                            <div class="w-full border-t-2 border-gray-300"></div>
+                                                        </div>
+                                                        <div class="relative flex justify-center text-sm">
+                                                            <span class="px-3 bg-white text-gray-600 font-medium">Demo Credentials</span>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+                                                    <script>
+                                                    function togglePassword() {
+                                                        const passwordInput = document.getElementById('passwordInput');
+                                                        const toggleIcon = document.getElementById('toggleIcon');
+                                                        
+                                                        if (passwordInput.type === 'password') {
+                                                            passwordInput.type = 'text';
+                                                            toggleIcon.classList.remove('fa-eye');
+                                                            toggleIcon.classList.add('fa-eye-slash');
+                                                        } else {
+                                                            passwordInput.type = 'password';
+                                                            toggleIcon.classList.remove('fa-eye-slash');
+                                                            toggleIcon.classList.add('fa-eye');
+                                                        }
+                                                    }
+
+                                                    // Auto-fill demo credentials on input focus
+                                                    document.addEventListener('DOMContentLoaded', function() {
+                                                        const emailInput = document.querySelector('input[type="email"]');
+                                                        const passwordInput = document.getElementById('passwordInput');
+                                                        
+                                                        if (emailInput) {
+                                                            emailInput.addEventListener('focus', function() {
+                                                                if (!this.value) {
+                                                                    this.value = '028vansh@gmail.com';
+                                                                    this.classList.add('bg-emerald-50');
+                                                                }
+                                                            });
+                                                        }
+                                                        
+                                                        if (passwordInput) {
+                                                            passwordInput.addEventListener('focus', function() {
+                                                                if (!this.value) {
+                                                                    this.value = '123456';
+                                                                    this.classList.add('bg-emerald-50');
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+
+                                                    // Enhanced login validation and submission
+                                                    document.addEventListener('DOMContentLoaded', function() {
+                                                        const loginForm = document.querySelector('#loginModal form');
+                                                        
+                                                        if (loginForm) {
+                                                            loginForm.addEventListener('submit', function(e) {
+                                                                e.preventDefault();
+                                                                
+                                                                const email = this.querySelector('input[type="email"]').value.trim();
+                                                                const password = this.querySelector('input[type="password"]').value;
+                                                                const rememberMe = this.querySelector('input[type="checkbox"]').checked;
+                                                                
+                                                                // Validate credentials
+                                                                if (email !== '028vansh@gmail.com' || password !== '123456') {
+                                                                    showNotification('✗ Invalid email or password. Use: 028vansh@gmail.com / 123456', 'error');
+                                                                    return;
+                                                                }
+                                                                
+                                                                const loginData = {
+                                                                    email: email,
+                                                                    password: password,
+                                                                    rememberMe: rememberMe,
+                                                                    timestamp: new Date().toISOString(),
+                                                                    action: 'login_attempt',
+                                                                    status: 'success'
+                                                                };
+                                                                
+                                                                const submitBtn = this.querySelector('button[type="submit"]');
+                                                                const originalHTML = submitBtn.innerHTML;
+                                                                
+                                                                // Show loading state
+                                                                submitBtn.disabled = true;
+                                                                submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-spinner fa-spin mr-3"></i><span>Authenticating...</span></span>';
+                                                                
+                                                                // Simulate API call
+                                                                setTimeout(() => {
+                                                                    // Success animation
+                                                                    submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-check mr-3 animate-pulse"></i><span>Login Successful!</span></span>';
+                                                                    submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+                                                                    
+                                                                    showNotification('✓ Login successful! Welcome back, Vansh!', 'success');
+                                                                    
+                                                                    // Store login info
+                                                                    if (rememberMe) {
+                                                                        localStorage.setItem('userEmail', email);
+                                                                        localStorage.setItem('rememberMe', 'true');
+                                                                    }
+                                                                    
+                                                                    setTimeout(() => {
+                                                                        submitBtn.innerHTML = originalHTML;
+                                                                        submitBtn.disabled = false;
+                                                                        submitBtn.style.background = '';
+                                                                        loginForm.reset();
+                                                                        closeModal('login');
+                                                                    }, 2000);
+                                                                }, 1500);
+                                                            });
+                                                        }
+                                                        
+                                                        // Load remembered email if exists
+                                                        const rememberedEmail = localStorage.getItem('userEmail');
+                                                        if (rememberedEmail && localStorage.getItem('rememberMe') === 'true') {
+                                                            const emailInput = document.querySelector('#loginModal input[type="email"]');
+                                                            if (emailInput) {
+                                                                emailInput.value = rememberedEmail;
+                                                            }
+                                                        }
+                                                    });
+
+                                                    function showNotification(message, type) {
+                                                        const notification = document.createElement('div');
+                                                        const bgColor = type === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-gradient-to-r from-red-500 to-rose-600';
+                                                        const icon = type === 'success' ? '✓' : '✕';
+                                                        
+                                                        notification.className = `fixed top-6 right-6 px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[60] backdrop-blur-lg border border-white/20 ${bgColor} animate-slide-in`;
+                                                        notification.innerHTML = `
+                                                            <div class="flex items-center gap-3">
+                                                                <div class="w-8 h-8 flex items-center justify-center bg-white/20 rounded-full">
+                                                                    <span class="text-lg font-bold">${icon}</span>
+                                                                </div>
+                                                                <span>${message}</span>
+                                                            </div>
+                                                        `;
+                                                        
+                                                        document.body.appendChild(notification);
+                                                        
+                                                        setTimeout(() => {
+                                                            notification.style.animation = 'slideOut 0.5s ease-out forwards';
+                                                            setTimeout(() => notification.remove(), 500);
+                                                        }, 4000);
+                                                    }
+                                                    </script>
+                                                </form>
+
+                                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                                    <p class="text-center text-gray-600 text-lg">Don't have an account? 
+                                                        <button onclick="closeModal('login'); openModal('signup')" class="text-emerald-600 hover:text-emerald-700 font-bold text-lg">Create one</button>
+                                                    </p>
+                                                </div>
+
+                                                <div class="mt-6 bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-600">
+                                                    <p class="text-emerald-700 text-sm font-semibold"><i class="fas fa-shield-alt mr-2"></i>Secure Login - Your data is encrypted</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Enhanced Signup Modal (Existing signup modal enhanced) -->
+                                    <div id="signupModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('signup')">
+                                        <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+                                            <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+                                                <div>
+                                                    <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-rocket mr-4"></i>Start Your Internship</h2>
+                                                    <p class="text-emerald-100 mt-3 text-lg">Join 1000+ successful interns</p>
+                                                </div>
+                                                <button onclick="closeModal('signup')" class="text-3xl hover:bg-teal-700 p-2 rounded-lg transition flex-shrink-0">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                            <div class="p-8 md:p-12">
+                                                <!-- Progress Indicator -->
+                                                <div class="flex justify-between items-center mb-8">
+                                                    <div class="flex-1">
+                                                        <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                                                        <p class="text-center text-sm font-semibold text-gray-600 mt-2">Personal</p>
+                                                    </div>
+                                                    <div class="flex-1 h-1 bg-gray-300 mx-2 mt-5"></div>
+                                                    <div class="flex-1">
+                                                        <div class="w-10 h-10 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center font-bold">2</div>
+                                                        <p class="text-center text-sm font-semibold text-gray-600 mt-2">Program</p>
+                                                    </div>
+                                                    <div class="flex-1 h-1 bg-gray-300 mx-2 mt-5"></div>
+                                                    <div class="flex-1">
+                                                        <div class="w-10 h-10 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center font-bold">3</div>
+                                                        <p class="text-center text-sm font-semibold text-gray-600 mt-2">Confirm</p>
+                                                    </div>
+                                                </div>
+
+                                                <form id="signupForm" class="space-y-6">
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div>
+                                                            <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                                <i class="fas fa-user text-emerald-600 mr-2"></i>Full Name
+                                                            </label>
+                                                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-emerald-600 focus:outline-none transition text-lg hover:border-gray-400">
+                                                        </div>
+                                                        <div>
+                                                            <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                                <i class="fas fa-envelope text-emerald-600 mr-2"></i>Email Address
+                                                            </label>
+                                                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-emerald-600 focus:outline-none transition text-lg hover:border-gray-400">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div>
+                                                            <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                                <i class="fas fa-phone text-teal-600 mr-2"></i>Phone Number
+                                                            </label>
+                                                            <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-teal-600 focus:outline-none transition text-lg hover:border-gray-400">
+                                                        </div>
+                                                        <div>
+                                                            <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                                <i class="fas fa-graduation-cap text-cyan-600 mr-2"></i>Select Program
+                                                            </label>
+                                                            <select required class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-cyan-600 focus:outline-none transition text-lg hover:border-gray-400">
+                                                                <option value="">Choose a Program</option>
+                                                                <option value="hr">HR Management</option>
+                                                                <option value="design">Graphic Design</option>
+                                                                <option value="social">Social Media Marketing</option>
+                                                                <option value="digital">Digital Marketing</option>
+                                                                <option value="video">Video Production</option>
+                                                                <option value="analytics">Data Analytics</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                            <i class="fas fa-school text-emerald-600 mr-2"></i>Educational Background
+                                                        </label>
+                                                        <input type="text" required placeholder="e.g., Bachelor's in Commerce" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-emerald-600 focus:outline-none transition text-lg hover:border-gray-400">
+                                                    </div>
+
+                                                    <div>
+                                                        <label class="block text-gray-700 font-semibold mb-2 text-lg">
+                                                            <i class="fas fa-lightbulb text-teal-600 mr-2"></i>Why do you want to join?
+                                                        </label>
+                                                        <textarea required placeholder="Tell us about your goals and aspirations..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-teal-600 focus:outline-none transition text-lg resize-none hover:border-gray-400" rows="3"></textarea>
+                                                    </div>
+
+                                                    <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-600">
+                                                        <label class="flex items-start cursor-pointer">
+                                                            <input type="checkbox" required class="w-5 h-5 accent-emerald-600 mt-1 flex-shrink-0">
+                                                            <span class="text-gray-700 ml-3 text-lg"><i class="fas fa-check-circle text-green-600 mr-2"></i>I agree to the terms, conditions, and privacy policy</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="bg-cyan-50 p-4 rounded-xl border-l-4 border-cyan-600 mb-6">
+                                                        <label class="flex items-start cursor-pointer">
+                                                            <input type="checkbox" class="w-5 h-5 accent-cyan-600 mt-1 flex-shrink-0">
+                                                            <span class="text-gray-700 ml-3 text-lg"><i class="fas fa-bell text-cyan-600 mr-2"></i>Send me updates about internship opportunities</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="flex gap-4 pt-4">
+                                                        <button type="submit" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:shadow-xl font-bold transition transform hover:scale-105 duration-300 text-lg">
+                                                            <i class="fas fa-paper-plane mr-3"></i>Complete Registration
+                                                        </button>
+                                                        <button type="button" onclick="closeModal('signup')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+
+                                                    <p class="text-center text-gray-600 text-lg">Already have an account? 
+                                                        <button type="button" onclick="closeModal('signup'); openModal('login')" class="text-emerald-600 hover:text-emerald-700 font-bold">Sign in</button>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -1779,6 +2659,9 @@
     </footer>
 
     <script>
+        // Google Sheets Integration Configuration
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwXxxxxxxxxxxx/usercallable'; // Replace with your deployment URL
+
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
             modal.classList.remove('hidden');
@@ -1789,6 +2672,138 @@
             const modal = document.getElementById(type + 'Modal');
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
+        }
+
+        // Google Sheets Integration for Login Form
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.querySelector('#loginModal form');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = this.querySelector('input[type="email"]').value;
+                    const password = this.querySelector('input[type="password"]').value;
+                    const rememberMe = this.querySelector('input[type="checkbox"]').checked;
+                    
+                    const loginData = {
+                        email: email,
+                        password: password,
+                        rememberMe: rememberMe,
+                        timestamp: new Date().toISOString(),
+                        action: 'login'
+                    };
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Processing...';
+                    submitBtn.disabled = true;
+                    
+                    // Send data to Google Sheets via Apps Script
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify(loginData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        if (data.status === 'success') {
+                            showNotification('✓ Login successful! Your data has been recorded.', 'success');
+                            loginForm.reset();
+                            setTimeout(() => closeModal('login'), 1500);
+                        } else {
+                            showNotification('✗ Error: ' + (data.message || 'Something went wrong'), 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        showNotification('✗ An error occurred. Please try again.', 'error');
+                    });
+                });
+            }
+        });
+
+        // Google Sheets Integration for Signup Form
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.querySelector('#signupModal form');
+            
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const fullName = this.querySelector('input[placeholder="John Doe"]').value;
+                    const email = this.querySelector('input[type="email"]').value;
+                    const phone = this.querySelector('input[type="tel"]').value;
+                    const program = this.querySelector('select').value;
+                    const education = this.querySelector('input[placeholder="e.g., Bachelor\'s in Commerce"]').value;
+                    const goals = this.querySelector('textarea').value;
+                    
+                    const signupData = {
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        program: program,
+                        education: education,
+                        goals: goals,
+                        timestamp: new Date().toISOString(),
+                        action: 'signup'
+                    };
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Registering...';
+                    submitBtn.disabled = true;
+                    
+                    // Send data to Google Sheets via Apps Script
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: JSON.stringify(signupData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        if (data.status === 'success') {
+                            showNotification('✓ Registration successful! Welcome to TSE!', 'success');
+                            signupForm.reset();
+                            setTimeout(() => closeModal('signup'), 1500);
+                        } else {
+                            showNotification('✗ Error: ' + (data.message || 'Registration failed'), 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        showNotification('✗ An error occurred. Please try again.', 'error');
+                    });
+                });
+            }
+        });
+
+        // Notification System
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-6 right-6 px-6 py-4 rounded-lg text-white font-bold text-lg shadow-2xl z-[60] animate-bounce ${
+                type === 'success' ? 'bg-green-600' : 'bg-red-600'
+            }`;
+            notification.innerHTML = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.5s ease-out';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
         }
 
         // Close modal when pressing Escape
@@ -1809,6 +2824,16 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
