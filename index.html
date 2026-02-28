@@ -70,8 +70,636 @@
             <button onclick="openContactModal()" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 text-left px-4 rounded-lg hover:bg-white/40">Contact</button>
 
             <button onclick="openModal('signup')" class="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:shadow-lg transition transform hover:scale-105 duration-300">Join Now</button>
-        
+                </div>
+            </div>
+            <button onclick="openModal('quicklogin')" class="w-full px-6 py-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-full font-bold hover:shadow-lg transition transform hover:scale-105 duration-300 flex items-center justify-center gap-2">
+            <i class="fas fa-sign-in-alt"></i>Quick Login
+        </button>
+
+        <!-- Quick Login Modal -->
+        <div id="quickloginModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('quicklogin')">
+            <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full modal-open" onclick="event.stopPropagation()">
+                <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-8 text-white rounded-t-3xl text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full -translate-x-20 -translate-y-20"></div>
+                    <div class="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-full translate-x-20 translate-y-20"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-6xl">
+                            <i class="fas fa-lock text-white"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold">Portal Login</h2>
+                        <p class="text-blue-100 mt-2">Access your dashboard securely</p>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <form class="space-y-6" id="quickLoginForm">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-3 text-lg">
+                                <i class="fas fa-envelope text-blue-600 mr-2"></i>Email
+                            </label>
+                            <input type="email" required placeholder="028vansh@gmail.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition text-lg hover:border-gray-400 focus:ring-2 focus:ring-blue-200">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-3 text-lg">
+                                <i class="fas fa-lock text-indigo-600 mr-2"></i>Password
+                            </label>
+                            <div class="relative">
+                                <input type="password" required placeholder="••••••" id="quickPasswordInput" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-indigo-600 focus:outline-none transition text-lg hover:border-gray-400 focus:ring-2 focus:ring-indigo-200">
+                                <button type="button" onclick="toggleQuickPassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-indigo-600 hover:text-indigo-700 transition">
+                                    <i class="fas fa-eye" id="quickToggleIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 accent-blue-600">
+                                <span class="text-gray-700 ml-3 text-lg font-medium">Remember me</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-4 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg relative overflow-hidden group">
+                            <span class="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                            <span class="relative flex items-center justify-center">
+                                <i class="fas fa-arrow-right mr-3 group-hover:translate-x-1 transition-transform duration-300"></i>
+                                <span>Access Portal</span>
+                            </span>
+                        </button>
+
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t-2 border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-3 bg-white text-gray-600 font-medium">Demo Account</span>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                        <p class="text-gray-600">Don't have credentials? 
+                            <button onclick="closeModal('quicklogin'); openModal('signup')" class="text-blue-600 hover:text-blue-700 font-bold">Create account</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Main Portal Dashboard Modal -->
+        <div id="portalModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('portal')">
+            <div class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full modal-open max-h-[95vh] overflow-y-auto" onclick="event.stopPropagation()">
+                <!-- Portal Header -->
+                <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0 shadow-lg">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-lg border border-white/30">
+                            <i class="fas fa-user-circle text-3xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold">Vansh Portal</h2>
+                            <p class="text-blue-100 mt-1">Dashboard & Management System</p>
+                        </div>
+                    </div>
+                    <button onclick="closeModal('portal')" class="text-3xl hover:bg-white/20 p-2 rounded-lg transition flex-shrink-0">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Portal Content -->
+                <div class="p-8 md:p-12">
+                    <!-- Navigation Tabs -->
+                    <div class="flex flex-wrap gap-2 mb-8 border-b-2 border-gray-200 pb-4 sticky top-0 bg-white z-40">
+                        <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white" data-tab="dashboard">
+                            <i class="fas fa-home mr-2"></i>Dashboard
+                        </button>
+                        <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all duration-300 text-gray-700 hover:bg-gray-100" data-tab="attendance">
+                            <i class="fas fa-calendar-check mr-2"></i>Mark Attendance
+                        </button>
+                        <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all duration-300 text-gray-700 hover:bg-gray-100" data-tab="employees">
+                            <i class="fas fa-users mr-2"></i>Manage Employees
+                        </button>
+                        <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all duration-300 text-gray-700 hover:bg-gray-100" data-tab="interns">
+                            <i class="fas fa-graduation-cap mr-2"></i>Manage Interns
+                        </button>
+                        <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all duration-300 text-gray-700 hover:bg-gray-100" data-tab="profile">
+                            <i class="fas fa-user mr-2"></i>Profile
+                        </button>
+                    </div>
+
+                    <!-- Dashboard Tab -->
+                    <div class="portal-tab-content" id="dashboard">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-tachometer-alt text-blue-600 mr-3"></i>Welcome to Your Dashboard</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-gray-600 text-sm font-semibold uppercase">Active Employees</p>
+                                        <p class="text-4xl font-bold text-blue-600 mt-2" id="employeeCount">0</p>
+                                    </div>
+                                    <i class="fas fa-briefcase text-blue-600 text-3xl opacity-30"></i>
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-l-4 border-purple-600 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-gray-600 text-sm font-semibold uppercase">Active Interns</p>
+                                        <p class="text-4xl font-bold text-purple-600 mt-2" id="internCount">0</p>
+                                    </div>
+                                    <i class="fas fa-graduation-cap text-purple-600 text-3xl opacity-30"></i>
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-l-4 border-green-600 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-gray-600 text-sm font-semibold uppercase">Present Today</p>
+                                        <p class="text-4xl font-bold text-green-600 mt-2" id="presentCount">0</p>
+                                    </div>
+                                    <i class="fas fa-check-circle text-green-600 text-3xl opacity-30"></i>
+                                </div>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border-l-4 border-orange-600 hover:shadow-lg transition-all duration-300">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-gray-600 text-sm font-semibold uppercase">Pending Tasks</p>
+                                        <p class="text-4xl font-bold text-orange-600 mt-2">3</p>
+                                    </div>
+                                    <i class="fas fa-tasks text-orange-600 text-3xl opacity-30"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200">
+                            <h4 class="text-2xl font-bold text-gray-900 mb-4"><i class="fas fa-info-circle text-blue-600 mr-3"></i>Quick Access</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <button onclick="switchPortalTab('attendance')" class="bg-white hover:bg-blue-50 p-4 rounded-xl font-bold text-gray-700 transition-all duration-300 border-2 border-blue-300 hover:border-blue-600">
+                                    <i class="fas fa-clock text-blue-600 text-2xl mb-2"></i>
+                                    <p>Mark Attendance</p>
+                                </button>
+                                <button onclick="switchPortalTab('employees')" class="bg-white hover:bg-purple-50 p-4 rounded-xl font-bold text-gray-700 transition-all duration-300 border-2 border-purple-300 hover:border-purple-600">
+                                    <i class="fas fa-users text-purple-600 text-2xl mb-2"></i>
+                                    <p>Manage Employees</p>
+                                </button>
+                                <button onclick="switchPortalTab('interns')" class="bg-white hover:bg-green-50 p-4 rounded-xl font-bold text-gray-700 transition-all duration-300 border-2 border-green-300 hover:border-green-600">
+                                    <i class="fas fa-graduation-cap text-green-600 text-2xl mb-2"></i>
+                                    <p>Manage Interns</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Tab -->
+                    <div class="portal-tab-content hidden" id="attendance">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-calendar-check text-green-600 mr-3"></i>Mark Attendance</h3>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-1">
+                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-300 sticky top-20">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-clock text-green-600 mr-2"></i>Current Time</h4>
+                                    <div class="bg-white p-4 rounded-lg mb-4 text-center">
+                                        <p class="text-4xl font-bold text-green-600" id="currentTime">09:15 AM</p>
+                                        <p class="text-gray-600 text-sm mt-2" id="currentDate">Today</p>
+                                    </div>
+                                    <button onclick="markCheckIn()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg mb-3">
+                                        <i class="fas fa-sign-in-alt mr-2"></i>Check In
+                                    </button>
+                                    <button onclick="markCheckOut()" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>Check Out
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-2">
+                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-list text-indigo-600 mr-2"></i>Today's Attendance</h4>
+                                    <div class="space-y-3" id="attendanceList">
+                                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                                            <div>
+                                                <p class="font-bold text-gray-900">Check In</p>
+                                                <p class="text-sm text-gray-600" id="checkInTime">Not marked</p>
+                                            </div>
+                                            <i class="fas fa-check-circle text-gray-400 text-2xl"></i>
+                                        </div>
+                                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                                            <div>
+                                                <p class="font-bold text-gray-900">Check Out</p>
+                                                <p class="text-sm text-gray-600" id="checkOutTime">Not marked</p>
+                                            </div>
+                                            <i class="fas fa-times-circle text-gray-400 text-2xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manage Employees Tab -->
+                    <div class="portal-tab-content hidden" id="employees">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-users text-purple-600 mr-3"></i>Employee Management</h3>
+                        
+                        <div class="mb-6 flex gap-4">
+                            <input type="text" placeholder="Search employees..." class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none">
+                            <button onclick="openAddEmployee()" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-plus mr-2"></i>Add Employee
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-gradient-to-r from-purple-50 to-indigo-50 border-b-2 border-gray-300">
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Name</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Position</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Email</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Status</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="employeeTable">
+                                        <tr class="border-b hover:bg-gray-50 transition-all duration-300">
+                                            <td class="px-6 py-4 font-semibold text-gray-900">John Doe</td>
+                                            <td class="px-6 py-4 text-gray-700">Senior Developer</td>
+                                            <td class="px-6 py-4 text-gray-700">john@tse.com</td>
+                                            <td class="px-6 py-4"><span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold"><i class="fas fa-check mr-1"></i>Active</span></td>
+                                            <td class="px-6 py-4 flex gap-2">
+                                                <button onclick="editEmployee('john')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-edit mr-1"></i>Edit</button>
+                                                <button onclick="removeEmployee('john', 'John Doe')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-trash mr-1"></i>Remove</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-gray-50 transition-all duration-300">
+                                            <td class="px-6 py-4 font-semibold text-gray-900">Sarah Smith</td>
+                                            <td class="px-6 py-4 text-gray-700">HR Manager</td>
+                                            <td class="px-6 py-4 text-gray-700">sarah@tse.com</td>
+                                            <td class="px-6 py-4"><span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold"><i class="fas fa-check mr-1"></i>Active</span></td>
+                                            <td class="px-6 py-4 flex gap-2">
+                                                <button onclick="editEmployee('sarah')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-edit mr-1"></i>Edit</button>
+                                                <button onclick="removeEmployee('sarah', 'Sarah Smith')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-trash mr-1"></i>Remove</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manage Interns Tab -->
+                    <div class="portal-tab-content hidden" id="interns">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-graduation-cap text-blue-600 mr-3"></i>Intern Management</h3>
+                        
+                        <div class="mb-6 flex gap-4">
+                            <input type="text" placeholder="Search interns..." class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                            <button onclick="openAddIntern()" class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-plus mr-2"></i>Add Intern
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-gradient-to-r from-blue-50 to-cyan-50 border-b-2 border-gray-300">
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Name</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Program</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Email</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Status</th>
+                                            <th class="px-6 py-4 text-left font-bold text-gray-900">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="internTable">
+                                        <tr class="border-b hover:bg-gray-50 transition-all duration-300">
+                                            <td class="px-6 py-4 font-semibold text-gray-900">Raj Kumar</td>
+                                            <td class="px-6 py-4 text-gray-700">HR Management</td>
+                                            <td class="px-6 py-4 text-gray-700">raj@tse.com</td>
+                                            <td class="px-6 py-4"><span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold"><i class="fas fa-hourglass-start mr-1"></i>Ongoing</span></td>
+                                            <td class="px-6 py-4 flex gap-2">
+                                                <button onclick="editIntern('raj')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-edit mr-1"></i>Edit</button>
+                                                <button onclick="removeIntern('raj', 'Raj Kumar')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-trash mr-1"></i>Remove</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-gray-50 transition-all duration-300">
+                                            <td class="px-6 py-4 font-semibold text-gray-900">Priya Singh</td>
+                                            <td class="px-6 py-4 text-gray-700">Graphic Design</td>
+                                            <td class="px-6 py-4 text-gray-700">priya@tse.com</td>
+                                            <td class="px-6 py-4"><span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold"><i class="fas fa-hourglass-start mr-1"></i>Ongoing</span></td>
+                                            <td class="px-6 py-4 flex gap-2">
+                                                <button onclick="editIntern('priya')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-edit mr-1"></i>Edit</button>
+                                                <button onclick="removeIntern('priya', 'Priya Singh')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-bold transition-all duration-300"><i class="fas fa-trash mr-1"></i>Remove</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Tab -->
+                    <div class="portal-tab-content hidden" id="profile">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-user-circle text-indigo-600 mr-3"></i>User Profile</h3>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-1">
+                                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl border-2 border-indigo-300 p-8 text-center">
+                                    <div class="w-24 h-24 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-full flex items-center justify-center text-white text-5xl mx-auto mb-4">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Vansh Kumar</h4>
+                                    <p class="text-gray-600 mb-4">Administrator</p>
+                                    <div class="bg-white p-3 rounded-lg mb-4 border-l-4 border-indigo-600">
+                                        <p class="text-sm text-gray-700"><i class="fas fa-envelope text-indigo-600 mr-2"></i>028vansh@gmail.com</p>
+                                    </div>
+                                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-bold transition-all duration-300">
+                                        <i class="fas fa-edit mr-2"></i>Edit Profile
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-info-circle text-indigo-600 mr-3"></i>Personal Information</h4>
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <div>
+                                            <p class="text-gray-600 text-sm font-semibold">Full Name</p>
+                                            <p class="text-gray-900 font-bold text-lg">Vansh Kumar</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600 text-sm font-semibold">Email Address</p>
+                                            <p class="text-gray-900 font-bold text-lg">028vansh@gmail.com</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600 text-sm font-semibold">Phone</p>
+                                            <p class="text-gray-900 font-bold text-lg">+91 98765 43210</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-600 text-sm font-semibold">Role</p>
+                                            <p class="text-gray-900 font-bold text-lg">System Administrator</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-shield-alt text-green-600 mr-3"></i>Security Settings</h4>
+                                    <div class="space-y-4">
+                                        <button class="w-full bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 border-2 border-blue-300 text-blue-700 py-3 rounded-lg font-bold transition-all duration-300">
+                                            <i class="fas fa-key mr-2"></i>Change Password
+                                        </button>
+                                        <button class="w-full bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 border-2 border-green-300 text-green-700 py-3 rounded-lg font-bold transition-all duration-300">
+                                            <i class="fas fa-lock mr-2"></i>Two-Factor Authentication
+                                        </button>
+                                        <button class="w-full bg-gradient-to-r from-red-50 to-red-100 hover:from-red-100 hover:to-red-200 border-2 border-red-300 text-red-700 py-3 rounded-lg font-bold transition-all duration-300">
+                                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portal Footer -->
+                <div class="flex flex-col md:flex-row gap-4 p-8 md:p-12 bg-gray-50 border-t-2 border-gray-200 rounded-b-3xl">
+                    <button class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg">
+                        <i class="fas fa-bell mr-2"></i>Notifications
+                    </button>
+                    <button class="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg">
+                        <i class="fas fa-headset mr-2"></i>Support Center
+                    </button>
+                    <button onclick="closeModal('portal')" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-900 py-3 rounded-lg font-bold transition-all duration-300 text-lg">
+                        <i class="fas fa-times mr-2"></i>Close Portal
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        // Portal Tab Switching
+        document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                switchPortalTab(tabName);
+            });
+        });
+
+        function switchPortalTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.portal-tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active state from buttons
+            document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-indigo-600', 'text-white');
+                btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+            }
+            
+            // Activate button
+            const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                activeBtn.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-indigo-600', 'text-white');
+            }
+        }
+
+        // Attendance Functions
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            const timeEl = document.getElementById('currentTime');
+            const dateEl = document.getElementById('currentDate');
+            if (timeEl) timeEl.textContent = timeString;
+            if (dateEl) dateEl.textContent = dateString;
+        }
+
+        function markCheckIn() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            
+            document.getElementById('checkInTime').textContent = timeString + ' - Checked In Successfully';
+            
+            const checkInIconParent = document.querySelectorAll('.fa-check-circle')[0].parentElement;
+            checkInIconParent.querySelector('.fa-check-circle').classList.remove('text-gray-400');
+            checkInIconParent.querySelector('.fa-check-circle').classList.add('text-green-600');
+            
+            showPortalNotification('✓ Check-in recorded successfully!', 'success');
+        }
+
+        function markCheckOut() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            
+            document.getElementById('checkOutTime').textContent = timeString + ' - Checked Out Successfully';
+            
+            const checkOutIconParents = document.querySelectorAll('.fa-times-circle');
+            if (checkOutIconParents.length > 0) {
+                checkOutIconParents[0].parentElement.querySelector('.fa-times-circle').classList.remove('text-gray-400');
+                checkOutIconParents[0].parentElement.querySelector('.fa-times-circle').classList.add('text-red-600');
+            }
+            
+            showPortalNotification('✓ Check-out recorded successfully!', 'success');
+        }
+
+        // Employee Functions
+        function openAddEmployee() {
+            const name = prompt('Enter employee name:');
+            if (name) {
+                showPortalNotification('✓ Employee ' + name + ' will be added to the system', 'success');
+            }
+        }
+
+        function editEmployee(id) {
+            showPortalNotification('Editing employee information...', 'info');
+        }
+
+        function removeEmployee(id, name) {
+            if (confirm('Are you sure you want to remove ' + name + '?')) {
+                const table = document.getElementById('employeeTable');
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    if (row.textContent.includes(name)) {
+                        row.style.animation = 'fadeOut 0.5s ease-out';
+                        setTimeout(() => row.remove(), 500);
+                        updateEmployeeCount();
+                    }
+                });
+                showPortalNotification('✓ Employee ' + name + ' has been removed', 'success');
+            }
+        }
+
+        function updateEmployeeCount() {
+            const count = document.getElementById('employeeTable').querySelectorAll('tr').length;
+            document.getElementById('employeeCount').textContent = count;
+        }
+
+        // Intern Functions
+        function openAddIntern() {
+            const name = prompt('Enter intern name:');
+            if (name) {
+                showPortalNotification('✓ Intern ' + name + ' will be added to the system', 'success');
+            }
+        }
+
+        function editIntern(id) {
+            showPortalNotification('Editing intern information...', 'info');
+        }
+
+        function removeIntern(id, name) {
+            if (confirm('Are you sure you want to remove intern ' + name + '?')) {
+                const table = document.getElementById('internTable');
+                const rows = table.querySelectorAll('tr');
+                rows.forEach(row => {
+                    if (row.textContent.includes(name)) {
+                        row.style.animation = 'fadeOut 0.5s ease-out';
+                        setTimeout(() => row.remove(), 500);
+                        updateInternCount();
+                    }
+                });
+                showPortalNotification('✓ Intern ' + name + ' has been removed', 'success');
+            }
+        }
+
+        function updateInternCount() {
+            const count = document.getElementById('internTable').querySelectorAll('tr').length;
+            document.getElementById('internCount').textContent = count;
+        }
+
+        // Portal Notification
+        function showPortalNotification(message, type) {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-green-600' : type === 'info' ? 'bg-blue-600' : 'bg-red-600';
+            notification.className = `fixed top-6 right-6 px-6 py-4 rounded-lg text-white font-bold text-lg shadow-2xl z-[70] ${bgColor} animate-bounce`;
+            notification.innerHTML = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialization
+        setInterval(updateTime, 1000);
+        updateTime();
+        updateEmployeeCount();
+        updateInternCount();
+        </script>
+
+        <script>
+        // Quick Login Form Handler
+        document.getElementById('quickLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            // Validate credentials
+            if (email === '028vansh@gmail.com' && password === '456987') {
+                const btn = this.querySelector('button[type="submit"]');
+                const originalHTML = btn.innerHTML;
+                
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Authenticating...';
+                
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check mr-3 animate-pulse"></i>Success!';
+                    btn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+                    
+                    showNotification('✓ Login successful! Welcome back, Vansh!', 'success');
+                    
+                    setTimeout(() => {
+                        closeModal('quicklogin');
+                        openModal('portal');
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        this.reset();
+                    }, 1000);
+                }, 1500);
+            } else {
+                showNotification('✗ Invalid credentials! Use: 028vansh@gmail.com / 123654\n            987', 'error');
+            }
+        });
+
+        function toggleQuickPassword() {
+            const input = document.getElementById('quickPasswordInput');
+            const icon = document.getElementById('quickToggleIcon');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
+            notification.className = `fixed top-6 right-6 px-6 py-4 rounded-lg text-white font-bold text-lg shadow-2xl z-[60] ${bgColor} animate-bounce`;
+            notification.innerHTML = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        </script>
+
     </div>
    
     <!-- Contact Modal -->
@@ -577,7 +1205,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition">Real Industry Experience</h3>
                     <p class="text-gray-600 leading-relaxed mb-6">Work on actual projects with leading companies and gain practical skills that employers value.</p>
-                    <button class="text-blue-600 font-semibold hover:text-blue-700 transition flex items-center" onclick="openModal('experience')">
+                    <button class="text-blue-600 font-semibold hover:text-blue-700 transition flex items-center">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
@@ -589,7 +1217,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-600 transition">Expert Mentorship</h3>
                     <p class="text-gray-600 leading-relaxed mb-6">Learn from industry professionals who provide personalized guidance and career support.</p>
-                    <button class="text-purple-600 font-semibold hover:text-purple-700 transition flex items-center" onclick="openModal('mentorship')">
+                    <button class="text-purple-600 font-semibold hover:text-purple-700 transition flex items-center">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
@@ -601,7 +1229,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-pink-600 transition">Certification & Placement</h3>
                     <p class="text-gray-600 leading-relaxed mb-6">Earn industry-recognized certificates and get placed with our 100% success rate guarantee.</p>
-                    <button class="text-pink-600 font-semibold hover:text-pink-700 transition flex items-center" onclick="openModal('certification')">
+                    <button class="text-pink-600 font-semibold hover:text-pink-700 transition flex items-center">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
@@ -782,134 +1410,25 @@
                     <div class="relative w-full h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
                         <!-- Slideshow Container -->
                         <div class="relative w-full h-full group cursor-pointer" onclick="openModal('hr')">
-                                <!-- Slide 1: HR Management - Updated to show all domains -->
+                                <!-- Slide 1: HR Management -->
                                 <div class="slideshow-slide absolute w-full h-full opacity-100 transition-opacity duration-1000">
                                     <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800"></div>
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <div class="text-center text-white px-8">
-                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-star"></i></div>
-                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">All Internships</h3>
-                                            <p class="text-xl md:text-2xl text-blue-100 mb-3">Explore All Available Programs</p>
+                                            <div class="mb-6 text-7xl transform group-hover:scale-125 transition-transform duration-300"><i class="fas fa-users"></i></div>
+                                            <h3 class="text-4xl md:text-5xl font-bold mb-4">HR Management</h3>
+                                            <p class="text-xl md:text-2xl text-blue-100 mb-3">Master Talent & Leadership</p>
                                             <div class="flex flex-wrap justify-center gap-2 mb-6">
-                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">6+ Domains</span>
-                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">100+ Positions</span>
-                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Industry Partners</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Recruitment</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Employee Relations</span>
+                                                <span class="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold">Payroll</span>
                                             </div>
-                                            <p class="text-lg text-blue-200 mb-6">Find Your Perfect Internship Match</p>
+                                            <p class="text-lg text-blue-200 mb-6">6 Month Internship • ₹15,000/Month</p>
                                             <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <button onclick="event.stopPropagation(); openModal('alldomains')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                                    <i class="fas fa-arrow-right mr-2"></i>View All Programs
+                                                <button onclick="event.stopPropagation(); openModal('hr')" class="px-6 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 border border-white/30">
+                                                    <i class="fas fa-arrow-right mr-2"></i>View Program
                                                 </button>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- All Domains Modal -->
-                                <div id="alldomainsModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('alldomains')">
-                                    <div class="bg-white rounded-3xl shadow-2xl max-w-5xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-                                        <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
-                                            <div>
-                                                <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-briefcase mr-4"></i>All Internship Domains</h2>
-                                                <p class="text-blue-100 mt-3 text-lg">Choose from 6+ exciting career paths</p>
-                                            </div>
-                                            <button onclick="closeModal('alldomains')" class="text-3xl hover:bg-white/20 p-2 rounded-lg transition flex-shrink-0">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                        
-                                        <div class="p-8 md:p-12">
-                                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                                                <!-- HR Management Card -->
-                                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border-l-4 border-blue-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('hr')">
-                                                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-users"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">HR Management</h3>
-                                                    <p class="text-gray-700 mb-4">Master talent acquisition, employee relations & organizational strategy</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-blue-200 text-blue-700 rounded-full text-sm font-semibold">6 Months</span>
-                                                        <span class="px-3 py-1 bg-blue-200 text-blue-700 rounded-full text-sm font-semibold">₹15,000/mo</span>
-                                                    </div>
-                                                    <button class="text-blue-600 font-bold hover:text-blue-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-
-                                                <!-- Graphic Design Card -->
-                                                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border-l-4 border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('design')">
-                                                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-palette"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Graphic Design</h3>
-                                                    <p class="text-gray-700 mb-4">Create stunning visuals, branding, and UI/UX designs for brands</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-purple-200 text-purple-700 rounded-full text-sm font-semibold">4 Months</span>
-                                                        <span class="px-3 py-1 bg-purple-200 text-purple-700 rounded-full text-sm font-semibold">₹12,000/mo</span>
-                                                    </div>
-                                                    <button class="text-purple-600 font-bold hover:text-purple-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-
-                                                <!-- Social Media Marketing Card -->
-                                                <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-6 border-l-4 border-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('social')">
-                                                    <div class="text-4xl text-pink-600 mb-4"><i class="fas fa-share-alt"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Social Media Marketing</h3>
-                                                    <p class="text-gray-700 mb-4">Drive engagement, manage campaigns & grow brands on social platforms</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-pink-200 text-pink-700 rounded-full text-sm font-semibold">5 Months</span>
-                                                        <span class="px-3 py-1 bg-pink-200 text-pink-700 rounded-full text-sm font-semibold">₹13,000/mo</span>
-                                                    </div>
-                                                    <button class="text-pink-600 font-bold hover:text-pink-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-
-                                                <!-- Digital Marketing Card -->
-                                                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border-l-4 border-orange-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('digital')">
-                                                    <div class="text-4xl text-orange-600 mb-4"><i class="fas fa-bullhorn"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Digital Marketing</h3>
-                                                    <p class="text-gray-700 mb-4">Master SEO, SEM, email marketing & data-driven growth strategies</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-orange-200 text-orange-700 rounded-full text-sm font-semibold">6 Months</span>
-                                                        <span class="px-3 py-1 bg-orange-200 text-orange-700 rounded-full text-sm font-semibold">₹14,000/mo</span>
-                                                    </div>
-                                                    <button class="text-orange-600 font-bold hover:text-orange-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-
-                                                <!-- Video Production Card -->
-                                                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 border-l-4 border-indigo-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('video')">
-                                                    <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-video"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Video Production</h3>
-                                                    <p class="text-gray-700 mb-4">Create professional videos with editing, cinematography & motion graphics</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-indigo-200 text-indigo-700 rounded-full text-sm font-semibold">5 Months</span>
-                                                        <span class="px-3 py-1 bg-indigo-200 text-indigo-700 rounded-full text-sm font-semibold">₹14,500/mo</span>
-                                                    </div>
-                                                    <button class="text-indigo-600 font-bold hover:text-indigo-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-
-                                                <!-- Data Analytics Card -->
-                                                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300 cursor-pointer card-hover" onclick="openModal('analytics')">
-                                                    <div class="text-4xl text-green-600 mb-4"><i class="fas fa-chart-line"></i></div>
-                                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Data Analytics</h3>
-                                                    <p class="text-gray-700 mb-4">Transform data into insights using Excel, Python, Tableau & Power BI</p>
-                                                    <div class="flex flex-wrap gap-2 mb-4">
-                                                        <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm font-semibold">6 Months</span>
-                                                        <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm font-semibold">₹16,000/mo</span>
-                                                    </div>
-                                                    <button class="text-green-600 font-bold hover:text-green-700"><i class="fas fa-arrow-right mr-2"></i>Explore</button>
-                                                </div>
-                                            </div>
-
-                                            <!-- CTA Section -->
-                                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-300 mb-8">
-                                                <h3 class="text-2xl font-bold text-gray-900 mb-4"><i class="fas fa-rocket text-blue-600 mr-3"></i>Ready to Start?</h3>
-                                                <p class="text-gray-700 text-lg mb-6">Join 1000+ successful interns. Get mentored by industry experts and land your dream job.</p>
-                                                <div class="flex flex-col md:flex-row gap-4">
-                                                    <button onclick="closeModal('alldomains'); openModal('signup')" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all duration-300">
-                                                        <i class="fas fa-user-plus mr-2"></i>Apply Now
-                                                    </button>
-                                                    <button onclick="closeModal('alldomains'); openModal('login')" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all duration-300">
-                                                        <i class="fas fa-sign-in-alt mr-2"></i>Existing User Login
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <button onclick="closeModal('alldomains')" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-900 py-3 rounded-lg font-bold transition duration-300 text-lg">
-                                                Close
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -1119,44 +1638,44 @@
                                     <!-- Overview Tab -->
                                     <div class="tab-content" id="overview">
                                         <div class="mb-8">
-                                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-user-circle text-indigo-600 mr-3"></i>Welcome Back, Employee!</h3>
+                                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-user-circle text-indigo-600 mr-3"></i>Welcome Back!</h3>
                                             
                                             <!-- Employee Dashboard Statistics -->
                                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border-l-4 border-blue-600 stat-card hover:shadow-lg transition-all duration-300 cursor-pointer" onclick="switchTab('attendance')">
+                                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border-l-4 border-blue-600 stat-card">
                                                     <div class="flex justify-between items-start">
                                                         <div>
                                                             <p class="text-gray-600 text-sm font-semibold uppercase">Present Days</p>
-                                                            <p class="text-3xl font-bold text-blue-600 mt-2">18</p>
+                                                            <p class="text-3xl font-bold text-blue-600 mt-2">16</p>
                                                         </div>
                                                         <i class="fas fa-calendar-check text-blue-600 text-3xl opacity-30"></i>
                                                     </div>
-                                                    <p class="text-gray-600 text-sm mt-4"><i class="fas fa-arrow-up text-green-500 mr-1"></i>4 days this week</p>
+                                                    <p class="text-gray-600 text-sm mt-4"><i class="fas fa-arrow-up text-green-500 mr-1"></i>2 days this week</p>
                                                 </div>
 
-                                                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-l-4 border-purple-600 stat-card hover:shadow-lg transition-all duration-300 cursor-pointer" onclick="switchTab('leave')">
+                                                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-l-4 border-purple-600 stat-card">
                                                     <div class="flex justify-between items-start">
                                                         <div>
                                                             <p class="text-gray-600 text-sm font-semibold uppercase">Leave Balance</p>
-                                                            <p class="text-3xl font-bold text-purple-600 mt-2">7</p>
+                                                            <p class="text-3xl font-bold text-purple-600 mt-2">8</p>
                                                         </div>
                                                         <i class="fas fa-plane text-purple-600 text-3xl opacity-30"></i>
                                                     </div>
                                                     <p class="text-gray-600 text-sm mt-4">Out of 15 days yearly</p>
                                                 </div>
 
-                                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-l-4 border-green-600 stat-card hover:shadow-lg transition-all duration-300 cursor-pointer" onclick="switchTab('payroll')">
+                                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-l-4 border-green-600 stat-card">
                                                     <div class="flex justify-between items-start">
                                                         <div>
                                                             <p class="text-gray-600 text-sm font-semibold uppercase">YTD Earnings</p>
-                                                            <p class="text-3xl font-bold text-green-600 mt-2">₹4,50,000</p>
+                                                            <p class="text-3xl font-bold text-green-600 mt-2">₹4.2L</p>
                                                         </div>
                                                         <i class="fas fa-money-bill-wave text-green-600 text-3xl opacity-30"></i>
                                                     </div>
-                                                    <p class="text-gray-600 text-sm mt-4"><i class="fas fa-info-circle mr-1"></i>Updated this month</p>
+                                                    <p class="text-gray-600 text-sm mt-4">Updated this month</p>
                                                 </div>
 
-                                                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-2xl border-l-4 border-orange-600 stat-card hover:shadow-lg transition-all duration-300 cursor-pointer" onclick="switchTab('performance')">
+                                                <div class="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-2xl border-l-4 border-orange-600 stat-card">
                                                     <div class="flex justify-between items-start">
                                                         <div>
                                                             <p class="text-gray-600 text-sm font-semibold uppercase">Performance</p>
@@ -1164,36 +1683,22 @@
                                                         </div>
                                                         <i class="fas fa-star text-orange-600 text-3xl opacity-30"></i>
                                                     </div>
-                                                    <p class="text-gray-600 text-sm mt-4"><i class="fas fa-check-circle text-green-500 mr-1"></i>Last review: Nov 2024</p>
+                                                    <p class="text-gray-600 text-sm mt-4">Last review: Nov 2024</p>
                                                 </div>
                                             </div>
 
-                                            <!-- Quick Actions Section -->
-                                            <div class="mb-8">
-                                                <h4 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-lightning-bolt text-yellow-500 mr-2"></i>Quick Actions</h4>
-                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                    <button class="bg-gradient-to-r from-indigo-100 to-indigo-200 hover:from-indigo-200 hover:to-indigo-300 text-indigo-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg shadow-md hover:shadow-lg transform hover:scale-105" onclick="switchTab('attendance')">
-                                                        <i class="fas fa-sign-in-alt mr-3 text-xl"></i>
-                                                        <span>Mark Attendance</span>
-                                                    </button>
-                                                    <button class="bg-gradient-to-r from-purple-100 to-purple-200 hover:from-purple-200 hover:to-purple-300 text-purple-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg shadow-md hover:shadow-lg transform hover:scale-105" onclick="switchTab('leave')">
-                                                        <i class="fas fa-plane-departure mr-3 text-xl"></i>
-                                                        <span>Apply Leave</span>
-                                                    </button>
-                                                    <button class="bg-gradient-to-r from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300 text-blue-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg shadow-md hover:shadow-lg transform hover:scale-105" onclick="switchTab('payroll')">
-                                                        <i class="fas fa-file-pdf mr-3 text-xl"></i>
-                                                        <span>Download Payslip</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <!-- Enhancement Notice -->
-                                            <div class="bg-gradient-to-r from-indigo-50 via-blue-50 to-cyan-50 p-6 rounded-2xl border-l-4 border-indigo-600 flex items-start gap-4">
-                                                <i class="fas fa-info-circle text-indigo-600 text-2xl flex-shrink-0 mt-1"></i>
-                                                <div>
-                                                    <p class="font-bold text-gray-900 text-lg">📊 Dashboard Ready</p>
-                                                    <p class="text-gray-700 mt-2">Click on any card above or use Quick Actions to access attendance, leave, payroll, and performance details. All sections are fully functional and interactive.</p>
-                                                </div>
+                                            <!-- Quick Actions -->
+                                            <h4 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-lightning-bolt text-yellow-500 mr-2"></i>Quick Actions</h4>
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <button class="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg clickable-tab" data-tab="attendance">
+                                                    <i class="fas fa-sign-in-alt mr-2"></i>Mark Attendance
+                                                </button>
+                                                <button class="bg-purple-100 hover:bg-purple-200 text-purple-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg clickable-tab" data-tab="leave">
+                                                    <i class="fas fa-plane-departure mr-2"></i>Apply Leave
+                                                </button>
+                                                <button class="bg-blue-100 hover:bg-blue-200 text-blue-700 p-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-lg clickable-tab" data-tab="payroll">
+                                                    <i class="fas fa-file-pdf mr-2"></i>Download Payslip
+                                                </button>
                                             </div>
                                         </div>
 
@@ -1245,124 +1750,12 @@
                                                         <p class="text-sm text-gray-600 mb-2">Current Time</p>
                                                         <p class="text-3xl font-bold text-green-600" id="currentTime">09:15 AM</p>
                                                     </div>
-                                                    <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg" onclick="handleCheckIn()">
+                                                    <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg">
                                                         <i class="fas fa-sign-in-alt mr-2"></i>Check In
                                                     </button>
-
-                                                    <script>
-                                                    function handleCheckIn() {
-                                                        openModal('login');
-                                                        
-                                                        // Override login form submission to record check-in
-                                                        const loginForm = document.querySelector('#loginModal form');
-                                                        if (loginForm) {
-                                                            loginForm.onsubmit = function(e) {
-                                                                e.preventDefault();
-                                                                
-                                                                const email = this.querySelector('input[type="email"]').value.trim();
-                                                                const password = this.querySelector('input[type="password"]').value;
-                                                                
-                                                                // Validate credentials
-                                                                if (email !== '028vansh@gmail.com' || password !== '123456') {
-                                                                    showNotification('✗ Invalid credentials', 'error');
-                                                                    return;
-                                                                }
-                                                                
-                                                                const checkInData = {
-                                                                    email: email,
-                                                                    action: 'check_in',
-                                                                    timestamp: new Date().toISOString(),
-                                                                    checkInTime: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
-                                                                    date: new Date().toLocaleDateString('en-US')
-                                                                };
-                                                                
-                                                                const submitBtn = this.querySelector('button[type="submit"]');
-                                                                submitBtn.disabled = true;
-                                                                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Recording...';
-                                                                
-                                                                // Send to Google Sheet
-                                                                fetch('https://script.google.com/macros/d/YOUR_DEPLOYMENT_ID/usercallable', {
-                                                                    method: 'POST',
-                                                                    mode: 'no-cors',
-                                                                    body: JSON.stringify(checkInData)
-                                                                })
-                                                                .then(() => {
-                                                                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Check In Recorded!';
-                                                                    submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
-                                                                    showNotification('✓ Check-in recorded successfully!', 'success');
-                                                                    
-                                                                    setTimeout(() => {
-                                                                        closeModal('login');
-                                                                        loginForm.reset();
-                                                                        submitBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Sign In Securely';
-                                                                        submitBtn.disabled = false;
-                                                                        submitBtn.style.background = '';
-                                                                    }, 2000);
-                                                                })
-                                                                .catch(error => {
-                                                                    console.error('Error:', error);
-                                                                    showNotification('✗ Error recording check-in', 'error');
-                                                                    submitBtn.disabled = false;
-                                                                    submitBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Sign In Securely';
-                                                                });
-                                                            };
-                                                        }
-                                                    }
-
-                                                    function showNotification(message, type) {
-                                                        const notification = document.createElement('div');
-                                                        const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-                                                        notification.className = `fixed top-6 right-6 px-6 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[60] ${bgColor}`;
-                                                        notification.innerHTML = message;
-                                                        document.body.appendChild(notification);
-                                                        
-                                                        setTimeout(() => notification.remove(), 3000);
-                                                    }
-                                                    </script>
-                                                    <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg mt-3" onclick="openModal('login')">
+                                                    <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-all duration-300 text-lg mt-3">
                                                         <i class="fas fa-sign-out-alt mr-2"></i>Check Out
                                                     </button>
-
-                                                    <script>
-                                                    document.addEventListener('DOMContentLoaded', function() {
-                                                        const loginForm = document.querySelector('#loginModal form');
-                                                        
-                                                        if (loginForm) {
-                                                            loginForm.addEventListener('submit', function(e) {
-                                                                e.preventDefault();
-                                                                
-                                                                const email = this.querySelector('input[type="email"]').value.trim();
-                                                                const password = this.querySelector('input[type="password"]').value;
-                                                                
-                                                                // Demo credentials
-                                                                if (email === '028vansh@gmail.com' && password === '123456') {
-                                                                    const submitBtn = this.querySelector('button[type="submit"]');
-                                                                    submitBtn.innerHTML = '<i class="fas fa-check mr-2 animate-pulse"></i>Login Successful!';
-                                                                    submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
-                                                                    
-                                                                    showNotification('✓ Login successful! Attendance marked.', 'success');
-                                                                    
-                                                                    setTimeout(() => {
-                                                                        closeModal('login');
-                                                                        loginForm.reset();
-                                                                    }, 2000);
-                                                                } else {
-                                                                    showNotification('✗ Invalid credentials. Try: 028vansh@gmail.com / 123456', 'error');
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-
-                                                    function showNotification(message, type) {
-                                                        const notification = document.createElement('div');
-                                                        const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600';
-                                                        notification.className = `fixed top-6 right-6 px-6 py-4 rounded-lg text-white font-bold text-lg shadow-2xl z-[60] ${bgColor}`;
-                                                        notification.innerHTML = message;
-                                                        
-                                                        document.body.appendChild(notification);
-                                                        setTimeout(() => notification.remove(), 3000);
-                                                    }
-                                                    </script>
                                                 </div>
                                             </div>
 
@@ -2631,1093 +3024,132 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="bg-gradient-to-b from-white via-gray-50 to-white py-20 md:py-32 px-4 md:px-6">
+    <section id="about" class="bg-gradient-to-b from-blue-50 via-purple-50 to-white py-20 md:py-28 px-4">
         <div class="max-w-7xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16 md:mb-20">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">About TSE</h2>
-                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Bridging the gap between education and industry through practical internship experiences that transform careers</p>
-            </div>
-
-            <!-- Main About Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-24">
-                <!-- Left Content -->
-                <div class="space-y-6">
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-10 border-l-4 border-blue-600 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <i class="fas fa-lightbulb text-yellow-500 text-3xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Our Mission</h3>
-                                <p class="text-gray-700 text-lg leading-relaxed">The Skill Of Education (TSE) bridges the gap between theoretical knowledge and practical industry requirements through immersive internship experiences that transform careers and create opportunities.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 md:p-10 border-l-4 border-purple-600 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <i class="fas fa-star text-amber-500 text-3xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Our Vision</h3>
-                                <p class="text-gray-700 text-lg leading-relaxed">To empower 10,000+ students annually to grow and succeed in the real world by partnering with industry leaders and providing practical experience that truly matters in today's competitive job market.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 md:p-10 border-l-4 border-green-600 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-start gap-4">
-                            <i class="fas fa-handshake text-green-600 text-3xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Our Values</h3>
-                                <p class="text-gray-700 text-lg leading-relaxed">Excellence • Integrity • Innovation • Student-Centric Approach • Industry Partnership • Continuous Learning</p>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">About TSE</h2>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                    <p class="text-gray-700 mb-6 leading-relaxed text-lg md:text-xl">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-4 text-2xl"></i>
+                        <span class="font-semibold">The Skill Of Education (TSE)</span> bridges the gap between theoretical knowledge and practical industry requirements through hands-on internship experiences that transform careers.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed text-lg md:text-xl">
+                        <i class="fas fa-star text-blue-500 mr-4 text-2xl"></i>
+                        <span class="font-semibold">We empower students</span> to grow and succeed in the real world by partnering with industry leaders and providing practical experience that matters.
+                    </p>
                 </div>
-
-                <!-- Right Stats Grid -->
-                <div>
-                    <div class="grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
-                        <!-- Stat Card 1 -->
-                        <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="openModal('internshipdetails')">
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">100+</div>
-                                <p class="text-blue-100 text-lg font-semibold">Students Trained</p>
-                                <p class="text-blue-200 text-sm mt-2">Across all programs</p>
-                            </div>
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl stat-card border-l-4 border-blue-600">
+                            <div class="text-4xl md:text-5xl font-bold text-blue-600 mb-3">1000+</div>
+                            <p class="text-gray-700 font-semibold text-lg">Students Trained</p>
                         </div>
-
-                        <!-- Stat Card 2 -->
-                        <div class="bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="openModal('internshipdetails')">
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
-                                <p class="text-purple-100 text-lg font-semibold">Partner Companies</p>
-                                <p class="text-purple-200 text-sm mt-2">Top tier organizations</p>
-                            </div>
+                        <div class="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl stat-card border-l-4 border-purple-600">
+                            <div class="text-4xl md:text-5xl font-bold text-purple-600 mb-3">50+</div>
+                            <p class="text-gray-700 font-semibold text-lg">Industry Partners</p>
                         </div>
-
-                        <!-- Stat Card 3 -->
-                        <div class="bg-gradient-to-br from-pink-600 to-pink-700 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="openModal('internshipdetails')">
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">100%</div>
-                                <p class="text-pink-100 text-lg font-semibold">Placement Success</p>
-                                <p class="text-pink-200 text-sm mt-2">Within 30 days</p>
-                            </div>
+                        <div class="p-6 bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl stat-card border-l-4 border-pink-600">
+                            <div class="text-4xl md:text-5xl font-bold text-pink-600 mb-3">100%</div>
+                            <p class="text-gray-700 font-semibold text-lg">Success Rate</p>
                         </div>
-
-                        <!-- Stat Card 4 -->
-                        <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="openModal('internshipdetails')">
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">₹25K+</div>
-                                <p class="text-green-100 text-lg font-semibold">Avg Post-Intern Salary</p>
-                                <p class="text-green-200 text-sm mt-2">Monthly packages</p>
-                            </div>
+                        <div class="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl stat-card border-l-4 border-green-600">
+                            <div class="text-4xl md:text-5xl font-bold text-green-600 mb-3">2024</div>
+                            <p class="text-gray-700 font-semibold text-lg">Est. Year</p>
                         </div>
                     </div>
-
-                    <!-- CTA Button -->
-                    <button onclick="openModal('internshipdetails')" class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-lg group relative overflow-hidden">
-                        <span class="absolute inset-0 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                        <span class="relative flex items-center justify-center gap-2">
-                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
-                            <span class="group-hover:tracking-wider transition-all duration-300">Explore Full Details</span>
-                        </span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Why Choose TSE Section -->
-            <div class="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 rounded-3xl p-8 md:p-12 border-2 border-blue-200 mb-16 md:mb-20">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Why Choose TSE?</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    <!-- Feature 1 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-rocket text-blue-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Real Industry Experience</h4>
-                        <p class="text-gray-700 leading-relaxed">Work on live projects with leading companies and gain practical skills that employers truly value and seek in candidates.</p>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-users text-purple-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Expert Mentorship</h4>
-                        <p class="text-gray-700 leading-relaxed">Learn from industry professionals with 10+ years experience who provide personalized guidance and continuous career support.</p>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-certificate text-pink-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">100% Job Placement</h4>
-                        <p class="text-gray-700 leading-relaxed">Earn industry-recognized certifications and get placed in your desired role with guaranteed placement support.</p>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-chart-line text-green-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Career Growth</h4>
-                        <p class="text-gray-700 leading-relaxed">Build a strong professional network and portfolio that opens doors to high-paying career opportunities.</p>
-                    </div>
-
-                    <!-- Feature 5 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-laptop text-indigo-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Flexible Learning</h4>
-                        <p class="text-gray-700 leading-relaxed">Choose between online and offline modes with flexible schedules that fit your lifestyle and commitments.</p>
-                    </div>
-
-                    <!-- Feature 6 -->
-                    <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 group">
-                        <div class="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-network-wired text-amber-600 text-3xl"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Strong Network</h4>
-                        <p class="text-gray-700 leading-relaxed">Connect with 500+ professionals in your field and build lasting relationships that benefit your career.</p>
-                    </div>
-                </div>
-            </div>
-
-            
-
-            <!-- CTA Section -->
-            <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-10 md:p-16 text-white text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Career?</h3>
-                <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">Join 100+ successful interns who've landed high-paying jobs through TSE's proven internship model.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="openModal('signup')" class="px-10 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg">
-                        <i class="fas fa-rocket mr-3"></i>Start Now
-                    </button>
-                    <button onclick="openContactModal()" class="px-10 py-4 bg-white/20 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/30 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                        <i class="fas fa-phone mr-3"></i>Get Info
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="bg-gradient-to-b from-white to-gray-50 py-20 md:py-28 px-4">
-        <!-- Enhanced About Section with Internship Details Popup -->
-        <div class="space-y-12"></div>
-
-            <!-- Internship Details Popup Modal -->
-            <div id="internshipdetailsModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4 overflow-y-auto" onclick="closeModal('internshipdetails')">
-                <div class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full modal-open my-8" onclick="event.stopPropagation()">
-                    <!-- Header with Gradient Background & Enhanced Visual Design -->
-                    <div class="relative">
-                        <!-- Animated Background Elements -->
-                        <div class="absolute inset-0 overflow-hidden">
-                            <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-float"></div>
-                            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-pink-400/10 to-cyan-400/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
-                        </div>
-
-                        <!-- Main Content Container with Proper Spacing -->
-                        <div class="relative z-10 px-6 md:px-8 lg:px-12 py-12 md:py-16">
-                            <!-- Header Section -->
-                            <div class="max-w-7xl mx-auto mb-12 md:mb-16">
-                                <div class="flex items-center justify-between mb-8 md:mb-12">
-                                    <div class="flex-1">
-                                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 leading-tight animate-fade-down">
-                                            Internship Details
-                                        </h2>
-                                        <p class="text-lg md:text-xl text-gray-600 flex items-center gap-2 animate-fade-up">
-                                            <i class="fas fa-sparkles text-yellow-500"></i>
-                                            Complete Program Overview & Success Stories
-                                        </p>
-                                    </div>
-                                    
-                                    <!-- Quick Stats Pills -->
-                                    <div class="hidden lg:flex flex-col gap-3">
-                                        <div class="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-bold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                                            <i class="fas fa-users mr-2"></i>500+ Interns
-                                        </div>
-                                        <div class="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full font-bold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                                            <i class="fas fa-trophy mr-2"></i>100% Placed
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Navigation Pills with Better Spacing -->
-                                <div class="flex flex-wrap gap-3 pb-8 border-b-2 border-gray-200 overflow-x-auto">
-                                    <button class="internship-tab-btn active px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg transform hover:scale-105 transition-all duration-300 whitespace-nowrap" data-tab="overview">
-                                        <i class="fas fa-home mr-2"></i>Overview
-                                    </button>
-                                    <button class="internship-tab-btn px-6 py-3 rounded-full font-bold text-gray-700 bg-white border-2 border-gray-300 hover:border-blue-500 hover:text-blue-600 transform hover:scale-105 transition-all duration-300 whitespace-nowrap" data-tab="programs">
-                                        <i class="fas fa-book mr-2"></i>All Programs
-                                    </button>
-                                    <button class="internship-tab-btn px-6 py-3 rounded-full font-bold text-gray-700 bg-white border-2 border-gray-300 hover:border-purple-500 hover:text-purple-600 transform hover:scale-105 transition-all duration-300 whitespace-nowrap" data-tab="benefits">
-                                        <i class="fas fa-gift mr-2"></i>Benefits
-                                    </button>
-                                    <button class="internship-tab-btn px-6 py-3 rounded-full font-bold text-gray-700 bg-white border-2 border-gray-300 hover:border-pink-500 hover:text-pink-600 transform hover:scale-105 transition-all duration-300 whitespace-nowrap" data-tab="timeline">
-                                        <i class="fas fa-calendar-alt mr-2"></i>Timeline
-                                    </button>
-                                    <button class="internship-tab-btn px-6 py-3 rounded-full font-bold text-gray-700 bg-white border-2 border-gray-300 hover:border-green-500 hover:text-green-600 transform hover:scale-105 transition-all duration-300 whitespace-nowrap" data-tab="success">
-                                        <i class="fas fa-star mr-2"></i>Success
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Stats Overview Section with Grid Layout -->
-                            <div class="max-w-7xl mx-auto mb-16 md:mb-20">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-up">
-                                    <!-- Stat 1 -->
-                                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border-2 border-blue-300 hover:border-blue-500 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="text-5xl font-black text-blue-600">500+</div>
-                                            <div class="text-5xl text-blue-200 opacity-50">
-                                                <i class="fas fa-users"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-700 font-bold text-lg mb-2">Interns Trained</p>
-                                        <p class="text-sm text-gray-600">Across all programs</p>
-                                        <div class="mt-4 pt-4 border-t border-blue-300">
-                                            <p class="text-xs font-bold text-blue-600">↑ 50% growth this year</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Stat 2 -->
-                                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl border-2 border-purple-300 hover:border-purple-500 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="text-5xl font-black text-purple-600">50+</div>
-                                            <div class="text-5xl text-purple-200 opacity-50">
-                                                <i class="fas fa-building"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-700 font-bold text-lg mb-2">Partner Companies</p>
-                                        <p class="text-sm text-gray-600">Top tier organizations</p>
-                                        <div class="mt-4 pt-4 border-t border-purple-300">
-                                            <p class="text-xs font-bold text-purple-600">✓ Fortune 500 companies</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Stat 3 -->
-                                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border-2 border-green-300 hover:border-green-500 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="text-5xl font-black text-green-600">100%</div>
-                                            <div class="text-5xl text-green-200 opacity-50">
-                                                <i class="fas fa-check-circle"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-700 font-bold text-lg mb-2">Placement Success</p>
-                                        <p class="text-sm text-gray-600">Within 30 days guaranteed</p>
-                                        <div class="mt-4 pt-4 border-t border-green-300">
-                                            <p class="text-xs font-bold text-green-600">★ Premium job match</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Stat 4 -->
-                                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border-2 border-orange-300 hover:border-orange-500 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <div class="text-5xl font-black text-orange-600">₹25K+</div>
-                                            <div class="text-5xl text-orange-200 opacity-50">
-                                                <i class="fas fa-money-bill-wave"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-700 font-bold text-lg mb-2">Average Post Salary</p>
-                                        <p class="text-sm text-gray-600">Monthly packages offered</p>
-                                        <div class="mt-4 pt-4 border-t border-orange-300">
-                                            <p class="text-xs font-bold text-orange-600">💰 Highest paying roles</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Highlight Banner -->
-                            <div class="max-w-7xl mx-auto mb-16 md:mb-20">
-                                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-10 md:p-16 shadow-2xl">
-                                    <!-- Animated Background Pattern -->
-                                    <div class="absolute inset-0 opacity-10">
-                                        <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-screen blur-3xl animate-float"></div>
-                                        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-screen blur-3xl animate-float" style="animation-delay: 2s;"></div>
-                                    </div>
-
-                                    <!-- Content -->
-                                    <div class="relative z-10">
-                                        <div class="flex items-center gap-4 mb-6">
-                                            <div class="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-lg border border-white/30">
-                                                <i class="fas fa-rocket text-white text-4xl md:text-5xl"></i>
-                                            </div>
-                                            <div>
-                                                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2">Why TSE Internship Program?</h3>
-                                                <p class="text-blue-100 text-lg md:text-xl">The most comprehensive internship experience with guaranteed career transformation</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Feature Pills -->
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-                                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4 rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                                                <p class="font-bold text-white flex items-center gap-2 text-lg">
-                                                    <i class="fas fa-briefcase text-yellow-300"></i>
-                                                    Real Projects
-                                                </p>
-                                            </div>
-                                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4 rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                                                <p class="font-bold text-white flex items-center gap-2 text-lg">
-                                                    <i class="fas fa-users text-green-300"></i>
-                                                    Expert Mentors
-                                                </p>
-                                            </div>
-                                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4 rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                                                <p class="font-bold text-white flex items-center gap-2 text-lg">
-                                                    <i class="fas fa-certificate text-pink-300"></i>
-                                                    Certifications
-                                                </p>
-                                            </div>
-                                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 px-6 py-4 rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                                                <p class="font-bold text-white flex items-center gap-2 text-lg">
-                                                    <i class="fas fa-trophy text-amber-300"></i>
-                                                    100% Placed
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Testimonials Section NEW -->
+    <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-16 md:py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-12 text-center">Success Stories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold">AP</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-white text-lg">Arjun Patel</p>
+                            <p class="text-gray-400">HR Manager</p>
                         </div>
                     </div>
-
-                    <!-- Enhanced Animation Styles -->
-                    <style>
-                        @keyframes float {
-                            0%, 100% { transform: translateY(0px) translateX(0px); }
-                            25% { transform: translateY(-20px) translateX(10px); }
-                            50% { transform: translateY(-40px) translateX(0px); }
-                            75% { transform: translateY(-20px) translateX(-10px); }
-                        }
-
-                        .animate-float {
-                            animation: float 6s ease-in-out infinite;
-                        }
-
-                        @keyframes fadeDown {
-                            from {
-                                opacity: 0;
-                                transform: translateY(-30px);
-                            }
-                            to {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                        }
-
-                        .animate-fade-down {
-                            animation: fadeDown 0.8s ease-out;
-                        }
-
-                        @keyframes fadeUp {
-                            from {
-                                opacity: 0;
-                                transform: translateY(30px);
-                            }
-                            to {
-                                opacity: 1;
-                                transform: translateY(0);
-                            }
-                        }
-
-                        .animate-fade-up {
-                            animation: fadeUp 0.8s ease-out 0.2s backwards;
-                        }
-
-                        /* Scrollbar styling for nav pills */
-                        .overflow-x-auto::-webkit-scrollbar {
-                            height: 6px;
-                        }
-
-                        .overflow-x-auto::-webkit-scrollbar-track {
-                            background: #f1f5f9;
-                            border-radius: 10px;
-                        }
-
-                        .overflow-x-auto::-webkit-scrollbar-thumb {
-                            background: #cbd5e1;
-                            border-radius: 10px;
-                        }
-
-                        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-                            background: #94a3b8;
-                        }
-                    </style>
-                 
-
-                        <!-- Programs Tab -->
-                        <div class="internship-tab-content hidden" id="programs-tab">
-                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-briefcase text-blue-600 mr-3"></i>All Internship Programs</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <!-- HR Management -->
-                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('hr')">
-                                    <div class="text-5xl text-blue-600 mb-4"><i class="fas fa-users"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">HR Management</h4>
-                                    <p class="text-gray-700 mb-3">Master talent acquisition, employee relations & organizational strategy</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-blue-200 text-blue-700 rounded-full text-sm font-semibold">6 Months</span>
-                                        <span class="px-3 py-1 bg-blue-200 text-blue-700 rounded-full text-sm font-semibold">₹15K/mo</span>
-                                    </div>
-                                    <button class="text-blue-600 font-bold hover:text-blue-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-
-                                <!-- Graphic Design -->
-                                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-l-4 border-purple-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('design')">
-                                    <div class="text-5xl text-purple-600 mb-4"><i class="fas fa-palette"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Graphic Design</h4>
-                                    <p class="text-gray-700 mb-3">Create stunning visuals, branding & UI/UX designs</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-purple-200 text-purple-700 rounded-full text-sm font-semibold">4 Months</span>
-                                        <span class="px-3 py-1 bg-purple-200 text-purple-700 rounded-full text-sm font-semibold">₹12K/mo</span>
-                                    </div>
-                                    <button class="text-purple-600 font-bold hover:text-purple-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-
-                                <!-- Social Media Marketing -->
-                                <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl border-l-4 border-pink-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('social')">
-                                    <div class="text-5xl text-pink-600 mb-4"><i class="fas fa-share-alt"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Social Media Marketing</h4>
-                                    <p class="text-gray-700 mb-3">Drive engagement & grow brands on social platforms</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-pink-200 text-pink-700 rounded-full text-sm font-semibold">5 Months</span>
-                                        <span class="px-3 py-1 bg-pink-200 text-pink-700 rounded-full text-sm font-semibold">₹13K/mo</span>
-                                    </div>
-                                    <button class="text-pink-600 font-bold hover:text-pink-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-
-                                <!-- Digital Marketing -->
-                                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border-l-4 border-orange-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('digital')">
-                                    <div class="text-5xl text-orange-600 mb-4"><i class="fas fa-bullhorn"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Digital Marketing</h4>
-                                    <p class="text-gray-700 mb-3">Master SEO, SEM & data-driven growth strategies</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-orange-200 text-orange-700 rounded-full text-sm font-semibold">6 Months</span>
-                                        <span class="px-3 py-1 bg-orange-200 text-orange-700 rounded-full text-sm font-semibold">₹14K/mo</span>
-                                    </div>
-                                    <button class="text-orange-600 font-bold hover:text-orange-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-
-                                <!-- Video Production -->
-                                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-2xl border-l-4 border-indigo-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('video')">
-                                    <div class="text-5xl text-indigo-600 mb-4"><i class="fas fa-video"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Video Production</h4>
-                                    <p class="text-gray-700 mb-3">Create professional videos with cinematography & editing</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-indigo-200 text-indigo-700 rounded-full text-sm font-semibold">5 Months</span>
-                                        <span class="px-3 py-1 bg-indigo-200 text-indigo-700 rounded-full text-sm font-semibold">₹14.5K/mo</span>
-                                    </div>
-                                    <button class="text-indigo-600 font-bold hover:text-indigo-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-
-                                <!-- Data Analytics -->
-                                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-l-4 border-green-600 hover:shadow-xl transition-all duration-300 cursor-pointer" onclick="openModal('analytics')">
-                                    <div class="text-5xl text-green-600 mb-4"><i class="fas fa-chart-line"></i></div>
-                                    <h4 class="text-2xl font-bold text-gray-900 mb-2">Data Analytics</h4>
-                                    <p class="text-gray-700 mb-3">Transform data into insights using Python & Tableau</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm font-semibold">6 Months</span>
-                                        <span class="px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm font-semibold">₹16K/mo</span>
-                                    </div>
-                                    <button class="text-green-600 font-bold hover:text-green-700"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Benefits Tab -->
-                        <div class="internship-tab-content hidden" id="benefits-tab">
-                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-gift text-pink-600 mr-3"></i>Internship Benefits</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-blue-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-money-bill-wave"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Monthly Stipend</h4>
-                                    <p class="text-gray-700 mb-3">₹12,000 - ₹16,000 per month depending on program</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>Increases with performance</p>
-                                </div>
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-purple-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-certificate"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Industry Certification</h4>
-                                    <p class="text-gray-700 mb-3">Earn recognized certifications from HubSpot, Google, LinkedIn</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>Add to LinkedIn profile</p>
-                                </div>
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-pink-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-pink-600 mb-4"><i class="fas fa-trophy"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Job Placement Guarantee</h4>
-                                    <p class="text-gray-700 mb-3">100% placement within 30 days of completion</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>Avg salary: ₹25K+/month</p>
-                                </div>
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-green-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-green-600 mb-4"><i class="fas fa-users"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Expert Mentorship</h4>
-                                    <p class="text-gray-700 mb-3">Weekly 1-on-1 sessions with industry professionals</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>10+ years experience mentors</p>
-                                </div>
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-indigo-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-indigo-600 mb-4"><i class="fas fa-folder-open"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Portfolio Development</h4>
-                                    <p class="text-gray-700 mb-3">Work on real projects and build professional case studies</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>Showcase to employers</p>
-                                </div>
-                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:border-amber-500 hover:shadow-lg transition-all duration-300">
-                                    <div class="text-4xl text-amber-600 mb-4"><i class="fas fa-network-wired"></i></div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-2">Networking Access</h4>
-                                    <p class="text-gray-700 mb-3">Connect with 500+ professionals in your field</p>
-                                    <p class="text-sm text-green-600"><i class="fas fa-check mr-2"></i>Build lasting relationships</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Tab -->
-                        <div class="internship-tab-content hidden" id="timeline-tab">
-                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-road mr-3 text-blue-600"></i>Your Internship Journey</h3>
-                            <div class="space-y-8">
-                                <div class="flex gap-6">
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">1</div>
-                                        <div class="w-1 h-32 bg-gradient-to-b from-blue-600 to-purple-600 mt-4"></div>
-                                    </div>
-                                    <div class="pt-2 pb-8">
-                                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Week 1-2: Onboarding & Foundation</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Company culture orientation</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Tool training & setup</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Meet your mentor</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>First project assignment</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-6">
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">2</div>
-                                        <div class="w-1 h-32 bg-gradient-to-b from-purple-600 to-pink-600 mt-4"></div>
-                                    </div>
-                                    <div class="pt-2 pb-8">
-                                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Week 3-8: Active Engagement</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Work on live projects</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Weekly mentor sessions</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Skill development workshops</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Mid-term performance review</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-6">
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-pink-600 to-pink-700 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">3</div>
-                                        <div class="w-1 h-32 bg-gradient-to-b from-pink-600 to-orange-600 mt-4"></div>
-                                    </div>
-                                    <div class="pt-2 pb-8">
-                                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Week 9-16: Leadership & Mastery</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Own major projects</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Lead team initiatives</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Create case studies</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Final project presentation</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-6">
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-orange-700 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">4</div>
-                                    </div>
-                                    <div class="pt-2">
-                                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Post-Internship: Placement</h4>
-                                        <ul class="space-y-2 text-gray-700">
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Certificate awarded</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Resume optimization</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Interview coaching</li>
-                                            <li><i class="fas fa-check text-green-600 mr-3"></i>Job placement within 30 days</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Success Stories Tab -->
-                        <div class="internship-tab-content hidden" id="success-tab">
-                            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-star text-yellow-500 mr-3"></i>Success Stories</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-300">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
-                                            <span>SS</span>
-                                        </div>
-                                        <div>
-                                            <p class="text-xl font-bold text-gray-900">Sarah Singh</p>
-                                            <p class="text-gray-600">HR Manager at TCS</p>
-                                            <div class="flex gap-1 mt-2">
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-gray-700 italic mb-4">"TSE's HR internship completely transformed my career. The hands-on experience and mentorship from industry experts prepared me perfectly for my role at TCS. I was placed within 2 weeks of completion!"</p>
-                                    <p class="text-sm text-green-600 font-semibold"><i class="fas fa-briefcase mr-2"></i>Current: HR Manager | Salary: ₹45,000/month</p>
-                                </div>
-
-                                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-300">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
-                                            <span>RK</span>
-                                        </div>
-                                        <div>
-                                            <p class="text-xl font-bold text-gray-900">Rajesh Kumar</p>
-                                            <p class="text-gray-600">Social Media Manager at Google</p>
-                                            <div class="flex gap-1 mt-2">
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-gray-700 italic mb-4">"The Social Media Marketing internship at TSE gave me real campaign management experience. Working on actual brand accounts was invaluable. Google's team noticed my portfolio and offered me a position!"</p>
-                                    <p class="text-sm text-green-600 font-semibold"><i class="fas fa-briefcase mr-2"></i>Current: Social Media Manager | Salary: ₹48,000/month</p>
-                                </div>
-
-                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-300">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
-                                            <span>AP</span>
-                                        </div>
-                                        <div>
-                                            <p class="text-xl font-bold text-gray-900">Anya Patel</p>
-                                            <p class="text-gray-600">Graphic Designer at Adobe</p>
-                                            <div class="flex gap-1 mt-2">
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-gray-700 italic mb-4">"TSE's design program taught me professional standards and real-world design challenges. My portfolio from the internship impressed Adobe's team so much, they offered me a permanent role!"</p>
-                                    <p class="text-sm text-green-600 font-semibold"><i class="fas fa-briefcase mr-2"></i>Current: Graphic Designer | Salary: ₹42,000/month</p>
-                                </div>
-
-                                <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-2xl border-2 border-orange-300">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
-                                            <span>VJ</span>
-                                        </div>
-                                        <div>
-                                            <p class="text-xl font-bold text-gray-900">Vihaan Joshi</p>
-                                            <p class="text-gray-600">Data Analyst at Microsoft</p>
-                                            <div class="flex gap-1 mt-2">
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                                <i class="fas fa-star text-yellow-400"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="text-gray-700 italic mb-4">"The Data Analytics program at TSE was intense but incredibly rewarding. I learned Python, Tableau, and Power BI on real datasets. Microsoft recruited me straight from my internship project!"</p>
-                                    <p class="text-sm text-green-600 font-semibold"><i class="fas fa-briefcase mr-2"></i>Current: Data Analyst | Salary: ₹55,000/month</p>
-                                </div>
-                            </div>
+                    <p class="text-gray-300 text-lg mb-4">"TSE transformed my career. The practical experience and mentorship helped me land my dream job in just 3 months!"</p>
+                    <div class="flex text-yellow-400 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold">RK</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-white text-lg">Riya Kapoor</p>
+                            <p class="text-gray-400">Graphic Designer</p>
                         </div>
                     </div>
-
+                    <p class="text-gray-300 text-lg mb-4">"The Adobe training and portfolio support gave me the confidence to freelance successfully. Best investment ever!"</p>
+                    <div class="flex text-yellow-400 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-pink-600 rounded-full flex items-center justify-center text-white text-xl font-bold">MS</div>
+                        <div class="ml-4">
+                            <p class="font-bold text-white text-lg">Mehul Singh</p>
+                            <p class="text-gray-400">Social Media Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg mb-4">"From zero experience to managing campaigns for big brands. TSE's real-world projects made all the difference!"</p>
+                    <div class="flex text-yellow-400 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tab Control Script -->
-        <script>
-        document.querySelectorAll('.internship-tab-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tabName = this.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
-                document.querySelectorAll('.internship-tab-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-white/20');
-                });
-                document.querySelectorAll('.internship-tab-content').forEach(c => {
-                    c.classList.add('hidden');
-                });
-                
-                // Add active class to clicked button and show content
-                this.classList.add('active', 'bg-white/20');
-                document.getElementById(tabName + '-tab').classList.remove('hidden');
-            });
-        });
-        </script>
     </section>
 
     <!-- HR Management Modal -->
     <div id="hrModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('hr')">
-        <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-            <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 p-8 text-white rounded-t-3xl sticky top-0">
-                <div class="flex justify-between items-start">
-                    
-                    <div>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-3"><i class="fas fa-users mr-4"></i>HR Management</h2>
-                        <p class="text-blue-100 text-xl">Professional Internship Program • 6 Months</p>
-                    </div>
-                    <button onclick="closeModal('hr')" class="text-4xl hover:bg-blue-800 p-2 rounded-lg transition flex-shrink-0">
-                        <i class="fas fa-times"></i>
-                    </button>
+        <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-users mr-4"></i>HR Management</h2>
+                    <p class="text-blue-100 mt-3 text-lg">Professional Internship Program</p>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-4">
-                    <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm">₹15,000/Month</span>
-                    <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm"><i class="fas fa-star mr-2 text-yellow-300"></i>4.8/5 Rating</span>
-                    <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-bold backdrop-blur-sm"><i class="fas fa-users mr-2"></i>500+ Interns</span>
-                </div>
+                <button onclick="closeModal('hr')" class="text-3xl hover:bg-blue-700 p-2 rounded-lg transition flex-shrink-0">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-
             <div class="p-8 md:p-12">
-                <!-- Program Overview -->
-                <div class="mb-10 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 p-8 rounded-3xl border-2 border-blue-200">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center">
-                        <i class="fas fa-star text-yellow-500 mr-4 text-3xl"></i>HR Management Internship
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed text-lg mb-6">Master the complete HR lifecycle starting from recruitment, employee engagement, to performance management. Our comprehensive 6-month HR internship program gives you hands-on experience with real HR projects from leading companies.</p>
-                    
+                <div class="mb-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-star text-yellow-500 mr-3"></i>Program Overview</h3>
+                    <p class="text-gray-700 leading-relaxed text-lg">Master the art of Human Resource Management with hands-on experience in recruitment, employee relations, and organizational strategy. Our comprehensive 6-month internship program prepares you for a successful HR career with mentorship from industry experts.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-book text-blue-500 mr-3"></i>What You'll Learn</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl hover:shadow-md transition-all duration-300">
-                            <i class="fas fa-check-circle text-green-600 text-2xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <p class="font-bold text-gray-900">Real HR Projects</p>
-                                <p class="text-sm text-gray-600">Work on recruitment drives, engagement, and policy creation</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl hover:shadow-md transition-all duration-300">
-                            <i class="fas fa-check-circle text-green-600 text-2xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <p class="font-bold text-gray-900">Expert Mentors</p>
-                                <p class="text-sm text-gray-600">Weekly 1-on-1 sessions with HR leaders</p>
-                            </div>
-                        </div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Talent Acquisition & Recruitment Strategies</span></div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Employee Engagement & Retention</span></div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Performance Management Systems</span></div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>HR Analytics & Data-Driven Decisions</span></div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Payroll & Compliance Management</span></div>
+                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Organizational Development</span></div>
                     </div>
-
-                    <button onclick="openModal('internshipdetails')" class="mt-6 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-bold hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-lg">
-                        <i class="fas fa-arrow-right"></i>View Full Details
+                </div>
+                <div class="mb-8 bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3"><i class="fas fa-briefcase text-blue-600 mr-3"></i>Career Opportunities</h3>
+                    <p class="text-gray-700 text-lg">HR Executive, Recruiter, Employee Relations Specialist, Compensation & Benefits Analyst, HR Manager, HR Consultant</p>
+                </div>
+                <div class="flex gap-4">
+                    <button class="flex-1 bg-blue-600 text-white py-4 rounded-xl hover:bg-blue-700 font-bold transition transform hover:scale-105 duration-300 text-lg">
+                        <i class="fas fa-check mr-3"></i>Enroll Now
                     </button>
-                </div>
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">6</div>
-                        <p class="text-gray-700 font-semibold">Month Duration</p>
-                        <p class="text-sm text-gray-600 mt-1">Flexible timing</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-l-4 border-purple-600">
-                        <div class="text-3xl font-bold text-purple-600 mb-2">100%</div>
-                        <p class="text-gray-700 font-semibold">Placement</p>
-                        <p class="text-sm text-gray-600 mt-1">Avg 30 days</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-l-4 border-green-600">
-                        <div class="text-3xl font-bold text-green-600 mb-2">50+</div>
-                        <p class="text-gray-700 font-semibold">Partner Companies</p>
-                        <p class="text-sm text-gray-600 mt-1">Top tier firms</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border-l-4 border-orange-600">
-                        <div class="text-3xl font-bold text-orange-600 mb-2">₹25K+</div>
-                        <p class="text-gray-700 font-semibold">Avg Salary</p>
-                        <p class="text-sm text-gray-600 mt-1">Post internship</p>
-                    </div>
-                </div>
-
-                <!-- Program Overview -->
-                <div class="mb-10 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 p-8 rounded-3xl border-2 border-blue-200">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex items-center">
-                        <i class="fas fa-star text-yellow-500 mr-4 text-3xl"></i>Program Overview
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">Master the art of Human Resource Management with hands-on experience in recruitment, employee relations, and organizational strategy. Our comprehensive 6-month internship program prepares you for a successful HR career with mentorship from industry experts. Work on real-world HR projects that impact 1000+ employees across multiple organizations.</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl">
-                            <i class="fas fa-check-circle text-green-600 text-2xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <p class="font-bold text-gray-900">Live Project Experience</p>
-                                <p class="text-sm text-gray-600">Work on actual HR initiatives from day one</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl">
-                            <i class="fas fa-check-circle text-green-600 text-2xl flex-shrink-0 mt-1"></i>
-                            <div>
-                                <p class="font-bold text-gray-900">Industry Mentorship</p>
-                                <p class="text-sm text-gray-600">1-on-1 guidance from HR leaders</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills You'll Learn -->
-                <div class="mb-10">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-book text-blue-600 mr-4 text-3xl"></i>Skills You'll Master
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-blue-600 mb-3"><i class="fas fa-bullseye"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Talent Acquisition</h4>
-                            <p class="text-gray-700 text-sm">Recruitment strategies, sourcing, screening, interviewing techniques</p>
-                        </div>
-                        <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-purple-600 mb-3"><i class="fas fa-handshake"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Employee Relations</h4>
-                            <p class="text-gray-700 text-sm">Engagement, conflict resolution, retention strategies</p>
-                        </div>
-                        <div class="bg-pink-50 p-6 rounded-2xl border-l-4 border-pink-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-pink-600 mb-3"><i class="fas fa-chart-line"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Performance Management</h4>
-                            <p class="text-gray-700 text-sm">KPI setting, appraisals, feedback delivery systems</p>
-                        </div>
-                        <div class="bg-green-50 p-6 rounded-2xl border-l-4 border-green-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-green-600 mb-3"><i class="fas fa-database"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">HR Analytics</h4>
-                            <p class="text-gray-700 text-sm">Data-driven decision making, HRIS tools, reporting</p>
-                        </div>
-                        <div class="bg-indigo-50 p-6 rounded-2xl border-l-4 border-indigo-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-indigo-600 mb-3"><i class="fas fa-file-contract"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Compliance & Law</h4>
-                            <p class="text-gray-700 text-sm">Labor laws, payroll, statutory requirements, policies</p>
-                        </div>
-                        <div class="bg-amber-50 p-6 rounded-2xl border-l-4 border-amber-600 hover:shadow-lg transition-all duration-300">
-                            <div class="text-2xl text-amber-600 mb-3"><i class="fas fa-people-arrows"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Org Development</h4>
-                            <p class="text-gray-700 text-sm">Change management, training, culture building</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline -->
-                <div class="mb-10">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-calendar-alt text-blue-600 mr-4 text-3xl"></i>6-Month Journey
-                    </h3>
-                    <div class="relative">
-                        <div class="space-y-6">
-                            <div class="flex gap-6">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">M1-2</div>
-                                    <div class="w-1 h-24 bg-gradient-to-b from-blue-600 to-purple-600 mt-2"></div>
-                                </div>
-                                <div class="pt-2">
-                                    <h4 class="font-bold text-gray-900 text-lg">Months 1-2: Foundation & Onboarding</h4>
-                                    <ul class="text-gray-700 mt-2 space-y-1 text-base">
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>HR fundamentals and company culture</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>HR systems & tools training</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Shadowing experienced HR professionals</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-6">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-700 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">M3-4</div>
-                                    <div class="w-1 h-24 bg-gradient-to-b from-purple-600 to-green-600 mt-2"></div>
-                                </div>
-                                <div class="pt-2">
-                                    <h4 class="font-bold text-gray-900 text-lg">Months 3-4: Active Participation</h4>
-                                    <ul class="text-gray-700 mt-2 space-y-1 text-base">
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Lead recruitment drive for 50+ positions</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Conduct employee engagement surveys</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Create HR policies & documentation</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-6">
-                                <div class="flex flex-col items-center">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">M5-6</div>
-                                </div>
-                                <div class="pt-2">
-                                    <h4 class="font-bold text-gray-900 text-lg">Months 5-6: Project Leadership & Certification</h4>
-                                    <ul class="text-gray-700 mt-2 space-y-1 text-base">
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Own end-to-end HR project</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Present findings to senior leadership</li>
-                                        <li><i class="fas fa-check text-green-600 mr-2"></i>Receive certification & placement support</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Features -->
-                <div class="mb-10">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-trophy text-yellow-500 mr-4 text-3xl"></i>Program Highlights
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white border-2 border-blue-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-blue-600 mb-3"><i class="fas fa-users-cog"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">1-on-1 Mentor Sessions</h4>
-                            <p class="text-gray-700">Weekly personalized training from experienced HR leaders with 10+ years experience</p>
-                        </div>
-                        <div class="bg-white border-2 border-purple-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-purple-600 mb-3"><i class="fas fa-project-diagram"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Real HR Projects</h4>
-                            <p class="text-gray-700">Work on actual recruitment drives, engagement initiatives, and policy creation</p>
-                        </div>
-                        <div class="bg-white border-2 border-pink-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-pink-600 mb-3"><i class="fas fa-award"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Industry Certifications</h4>
-                            <p class="text-gray-700">Earn recognized certifications from SHRM, LinkedIn, and partner organizations</p>
-                        </div>
-                        <div class="bg-white border-2 border-green-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-green-600 mb-3"><i class="fas fa-briefcase"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">100% Placement Support</h4>
-                            <p class="text-gray-700">Resume review, interview coaching, and direct job offers from partner companies</p>
-                        </div>
-                        <div class="bg-white border-2 border-indigo-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-indigo-600 mb-3"><i class="fas fa-network-wired"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Networking Opportunities</h4>
-                            <p class="text-gray-700">Connect with 500+ HR professionals and build lasting industry relationships</p>
-                        </div>
-                        <div class="bg-white border-2 border-amber-300 rounded-2xl p-6 hover:shadow-xl transition-all duration-300">
-                            <div class="text-4xl text-amber-600 mb-3"><i class="fas fa-book-open"></i></div>
-                            <h4 class="font-bold text-gray-900 mb-2 text-lg">Learning Resources</h4>
-                            <p class="text-gray-700">Access 100+ HR case studies, templates, tools, and exclusive webinars</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Career Path -->
-                <div class="mb-10 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-8 rounded-3xl border-2 border-blue-300">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-briefcase text-blue-600 mr-4 text-3xl"></i>Career Opportunities
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>HR Executive</p>
-                            <p class="text-gray-600">Avg Salary: ₹25,000-35,000/month</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>Recruiter</p>
-                            <p class="text-gray-600">Avg Salary: ₹24,000-32,000/month</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>Employee Relations Manager</p>
-                            <p class="text-gray-600">Avg Salary: ₹28,000-38,000/month</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>HR Analyst</p>
-                            <p class="text-gray-600">Avg Salary: ₹26,000-36,000/month</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>HR Consultant</p>
-                            <p class="text-gray-600">Avg Salary: ₹30,000-45,000/month</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-xl">
-                            <p class="font-bold text-gray-900 text-lg"><i class="fas fa-arrow-right text-blue-600 mr-2"></i>HR Manager</p>
-                            <p class="text-gray-600">Avg Salary: ₹35,000-50,000/month</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Success Stories -->
-                <div class="mb-10">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-star text-yellow-500 mr-4 text-3xl"></i>Success Stories
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border-l-4 border-blue-600">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">SS</div>
-                                <div>
-                                    <p class="font-bold text-gray-900 text-lg">Sarah Singh</p>
-                                    <p class="text-sm text-gray-600">Now HR Manager @TCS</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 italic">"TSE internship transformed my career. Within 3 months of completion, I got placed at TCS with ₹35K salary. The mentorship was invaluable!"</p>
-                            <div class="flex gap-1 mt-3">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                        </div>
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-l-4 border-purple-600">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">RK</div>
-                                <div>
-                                    <p class="font-bold text-gray-900 text-lg">Rajesh Kumar</p>
-                                    <p class="text-sm text-gray-600">Now Recruiter @Google</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 italic">"The hands-on recruitment experience I got during internship directly helped me secure a role at Google. Best decision ever!"</p>
-                            <div class="flex gap-1 mt-3">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Section -->
-                <div class="mb-10">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                        <i class="fas fa-question-circle text-blue-600 mr-4 text-3xl"></i>Frequently Asked Questions
-                    </h3>
-                    <div class="space-y-3">
-                        <details class="bg-white border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-300 transition-all duration-300">
-                            <summary class="font-bold text-gray-900 text-lg flex items-center justify-between">
-                                Who can apply for this internship?
-                                <i class="fas fa-chevron-down ml-2"></i>
-                            </summary>
-                            <p class="text-gray-700 mt-3">Any graduate or working professional looking to transition into HR can apply. No prior HR experience required!</p>
-                        </details>
-                        <details class="bg-white border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-300 transition-all duration-300">
-                            <summary class="font-bold text-gray-900 text-lg flex items-center justify-between">
-                                Is the internship online or offline?
-                                <i class="fas fa-chevron-down ml-2"></i>
-                            </summary>
-                            <p class="text-gray-700 mt-3">Flexible! You can choose hybrid or online based on your convenience. Most mentoring sessions are online 1-on-1.</p>
-                        </details>
-                        <details class="bg-white border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-300 transition-all duration-300">
-                            <summary class="font-bold text-gray-900 text-lg flex items-center justify-between">
-                                What's the stipend? Does it increase over time?
-                                <i class="fas fa-chevron-down ml-2"></i>
-                            </summary>
-                            <p class="text-gray-700 mt-3">Starting stipend is ₹15,000/month. It increases to ₹18,000 from month 4 based on performance!</p>
-                        </details>
-                        <details class="bg-white border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-blue-300 transition-all duration-300">
-                            <summary class="font-bold text-gray-900 text-lg flex items-center justify-between">
-                                What's the job placement guarantee?
-                                <i class="fas fa-chevron-down ml-2"></i>
-                            </summary>
-                            <p class="text-gray-700 mt-3">100% placement guarantee. If not placed within 30 days of completion, we provide additional support at no extra cost.</p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col md:flex-row gap-4 pt-6 border-t-2 border-gray-200">
-                    <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 md:py-5 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg group relative overflow-hidden">
-                        <span class="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                        <span class="relative flex items-center justify-center">
-                            <i class="fas fa-rocket mr-3 group-hover:rotate-12 transition-transform duration-300"></i>
-                            <span class="group-hover:tracking-widest transition-all duration-300">Apply Now</span>
-                        </span>
-                    </button>
-                    <button onclick="openContactModal()" class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white py-4 md:py-5 rounded-xl hover:shadow-2xl font-bold transition transform hover:scale-105 duration-300 text-lg group relative overflow-hidden">
-                        <span class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-indigo-800 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                        <span class="relative flex items-center justify-center">
-                            <i class="fas fa-phone mr-3"></i>
-                            <span class="group-hover:tracking-widest transition-all duration-300">Talk to Advisor</span>
-                        </span>
-                    </button>
-                    <button onclick="closeModal('hr')" class="flex-1 bg-gray-200 text-gray-900 py-4 md:py-5 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
-                        <i class="fas fa-times mr-2"></i>Close
+                    <button onclick="closeModal('hr')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
+                        Close
                     </button>
                 </div>
             </div>
