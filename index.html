@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
    <link rel="icon" href="https://horizons-cdn.hostinger.com/cee446de-c236-4591-b8e5-f3ace8481109/7a368cfaf01ec17726b689fc69367d25.png" type="image/x-icon">
@@ -3609,7 +3609,8 @@
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 md:mb-8 animate-fade-up leading-tight">The Skill Of Education</h1>
             <button onclick="openModal('quicklogin')" class="text-gray-700 hover:text-blue-600 font-semibold transition text-lg py-2 text-left px-4 rounded-lg hover:bg-white/40">TSE Admin</button>
             <p class="text-xl md:text-2xl lg:text-3xl text-blue-100 mb-8 md:mb-16 animate-fade-up font-light tracking-wide">Learn • Grow • Succeed</p>
-            <button class="px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 glow-button" onclick="openModal('signup')">
+            <button class="px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-blue-500 to-purple-600 t
+ext-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 glow-button" onclick="openModal('signup')">
                 <i class="fas fa-rocket mr-3"></i>Start Your Journey
             </button>
         </div>
@@ -4162,6 +4163,53 @@
                                 // This rotates through the three cards in the programs section
                             }, 5000);
                         </script>
+
+                        
+                        <!-- Intern Portal Card -->
+                        <div class="relative w-full h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 hover:shadow-2xl transition-all duration-300" onclick="openModal('internportal')">
+                            <div class="absolute inset-0 opacity-20">
+                                <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+                                <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+                            </div>
+                            
+                            <div class="relative h-full flex flex-col items-center justify-center text-center px-8">
+                                <div class="mb-8 text-7xl transform group-hover:scale-125 transition-transform duration-300">
+                                    <i class="fas fa-sign-in-alt text-white"></i>
+                                </div>
+                                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Intern Portal</h3>
+                                <p class="text-xl md:text-2xl text-emerald-100 mb-8">Manage Your Internship</p>
+                                
+                                <div class="space-y-3 mb-8 text-left max-w-xs">
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Track Your Tasks & Progress</span>
+                                    </div>
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Connect with Your Mentor</span>
+                                    </div>
+                                    <div class="flex items-center text-emerald-100">
+                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
+                                        <span class="text-lg">Download Certificates</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <button class="px-8 py-3 bg-white/25 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/40 transition-all duration-300 border border-white/40 text-lg">
+                                        <i class="fas fa-arrow-right mr-2"></i>Login / Register
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Floating Animation Elements -->
+                            <div class="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center animate-pulse">
+                                <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                            </div>
+                            
+                            <div class="absolute bottom-10 left-10 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center animate-bounce">
+                                <i class="fas fa-chart-line text-white text-2xl"></i>
+                            </div>
+                        </div>
                         <!-- Employee Portal Card -->
                         <div class="relative w-full h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer bg-gradient-to-br from-indigo-600 via-blue-700 to-purple-800 hover:shadow-2xl transition-all duration-300" onclick="openModal('employeeportal')">
                             <div class="absolute inset-0 opacity-20">
@@ -4862,75 +4910,31 @@
                             setInterval(updateTime, 1000);
                             updateTime();
                         </script>
-                        <!-- Right side - Internship Portal Card -->
-                        <div class="relative w-full h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800 hover:shadow-2xl transition-all duration-300" onclick="openModal('internportal')">
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
-                                <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
-                            </div>
-                            <!-- Internship Portal Card Content -->
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
-                                <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
-                            </div>
-                            <div class="relative h-full flex flex-col items-center justify-center text-center px-8">
-                                <div class="mb-8 text-7xl transform group-hover:scale-125 transition-transform duration-300 animate-bounce">
-                                    <i class="fas fa-user-graduate text-white"></i>
-                                </div>
-                                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Internship Portal</h3>
-                                <p class="text-xl md:text-2xl text-emerald-100 mb-8">Apply Now & Track Progress</p>
-                                
-                                <div class="space-y-3 mb-8 text-left max-w-xs">
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Easy Application Process</span>
-                                    </div>
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Real-time Status Updates</span>
-                                    </div>
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Connect with Mentors</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <button onclick="event.stopPropagation(); openModal('internportal')" class="px-8 py-3 bg-white/25 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/40 transition-all duration-300 border border-white/40 text-lg">
-                                        <i class="fas fa-arrow-right mr-2"></i>Enter Portal
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="relative h-full flex flex-col items-center justify-center text-center px-8">
-                                <div class="mb-8 text-7xl transform group-hover:scale-125 transition-transform duration-300 animate-bounce">
-                                    <i class="fas fa-sign-in-alt text-white"></i>
-                                </div>
-                                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Internship Portal</h3>
-                                <p class="text-xl md:text-2xl text-emerald-100 mb-8">Apply Now & Track Progress</p>
-                                
-                                <div class="space-y-3 mb-8 text-left max-w-xs">
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Easy Application Process</span>
-                                    </div>
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Real-time Status Updates</span>
-                                    </div>
-                                    <div class="flex items-center text-emerald-100">
-                                        <i class="fas fa-check-circle text-white mr-3 flex-shrink-0"></i>
-                                        <span class="text-lg">Connect with Mentors</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <button class="px-8 py-3 bg-white/25 backdrop-blur-md text-white rounded-full font-bold hover:bg-white/40 transition-all duration-300 border border-white/40 text-lg">
-                                        <i class="fas fa-arrow-right mr-2"></i>Enter Portal
-                                    </button>
-                                </div>
-                            </div>
                         </div>
+    
+                                           
 
+                                        </div>
+                    
+                                        <!-- Navigation Dots -->
+                                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+                                            <button onclick="currentSlide(0)" class="dot w-3 h-3 rounded-full bg-white/60 hover:bg-white transition duration-300"></button>
+                                            <button onclick="currentSlide(1)" class="dot w-3 h-3 rounded-full bg-white/60 hover:bg-white transition duration-300"></button>
+                                            <button onclick="currentSlide(2)" class="dot w-3 h-3 rounded-full bg-white/60 hover:bg-white transition duration-300"></button>
+                                        </div>
+                    
+                                        <!-- Previous/Next Buttons -->
+                                        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center transition duration-300 backdrop-blur-sm z-10">
+                                            <i class="fas fa-chevron-left text-2xl"></i>
+                                        </button>
+                                        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center transition duration-300 backdrop-blur-sm z-10">
+                                            <i class="fas fa-chevron-right text-2xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    
                         <!-- Internship Portal Modal -->
                         <div id="internportalModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('internportal')">
                             <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
@@ -5065,147 +5069,942 @@
                                                 <span class="group-hover:tracking-widest transition-all duration-300">Create New Account</span>
                                             </span>
                                         </button>
+                                    </div>
 
-                                        <script>
-                                        // Google Sheets Integration for New Account Signup
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                            const signupForm = document.querySelector('#signupModal form');
+                                    <script>
+                                    
+                                    // ==================================================
+                                    // PROFESSIONAL INTERN LOGIN & PORTAL SYSTEM
+                                    // ==================================================
+
+                                    // ==================================================
+                                    // ENHANCED MULTI-STUDENT INTERN PORTAL SYSTEM
+                                    // ==================================================
+                                    // Comprehensive Intern Database with 50 Students (5 domains × 10 students)
+                                    const INTERN_DATABASE = {
+                                        // HR Domain - 10 Students
+                                        'hr001@tse.in': { password: 'HR@2024001', name: 'Aarav Sharma', college: 'Delhi University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'AS', joinDate: 'Nov 15, 2024', email: 'hr001@tse.in' },
+                                        'hr002@tse.in': { password: 'HR@2024002', name: 'Bhavna Patel', college: 'Mumbai University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'BP', joinDate: 'Nov 18, 2024', email: 'hr002@tse.in' },
+                                        'hr003@tse.in': { password: 'HR@2024003', name: 'Chetan Kumar', college: 'Bangalore Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'CK', joinDate: 'Nov 12, 2024', email: 'hr003@tse.in' },
+                                        'hr004@tse.in': { password: 'HR@2024004', name: 'Deepika Singh', college: 'Delhi University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'DS', joinDate: 'Nov 20, 2024', email: 'hr004@tse.in' },
+                                        'hr005@tse.in': { password: 'HR@2024005', name: 'Esha Verma', college: 'Pune University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'EV', joinDate: 'Nov 14, 2024', email: 'hr005@tse.in' },
+                                        'hr006@tse.in': { password: 'HR@2024006', name: 'Farhan Ahmed', college: 'Hyderabad University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'FA', joinDate: 'Nov 17, 2024', email: 'hr006@tse.in' },
+                                        'hr007@tse.in': { password: 'HR@2024007', name: 'Grika Negi', college: 'Kolkata Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'GN', joinDate: 'Nov 19, 2024', email: 'hr007@tse.in' },
+                                        'hr008@tse.in': { password: 'HR@2024008', name: 'Harsh Tiwari', college: 'Indore College', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'HT', joinDate: 'Nov 13, 2024', email: 'hr008@tse.in' },
+                                        'hr009@tse.in': { password: 'HR@2024009', name: 'Ishita Das', college: 'Chennai Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'ID', joinDate: 'Nov 21, 2024', email: 'hr009@tse.in' },
+                                        'hr010@tse.in': { password: 'HR@2024010', name: 'Jatin Reddy', college: 'Jawaharlal University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'JR', joinDate: 'Nov 16, 2024', email: 'hr010@tse.in' },
+
+                                        // Design Domain - 10 Students
+                                        'design001@tse.in': { password: 'Design@2024001', name: 'Priya Gupta', college: 'Mumbai University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'PG', joinDate: 'Nov 20, 2024', email: 'design001@tse.in' },
+                                        'design002@tse.in': { password: 'Design@2024002', name: 'Kavya Mishra', college: 'Delhi University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'KM', joinDate: 'Nov 18, 2024', email: 'design002@tse.in' },
+                                        'design003@tse.in': { password: 'Design@2024003', name: 'Arjun Nair', college: 'Kochi Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'AN', joinDate: 'Nov 22, 2024', email: 'design003@tse.in' },
+                                        'design004@tse.in': { password: 'Design@2024004', name: 'Shruti Rao', college: 'Bangalore Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'SR', joinDate: 'Nov 15, 2024', email: 'design004@tse.in' },
+                                        'design005@tse.in': { password: 'Design@2024005', name: 'Nikhil Pandey', college: 'Pune University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'NP', joinDate: 'Nov 19, 2024', email: 'design005@tse.in' },
+                                        'design006@tse.in': { password: 'Design@2024006', name: 'Anika Roy', college: 'Kolkata Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'AR', joinDate: 'Nov 17, 2024', email: 'design006@tse.in' },
+                                        'design007@tse.in': { password: 'Design@2024007', name: 'Rohan Singh', college: 'Lucknow University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'RS', joinDate: 'Nov 21, 2024', email: 'design007@tse.in' },
+                                        'design008@tse.in': { password: 'Design@2024008', name: 'Tanvi Sharma', college: 'Chandigarh College', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'TS', joinDate: 'Nov 14, 2024', email: 'design008@tse.in' },
+                                        'design009@tse.in': { password: 'Design@2024009', name: 'Vikram Desai', college: 'Ahmedabad Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'VD', joinDate: 'Nov 23, 2024', email: 'design009@tse.in' },
+                                        'design010@tse.in': { password: 'Design@2024010', name: 'Neha Singh', college: 'Jaipur University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'NS', joinDate: 'Nov 20, 2024', email: 'design010@tse.in' },
+
+                                        // Marketing Domain - 10 Students
+                                        'marketing001@tse.in': { password: 'Marketing@2024001', name: 'Rajesh Kumar', college: 'Bangalore Institute', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'RK', joinDate: 'Nov 10, 2024', email: 'marketing001@tse.in' },
+                                        'marketing002@tse.in': { password: 'Marketing@2024002', name: 'Neha Verma', college: 'Symbiosis Pune', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'NV', joinDate: 'Nov 18, 2024', email: 'marketing002@tse.in' },
+                                        'marketing003@tse.in': { password: 'Marketing@2024003', name: 'Aditya Sharma', college: 'Delhi University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'AD', joinDate: 'Nov 15, 2024', email: 'marketing003@tse.in' },
+                                        'marketing004@tse.in': { password: 'Marketing@2024004', name: 'Pooja Kapoor', college: 'Mumbai Institute', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'PK', joinDate: 'Nov 22, 2024', email: 'marketing004@tse.in' },
+                                        'marketing005@tse.in': { password: 'Marketing@2024005', name: 'Sanjay Patel', college: 'Ahmedabad University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'SP', joinDate: 'Nov 17, 2024', email: 'marketing005@tse.in' },
+                                        'marketing006@tse.in': { password: 'Marketing@2024006', name: 'Ritu Singh', college: 'Lucknow College', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'RS', joinDate: 'Nov 19, 2024', email: 'marketing006@tse.in' },
+                                        'marketing007@tse.in': { password: 'Marketing@2024007', name: 'Mohit Verma', college: 'Hyderabad Institute', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'MV', joinDate: 'Nov 21, 2024', email: 'marketing007@tse.in' },
+                                        'marketing008@tse.in': { password: 'Marketing@2024008', name: 'Shreya Nair', college: 'Kochi University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'SN', joinDate: 'Nov 14, 2024', email: 'marketing008@tse.in' },
+                                        'marketing009@tse.in': { password: 'Marketing@2024009', name: 'Aryan Chopra', college: 'Chandigarh Institute', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'AC', joinDate: 'Nov 20, 2024', email: 'marketing009@tse.in' },
+                                        'marketing010@tse.in': { password: 'Marketing@2024010', name: 'Divya Patel', college: 'Surat University', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'DP', joinDate: 'Nov 16, 2024', email: 'marketing010@tse.in' },
+
+                                        // Media Domain - 10 Students
+                                        'media001@tse.in': { password: 'Media@2024001', name: 'Anjali Singh', college: 'Punjab University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'AS', joinDate: 'Nov 25, 2024', email: 'media001@tse.in' },
+                                        'media002@tse.in': { password: 'Media@2024002', name: 'Karan Malhotra', college: 'Delhi Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'KM', joinDate: 'Nov 19, 2024', email: 'media002@tse.in' },
+                                        'media003@tse.in': { password: 'Media@2024003', name: 'Siya Rao', college: 'Bangalore University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'SR', joinDate: 'Nov 22, 2024', email: 'media003@tse.in' },
+                                        'media004@tse.in': { password: 'Media@2024004', name: 'Vikram Seth', college: 'Mumbai Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'VS', joinDate: 'Nov 17, 2024', email: 'media004@tse.in' },
+                                        'media005@tse.in': { password: 'Media@2024005', name: 'Priya Verma', college: 'Pune University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'PV', joinDate: 'Nov 20, 2024', email: 'media005@tse.in' },
+                                        'media006@tse.in': { password: 'Media@2024006', name: 'Harsh Gupta', college: 'Hyderabad College', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'HG', joinDate: 'Nov 18, 2024', email: 'media006@tse.in' },
+                                        'media007@tse.in': { password: 'Media@2024007', name: 'Meera Joshi', college: 'Chennai Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'MJ', joinDate: 'Nov 24, 2024', email: 'media007@tse.in' },
+                                        'media008@tse.in': { password: 'Media@2024008', name: 'Nitin Yadav', college: 'Lucknow University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'NY', joinDate: 'Nov 21, 2024', email: 'media008@tse.in' },
+                                        'media009@tse.in': { password: 'Media@2024009', name: 'Riya Chopra', college: 'Jaipur College', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'RC', joinDate: 'Nov 23, 2024', email: 'media009@tse.in' },
+                                        'media010@tse.in': { password: 'Media@2024010', name: 'Saurav Kumar', college: 'Indore Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'SK', joinDate: 'Nov 16, 2024', email: 'media010@tse.in' },
+
+                                        // Analytics Domain - 10 Students
+                                        'analytics001@tse.in': { password: 'Analytics@2024001', name: 'Vikram Patel', college: 'NMIMS Mumbai', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'VP', joinDate: 'Nov 12, 2024', email: 'analytics001@tse.in' },
+                                        'analytics002@tse.in': { password: 'Analytics@2024002', name: 'Swati Singh', college: 'IIT Delhi', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'SS', joinDate: 'Nov 15, 2024', email: 'analytics002@tse.in' },
+                                        'analytics003@tse.in': { password: 'Analytics@2024003', name: 'Rohit Sharma', college: 'Bangalore Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'RO', joinDate: 'Nov 18, 2024', email: 'analytics003@tse.in' },
+                                        'analytics004@tse.in': { password: 'Analytics@2024004', name: 'Ananya Rao', college: 'Hyderabad University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'AR', joinDate: 'Nov 20, 2024', email: 'analytics004@tse.in' },
+                                        'analytics005@tse.in': { password: 'Analytics@2024005', name: 'Ashish Kumar', college: 'Delhi Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'AK', joinDate: 'Nov 13, 2024', email: 'analytics005@tse.in' },
+                                        'analytics006@tse.in': { password: 'Analytics@2024006', name: 'Smita Verma', college: 'Pune University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'SV', joinDate: 'Nov 17, 2024', email: 'analytics006@tse.in' },
+                                        'analytics007@tse.in': { password: 'Analytics@2024007', name: 'Kunal Singh', college: 'Mumbai Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'KS', joinDate: 'Nov 21, 2024', email: 'analytics007@tse.in' },
+                                        'analytics008@tse.in': { password: 'Analytics@2024008', name: 'Priya Negi', college: 'Chandigarh College', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'PN', joinDate: 'Nov 14, 2024', email: 'analytics008@tse.in' },
+                                        'analytics009@tse.in': { password: 'Analytics@2024009', name: 'Rajeev Patel', college: 'Ahmedabad University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'RP', joinDate: 'Nov 19, 2024', email: 'analytics009@tse.in' },
+                                        'analytics010@tse.in': { password: 'Analytics@2024010', name: 'Neeta Joshi', college: 'Kolkata Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'NJ', joinDate: 'Nov 22, 2024', email: 'analytics010@tse.in' }
+                                    };
+
+                                    // Task Database organized by Domain
+                                    const INTERN_TASKS = {
+                                        'HR': [
+                                            { id: 1, title: 'Recruitment Process Analysis', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 65 },
+                                            { id: 2, title: 'Employee Onboarding Documentation', duration: '3 weeks', status: 'In Progress', priority: 'Medium', completion: 45 },
+                                            { id: 3, title: 'Payroll System Research', duration: '1 week', status: 'Pending', priority: 'High', completion: 10 },
+                                            { id: 4, title: 'Employee Engagement Survey', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'HR Policy Documentation', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 75 }
+                                        ],
+                                        'Design': [
+                                            { id: 1, title: 'Logo Design Project', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 80 },
+                                            { id: 2, title: 'Brand Identity Guidelines', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 60 },
+                                            { id: 3, title: 'UI/UX Mockups Creation', duration: '3 weeks', status: 'Pending', priority: 'Medium', completion: 20 },
+                                            { id: 4, title: 'Social Media Graphics', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Print Design Portfolio', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 50 }
+                                        ],
+                                        'Marketing': [
+                                            { id: 1, title: 'Social Media Campaign Strategy', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 70 },
+                                            { id: 2, title: 'Content Calendar Management', duration: '4 weeks', status: 'In Progress', priority: 'Medium', completion: 55 },
+                                            { id: 3, title: 'SEO Keyword Research', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 85 },
+                                            { id: 4, title: 'Email Marketing Campaign', duration: '3 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Analytics Report Creation', duration: '1 week', status: 'Pending', priority: 'Medium', completion: 15 }
+                                        ],
+                                        'Media': [
+                                            { id: 1, title: 'Video Editing Project', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 75 },
+                                            { id: 2, title: 'Cinematography Practice', duration: '2 weeks', status: 'In Progress', priority: 'Medium', completion: 50 },
+                                            { id: 3, title: 'Motion Graphics Tutorial', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 4, title: 'Documentary Short Film', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 40 },
+                                            { id: 5, title: 'Audio Editing Mastery', duration: '2 weeks', status: 'Pending', priority: 'Medium', completion: 25 }
+                                        ],
+                                        'Analytics': [
+                                            { id: 1, title: 'Data Visualization Dashboards', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 70 },
+                                            { id: 2, title: 'Python Data Analysis', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 60 },
+                                            { id: 3, title: 'SQL Database Query Optimization', duration: '2 weeks', status: 'In Progress', priority: 'Medium', completion: 55 },
+                                            { id: 4, title: 'Tableau Report Creation', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Statistical Analysis Project', duration: '3 weeks', status: 'Pending', priority: 'High', completion: 30 }
+                                        ]
+                                    };
+
+                                    // Domain Color Configuration
+                                    const DOMAIN_COLORS = {
+                                        'HR': { gradient: 'from-blue-600 via-blue-700 to-blue-800', accent: 'blue', icon: 'fa-users' },
+                                        'Design': { gradient: 'from-purple-600 via-purple-700 to-purple-800', accent: 'purple', icon: 'fa-palette' },
+                                        'Marketing': { gradient: 'from-pink-600 via-pink-700 to-pink-800', accent: 'pink', icon: 'fa-bullhorn' },
+                                        'Media': { gradient: 'from-indigo-600 via-indigo-700 to-indigo-800', accent: 'indigo', icon: 'fa-video' },
+                                        'Analytics': { gradient: 'from-green-600 via-green-700 to-green-800', accent: 'green', icon: 'fa-chart-line' }
+                                    };
+
+                                    // Enhanced login form handler for interns
+                                    const loginForm = document.querySelector('#quickLoginForm');
+
+                                    if (loginForm) {
+                                        loginForm.addEventListener('submit', function(e) {
+                                            e.preventDefault();
                                             
-                                            if (signupForm) {
-                                                signupForm.addEventListener('submit', function(e) {
-                                                    e.preventDefault();
+                                            const email = this.querySelector('input[type="email"]').value.trim().toLowerCase();
+                                            const password = this.querySelector('input[type="password"]').value;
+                                            const intern = INTERN_DATABASE[email];
+                                            
+                                            const submitBtn = this.querySelector('button[type="submit"]');
+                                            const originalHTML = submitBtn.innerHTML;
+                                            
+                                            if (intern && intern.password === password) {
+                                                // Professional success animation
+                                                submitBtn.disabled = true;
+                                                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i><span class="tracking-widest">Verifying Credentials...</span>';
+                                                submitBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                                                submitBtn.style.boxShadow = '0 10px 30px rgba(102, 126, 234, 0.3)';
+                                                
+                                                setTimeout(() => {
+                                                    submitBtn.innerHTML = '<i class="fas fa-check-circle mr-3 animate-pulse"></i><span class="tracking-widest font-bold">Login Successful!</span>';
+                                                    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                                                    submitBtn.style.boxShadow = '0 10px 30px rgba(16, 185, 129, 0.3)';
                                                     
-                                                    const fullName = this.querySelector('input[placeholder="Vansh Jaiswal"]')?.value || '';
-                                                    const email = this.querySelector('input[type="email"]')?.value || '';
-                                                    const phone = this.querySelector('input[type="tel"]')?.value || '';
-                                                    const program = this.querySelector('select')?.value || '';
-                                                    const education = this.querySelector('input[placeholder="e.g., Bachelor\'s in Commerce"]')?.value || '';
-                                                    const goals = this.querySelector('textarea')?.value || '';
+                                                    displayNotification(`✓ Welcome, ${intern.name}!`, 'success');
                                                     
-                                                    const submitBtn = this.querySelector('button[type="submit"]');
-                                                    const originalHTML = submitBtn.innerHTML;
-                                                    
-                                                    // Update button to loading state with professional animation
-                                                    submitBtn.disabled = true;
-                                                    submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-spinner fa-spin mr-3 text-xl"></i><span class="tracking-wider">Processing...</span></span>';
-                                                    submitBtn.style.opacity = '0.8';
-                                                    
-                                                    const signupData = {
-                                                        fullName: fullName,
+                                                    // Store intern session with complete data
+                                                    sessionStorage.setItem('currentIntern', JSON.stringify({
                                                         email: email,
-                                                        phone: phone,
-                                                        program: program,
-                                                        education: education,
-                                                        goals: goals,
-                                                        timestamp: new Date().toISOString(),
-                                                        action: 'new_signup'
-                                                    };
+                                                        name: intern.name,
+                                                        college: intern.college,
+                                                        batch: intern.batch,
+                                                        course: intern.course,
+                                                        domain: intern.domain,
+                                                        avatar: intern.avatar,
+                                                        joinDate: intern.joinDate,
+                                                        loginTime: new Date().toISOString()
+                                                    }));
                                                     
-                                                    // Replace with your Google Apps Script deployment URL
-                                                    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/d/YOUR_DEPLOYMENT_ID/usercallable';
-                                                    
-                                                    fetch(GOOGLE_SHEET_URL, {
-                                                        method: 'POST',
-                                                        mode: 'no-cors',
-                                                        headers: {
-                                                            'Content-Type': 'application/json'
-                                                        },
-                                                        body: JSON.stringify(signupData)
-                                                    })
-                                                    .then(() => {
-                                                        // Success animation
-                                                        submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-check mr-3 text-xl animate-pulse"></i><span class="tracking-wider font-bold">Account Created!</span></span>';
-                                                        submitBtn.style.background = 'linear-gradient(to right, #10b981, #059669)';
-                                                        submitBtn.style.opacity = '1';
-                                                        
-                                                        showNotification('✓ Account created successfully! Check your email for verification.', 'success');
-                                                        signupForm.reset();
-                                                        
-                                                        setTimeout(() => {
-                                                            submitBtn.innerHTML = originalHTML;
-                                                            submitBtn.disabled = false;
-                                                            submitBtn.style.background = '';
-                                                            submitBtn.style.opacity = '1';
-                                                            closeModal('signup');
-                                                        }, 2500);
-                                                    })
-                                                    .catch(error => {
-                                                        console.error('Error:', error);
-                                                        submitBtn.innerHTML = '<span class="relative flex items-center justify-center"><i class="fas fa-exclamation-circle mr-3 text-xl"></i><span class="tracking-wider">Try Again</span></span>';
-                                                        submitBtn.style.background = 'linear-gradient(to right, #dc2626, #b91c1c)';
-                                                        submitBtn.disabled = false;
-                                                        submitBtn.style.opacity = '1';
-                                                        
-                                                        showNotification('✗ Error occurred. Please try again or contact support.', 'error');
-                                                        
-                                                        setTimeout(() => {
-                                                            submitBtn.innerHTML = originalHTML;
-                                                            submitBtn.style.background = '';
-                                                        }, 2500);
-                                                    });
-                                                });
+                                                    setTimeout(() => {
+                                                        closeModal('quicklogin');
+                                                        launchInternPortal();
+                                                        resetButton(submitBtn, originalHTML);
+                                                        loginForm.reset();
+                                                    }, 1500);
+                                                }, 1500);
+                                            } else {
+                                                // Professional error animation
+                                                submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                                                submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-3"></i><span class="tracking-wider">Invalid Credentials</span>';
+                                                submitBtn.style.boxShadow = '0 10px 30px rgba(239, 68, 68, 0.3)';
+                                                
+                                                displayNotification('✗ Invalid email or password. Please try again.', 'error');
+                                                
+                                                setTimeout(() => {
+                                                    resetButton(submitBtn, originalHTML);
+                                                }, 2500);
                                             }
                                         });
+                                    }
 
-                                        // Professional Notification System
-                                        function showNotification(message, type) {
-                                            const notification = document.createElement('div');
-                                            const bgColor = type === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-600' : 'bg-gradient-to-r from-red-500 to-rose-600';
-                                            const icon = type === 'success' ? '✓' : '✕';
-                                            
-                                            notification.className = `fixed top-6 right-6 px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[60] backdrop-blur-lg border border-white/20 ${bgColor} animate-slide-in`;
-                                            notification.innerHTML = `
-                                                <div class="flex items-center gap-3">
-                                                    <div class="w-8 h-8 flex items-center justify-center bg-white/20 rounded-full">
-                                                        <span class="text-lg">${icon}</span>
-                                                    </div>
-                                                    <span>${message}</span>
-                                                </div>
-                                            `;
-                                            
-                                            document.body.appendChild(notification);
-                                            
-                                            setTimeout(() => {
-                                                notification.style.animation = 'slideOut 0.5s ease-out forwards';
-                                                setTimeout(() => notification.remove(), 500);
-                                            }, 4000);
+                                    // Professional button reset function
+                                    function resetButton(btn, originalHTML) {
+                                        btn.innerHTML = originalHTML;
+                                        btn.style.background = '';
+                                        btn.style.boxShadow = '';
+                                        btn.disabled = false;
+                                    }
+
+                                    // Professional notification display
+                                    function displayNotification(message, type) {
+                                        const notification = document.createElement('div');
+                                        const bgGradient = type === 'success' 
+                                            ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-teal-600' 
+                                            : 'bg-gradient-to-r from-red-500 via-pink-500 to-red-600';
+                                        
+                                        notification.className = `fixed top-6 right-6 px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[80] backdrop-blur-lg border border-white/20 ${bgGradient}`;
+                                        notification.style.animation = 'slideInRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                                        
+                                        notification.innerHTML = `
+                                            <div class="flex items-center gap-3">
+                                                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} text-2xl"></i>
+                                                <span>${message}</span>
+                                            </div>
+                                        `;
+                                        
+                                        document.body.appendChild(notification);
+                                        
+                                        setTimeout(() => {
+                                            notification.style.animation = 'slideOutRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                                            setTimeout(() => notification.remove(), 500);
+                                        }, 4000);
+                                    }
+                                    // ==================================================
+                                    // ENHANCED MULTI-STUDENT INTERN PORTAL SYSTEM
+                                    // ==================================================
+                                    // Comprehensive Intern Database with 50 Students (5 domains × 10 students)
+                                    const INTERN_DATABASE = {
+                                        // HR Domain - 10 Students
+                                        'hr001@tse.in': { password: 'HR@2024001', name: 'Aarav Sharma', college: 'Delhi University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'AS', joinDate: 'Nov 15, 2024', email: 'hr001@tse.in' },
+                                        'hr002@tse.in': { password: 'HR@2024002', name: 'Bhavna Patel', college: 'Mumbai University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'BP', joinDate: 'Nov 18, 2024', email: 'hr002@tse.in' },
+                                        'hr003@tse.in': { password: 'HR@2024003', name: 'Chetan Kumar', college: 'Bangalore Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'CK', joinDate: 'Nov 12, 2024', email: 'hr003@tse.in' },
+                                        'hr004@tse.in': { password: 'HR@2024004', name: 'Deepika Singh', college: 'Delhi University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'DS', joinDate: 'Nov 20, 2024', email: 'hr004@tse.in' },
+                                        'hr005@tse.in': { password: 'HR@2024005', name: 'Esha Verma', college: 'Pune University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'EV', joinDate: 'Nov 14, 2024', email: 'hr005@tse.in' },
+                                        'hr006@tse.in': { password: 'HR@2024006', name: 'Farhan Ahmed', college: 'Hyderabad University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'FA', joinDate: 'Nov 17, 2024', email: 'hr006@tse.in' },
+                                        'hr007@tse.in': { password: 'HR@2024007', name: 'Grika Negi', college: 'Kolkata Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'GN', joinDate: 'Nov 19, 2024', email: 'hr007@tse.in' },
+                                        'hr008@tse.in': { password: 'HR@2024008', name: 'Harsh Tiwari', college: 'Indore College', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'HT', joinDate: 'Nov 13, 2024', email: 'hr008@tse.in' },
+                                        'hr009@tse.in': { password: 'HR@2024009', name: 'Ishita Das', college: 'Chennai Institute', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'ID', joinDate: 'Nov 21, 2024', email: 'hr009@tse.in' },
+                                        'hr010@tse.in': { password: 'HR@2024010', name: 'Jatin Reddy', college: 'Jawaharlal University', batch: '2023-2024', course: 'HR Management', domain: 'HR', avatar: 'JR', joinDate: 'Nov 16, 2024', email: 'hr010@tse.in' },
+
+                                        // Design Domain - 10 Students
+                                        'design001@tse.in': { password: 'Design@2024001', name: 'Priya Gupta', college: 'Mumbai University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'PG', joinDate: 'Nov 20, 2024', email: 'design001@tse.in' },
+                                        'design002@tse.in': { password: 'Design@2024002', name: 'Kavya Mishra', college: 'Delhi University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'KM', joinDate: 'Nov 18, 2024', email: 'design002@tse.in' },
+                                        'design003@tse.in': { password: 'Design@2024003', name: 'Arjun Nair', college: 'Kochi Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'AN', joinDate: 'Nov 22, 2024', email: 'design003@tse.in' },
+                                        'design004@tse.in': { password: 'Design@2024004', name: 'Shruti Rao', college: 'Bangalore Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'SR', joinDate: 'Nov 15, 2024', email: 'design004@tse.in' },
+                                        'design005@tse.in': { password: 'Design@2024005', name: 'Nikhil Pandey', college: 'Pune University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'NP', joinDate: 'Nov 19, 2024', email: 'design005@tse.in' },
+                                        'design006@tse.in': { password: 'Design@2024006', name: 'Anika Roy', college: 'Kolkata Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'AR', joinDate: 'Nov 17, 2024', email: 'design006@tse.in' },
+                                        'design007@tse.in': { password: 'Design@2024007', name: 'Rohan Singh', college: 'Lucknow University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'RS', joinDate: 'Nov 21, 2024', email: 'design007@tse.in' },
+                                        'design008@tse.in': { password: 'Design@2024008', name: 'Tanvi Sharma', college: 'Chandigarh College', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'TS', joinDate: 'Nov 14, 2024', email: 'design008@tse.in' },
+                                        'design009@tse.in': { password: 'Design@2024009', name: 'Vikram Desai', college: 'Ahmedabad Institute', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'VD', joinDate: 'Nov 23, 2024', email: 'design009@tse.in' },
+                                        'design010@tse.in': { password: 'Design@2024010', name: 'Neha Singh', college: 'Jaipur University', batch: '2023-2024', course: 'Graphic Design', domain: 'Design', avatar: 'NS', joinDate: 'Nov 20, 2024', email: 'design010@tse.in' },
+
+                                        // Marketing Domain - 10 Students
+                                        'marketing001@tse.in': { password: 'Marketing@2024001', name: 'Rajesh Kumar', college: 'Bangalore Institute', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'RK', joinDate: 'Nov 10, 2024', email: 'marketing001@tse.in' },
+                                        'marketing002@tse.in': { password: 'Marketing@2024002', name: 'Neha Verma', college: 'Symbiosis Pune', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'NV', joinDate: 'Nov 18, 2024', email: 'marketing002@tse.in' },
+                                        'marketing003@tse.in': { password: 'Marketing@2024003', name: 'Aditya Sharma', college: 'Delhi University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'AD', joinDate: 'Nov 15, 2024', email: 'marketing003@tse.in' },
+                                        'marketing004@tse.in': { password: 'Marketing@2024004', name: 'Pooja Kapoor', college: 'Mumbai Institute', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'PK', joinDate: 'Nov 22, 2024', email: 'marketing004@tse.in' },
+                                        'marketing005@tse.in': { password: 'Marketing@2024005', name: 'Sanjay Patel', college: 'Ahmedabad University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'SP', joinDate: 'Nov 17, 2024', email: 'marketing005@tse.in' },
+                                        'marketing006@tse.in': { password: 'Marketing@2024006', name: 'Ritu Singh', college: 'Lucknow College', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'RS', joinDate: 'Nov 19, 2024', email: 'marketing006@tse.in' },
+                                        'marketing007@tse.in': { password: 'Marketing@2024007', name: 'Mohit Verma', college: 'Hyderabad Institute', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'MV', joinDate: 'Nov 21, 2024', email: 'marketing007@tse.in' },
+                                        'marketing008@tse.in': { password: 'Marketing@2024008', name: 'Shreya Nair', college: 'Kochi University', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'SN', joinDate: 'Nov 14, 2024', email: 'marketing008@tse.in' },
+                                        'marketing009@tse.in': { password: 'Marketing@2024009', name: 'Aryan Chopra', college: 'Chandigarh Institute', batch: '2023-2024', course: 'Digital Marketing', domain: 'Marketing', avatar: 'AC', joinDate: 'Nov 20, 2024', email: 'marketing009@tse.in' },
+                                        'marketing010@tse.in': { password: 'Marketing@2024010', name: 'Divya Patel', college: 'Surat University', batch: '2023-2024', course: 'Social Media Marketing', domain: 'Marketing', avatar: 'DP', joinDate: 'Nov 16, 2024', email: 'marketing010@tse.in' },
+
+                                        // Media Domain - 10 Students
+                                        'media001@tse.in': { password: 'Media@2024001', name: 'Anjali Singh', college: 'Punjab University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'AS', joinDate: 'Nov 25, 2024', email: 'media001@tse.in' },
+                                        'media002@tse.in': { password: 'Media@2024002', name: 'Karan Malhotra', college: 'Delhi Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'KM', joinDate: 'Nov 19, 2024', email: 'media002@tse.in' },
+                                        'media003@tse.in': { password: 'Media@2024003', name: 'Siya Rao', college: 'Bangalore University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'SR', joinDate: 'Nov 22, 2024', email: 'media003@tse.in' },
+                                        'media004@tse.in': { password: 'Media@2024004', name: 'Vikram Seth', college: 'Mumbai Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'VS', joinDate: 'Nov 17, 2024', email: 'media004@tse.in' },
+                                        'media005@tse.in': { password: 'Media@2024005', name: 'Priya Verma', college: 'Pune University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'PV', joinDate: 'Nov 20, 2024', email: 'media005@tse.in' },
+                                        'media006@tse.in': { password: 'Media@2024006', name: 'Harsh Gupta', college: 'Hyderabad College', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'HG', joinDate: 'Nov 18, 2024', email: 'media006@tse.in' },
+                                        'media007@tse.in': { password: 'Media@2024007', name: 'Meera Joshi', college: 'Chennai Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'MJ', joinDate: 'Nov 24, 2024', email: 'media007@tse.in' },
+                                        'media008@tse.in': { password: 'Media@2024008', name: 'Nitin Yadav', college: 'Lucknow University', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'NY', joinDate: 'Nov 21, 2024', email: 'media008@tse.in' },
+                                        'media009@tse.in': { password: 'Media@2024009', name: 'Riya Chopra', college: 'Jaipur College', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'RC', joinDate: 'Nov 23, 2024', email: 'media009@tse.in' },
+                                        'media010@tse.in': { password: 'Media@2024010', name: 'Saurav Kumar', college: 'Indore Institute', batch: '2023-2024', course: 'Video Production', domain: 'Media', avatar: 'SK', joinDate: 'Nov 16, 2024', email: 'media010@tse.in' },
+
+                                        // Analytics Domain - 10 Students
+                                        'analytics001@tse.in': { password: 'Analytics@2024001', name: 'Vikram Patel', college: 'NMIMS Mumbai', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'VP', joinDate: 'Nov 12, 2024', email: 'analytics001@tse.in' },
+                                        'analytics002@tse.in': { password: 'Analytics@2024002', name: 'Swati Singh', college: 'IIT Delhi', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'SS', joinDate: 'Nov 15, 2024', email: 'analytics002@tse.in' },
+                                        'analytics003@tse.in': { password: 'Analytics@2024003', name: 'Rohit Sharma', college: 'Bangalore Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'RO', joinDate: 'Nov 18, 2024', email: 'analytics003@tse.in' },
+                                        'analytics004@tse.in': { password: 'Analytics@2024004', name: 'Ananya Rao', college: 'Hyderabad University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'AR', joinDate: 'Nov 20, 2024', email: 'analytics004@tse.in' },
+                                        'analytics005@tse.in': { password: 'Analytics@2024005', name: 'Ashish Kumar', college: 'Delhi Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'AK', joinDate: 'Nov 13, 2024', email: 'analytics005@tse.in' },
+                                        'analytics006@tse.in': { password: 'Analytics@2024006', name: 'Smita Verma', college: 'Pune University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'SV', joinDate: 'Nov 17, 2024', email: 'analytics006@tse.in' },
+                                        'analytics007@tse.in': { password: 'Analytics@2024007', name: 'Kunal Singh', college: 'Mumbai Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'KS', joinDate: 'Nov 21, 2024', email: 'analytics007@tse.in' },
+                                        'analytics008@tse.in': { password: 'Analytics@2024008', name: 'Priya Negi', college: 'Chandigarh College', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'PN', joinDate: 'Nov 14, 2024', email: 'analytics008@tse.in' },
+                                        'analytics009@tse.in': { password: 'Analytics@2024009', name: 'Rajeev Patel', college: 'Ahmedabad University', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'RP', joinDate: 'Nov 19, 2024', email: 'analytics009@tse.in' },
+                                        'analytics010@tse.in': { password: 'Analytics@2024010', name: 'Neeta Joshi', college: 'Kolkata Institute', batch: '2023-2024', course: 'Data Analytics', domain: 'Analytics', avatar: 'NJ', joinDate: 'Nov 22, 2024', email: 'analytics010@tse.in' }
+                                    };
+
+                                    // Task Database organized by Domain
+                                    const INTERN_TASKS = {
+                                        'HR': [
+                                            { id: 1, title: 'Recruitment Process Analysis', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 65 },
+                                            { id: 2, title: 'Employee Onboarding Documentation', duration: '3 weeks', status: 'In Progress', priority: 'Medium', completion: 45 },
+                                            { id: 3, title: 'Payroll System Research', duration: '1 week', status: 'Pending', priority: 'High', completion: 10 },
+                                            { id: 4, title: 'Employee Engagement Survey', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'HR Policy Documentation', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 75 }
+                                        ],
+                                        'Design': [
+                                            { id: 1, title: 'Logo Design Project', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 80 },
+                                            { id: 2, title: 'Brand Identity Guidelines', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 60 },
+                                            { id: 3, title: 'UI/UX Mockups Creation', duration: '3 weeks', status: 'Pending', priority: 'Medium', completion: 20 },
+                                            { id: 4, title: 'Social Media Graphics', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Print Design Portfolio', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 50 }
+                                        ],
+                                        'Marketing': [
+                                            { id: 1, title: 'Social Media Campaign Strategy', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 70 },
+                                            { id: 2, title: 'Content Calendar Management', duration: '4 weeks', status: 'In Progress', priority: 'Medium', completion: 55 },
+                                            { id: 3, title: 'SEO Keyword Research', duration: '2 weeks', status: 'In Progress', priority: 'High', completion: 85 },
+                                            { id: 4, title: 'Email Marketing Campaign', duration: '3 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Analytics Report Creation', duration: '1 week', status: 'Pending', priority: 'Medium', completion: 15 }
+                                        ],
+                                        'Media': [
+                                            { id: 1, title: 'Video Editing Project', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 75 },
+                                            { id: 2, title: 'Cinematography Practice', duration: '2 weeks', status: 'In Progress', priority: 'Medium', completion: 50 },
+                                            { id: 3, title: 'Motion Graphics Tutorial', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 4, title: 'Documentary Short Film', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 40 },
+                                            { id: 5, title: 'Audio Editing Mastery', duration: '2 weeks', status: 'Pending', priority: 'Medium', completion: 25 }
+                                        ],
+                                        'Analytics': [
+                                            { id: 1, title: 'Data Visualization Dashboards', duration: '3 weeks', status: 'In Progress', priority: 'High', completion: 70 },
+                                            { id: 2, title: 'Python Data Analysis', duration: '4 weeks', status: 'In Progress', priority: 'High', completion: 60 },
+                                            { id: 3, title: 'SQL Database Query Optimization', duration: '2 weeks', status: 'In Progress', priority: 'Medium', completion: 55 },
+                                            { id: 4, title: 'Tableau Report Creation', duration: '2 weeks', status: 'Completed', priority: 'Medium', completion: 100 },
+                                            { id: 5, title: 'Statistical Analysis Project', duration: '3 weeks', status: 'Pending', priority: 'High', completion: 30 }
+                                        ]
+                                    };
+
+                                    // Domain Color Configuration
+                                    const DOMAIN_COLORS = {
+                                        'HR': { gradient: 'from-blue-600 via-blue-700 to-blue-800', accent: 'blue', icon: 'fa-users' },
+                                        'Design': { gradient: 'from-purple-600 via-purple-700 to-purple-800', accent: 'purple', icon: 'fa-palette' },
+                                        'Marketing': { gradient: 'from-pink-600 via-pink-700 to-pink-800', accent: 'pink', icon: 'fa-bullhorn' },
+                                        'Media': { gradient: 'from-indigo-600 via-indigo-700 to-indigo-800', accent: 'indigo', icon: 'fa-video' },
+                                        'Analytics': { gradient: 'from-green-600 via-green-700 to-green-800', accent: 'green', icon: 'fa-chart-line' }
+                                    };
+
+                                    // ==================================================
+                                    // QUICK LOGIN FORM HANDLER
+                                    // ==================================================
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const quickLoginForm = document.querySelector('#quickLoginForm');
+                                        
+                                        if (quickLoginForm) {
+                                            quickLoginForm.addEventListener('submit', function(e) {
+                                                e.preventDefault();
+                                                
+                                                const email = this.querySelector('input[type="email"]').value.trim().toLowerCase();
+                                                const password = this.querySelector('input[type="password"]').value;
+                                                const intern = INTERN_DATABASE[email];
+                                                
+                                                const submitBtn = this.querySelector('button[type="submit"]');
+                                                const originalHTML = submitBtn.innerHTML;
+                                                
+                                                if (intern && intern.password === password) {
+                                                    // Success Animation Sequence
+                                                    animateButtonLoading(submitBtn, originalHTML);
+                                                    
+                                                    setTimeout(() => {
+                                                        animateButtonSuccess(submitBtn);
+                                                        displayNotification(`✓ Welcome, ${intern.name}!`, 'success');
+                                                        
+                                                        // Store intern session data
+                                                        sessionStorage.setItem('currentIntern', JSON.stringify({
+                                                            email: email,
+                                                            name: intern.name,
+                                                            college: intern.college,
+                                                            batch: intern.batch,
+                                                            course: intern.course,
+                                                            domain: intern.domain,
+                                                            avatar: intern.avatar,
+                                                            joinDate: intern.joinDate,
+                                                            loginTime: new Date().toISOString()
+                                                        }));
+                                                        
+                                                        setTimeout(() => {
+                                                            closeModal('quicklogin');
+                                                            launchInternPortal();
+                                                            resetButton(submitBtn, originalHTML);
+                                                            quickLoginForm.reset();
+                                                        }, 1500);
+                                                    }, 1500);
+                                                } else {
+                                                    // Error Animation
+                                                    animateButtonError(submitBtn, 'Invalid credentials');
+                                                    displayNotification('✗ Invalid email or password. Try: hr001@tse.in / HR@2024001', 'error');
+                                                    
+                                                    setTimeout(() => {
+                                                        resetButton(submitBtn, originalHTML);
+                                                    }, 2500);
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                    // ==================================================
+                                    // BUTTON ANIMATION FUNCTIONS
+                                    // ==================================================
+                                    function animateButtonLoading(btn, originalHTML) {
+                                        btn.disabled = true;
+                                        btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i><span class="tracking-widest">Authenticating...</span>';
+                                        btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                                        btn.style.opacity = '0.8';
+                                    }
+
+                                    function animateButtonSuccess(btn) {
+                                        btn.innerHTML = '<i class="fas fa-check-circle mr-3 animate-pulse"></i><span class="tracking-widest font-bold">Success!</span>';
+                                        btn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                                        btn.style.opacity = '1';
+                                    }
+
+                                    function animateButtonError(btn, message) {
+                                        btn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                                        btn.innerHTML = '<i class="fas fa-exclamation-circle mr-3"></i><span class="tracking-wider">Invalid Credentials</span>';
+                                        btn.style.opacity = '1';
+                                    }
+
+                                    function resetButton(btn, originalHTML) {
+                                        btn.innerHTML = originalHTML;
+                                        btn.style.background = '';
+                                        btn.style.opacity = '1';
+                                        btn.disabled = false;
+                                    }
+
+                                    // ==================================================
+                                    // INTERN PORTAL LAUNCHER
+                                    // ==================================================
+                                    function launchInternPortal() {
+                                        const internData = JSON.parse(sessionStorage.getItem('currentIntern'));
+                                        if (!internData) {
+                                            displayNotification('Session expired. Please login again.', 'error');
+                                            return;
                                         }
 
-                                        // Add professional animations
-                                        const animationStyle = document.createElement('style');
-                                        animationStyle.textContent = `
-                                            @keyframes slideIn {
-                                                from {
-                                                    opacity: 0;
-                                                    transform: translateX(400px) translateY(-20px);
-                                                }
-                                                to {
-                                                    opacity: 1;
-                                                    transform: translateX(0) translateY(0);
-                                                }
-                                            }
-                                            
-                                            @keyframes slideOut {
-                                                from {
-                                                    opacity: 1;
-                                                    transform: translateX(0) translateY(0);
-                                                }
-                                                to {
-                                                    opacity: 0;
-                                                    transform: translateX(400px) translateY(-20px);
-                                                }
-                                            }
-                                            
-                                            .animate-slide-in {
-                                                animation: slideIn 0.5s ease-out;
-                                            }
+                                        const tasks = INTERN_TASKS[internData.domain] || [];
+                                        const colors = DOMAIN_COLORS[internData.domain];
+                                        
+                                        const portalHTML = generatePortalHTML(internData, tasks, colors);
+                                        const portal = document.createElement('div');
+                                        portal.id = 'advancedInternPortal';
+                                        portal.className = 'fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 overflow-y-auto backdrop-blur-sm';
+                                        portal.onclick = function(e) {
+                                            if (e.target === this) closeInternPortal();
+                                        };
+                                        portal.innerHTML = portalHTML;
+                                        
+                                        document.body.appendChild(portal);
+                                        document.body.style.overflow = 'hidden';
+                                        initializePortalEvents();
+                                    }
+
+                                    // ==================================================
+                                    // GENERATE PORTAL HTML
+                                    // ==================================================
+                                    function generatePortalHTML(internData, tasks, colors) {
+                                        const avgCompletion = Math.round(tasks.reduce((a, b) => a + b.completion, 0) / tasks.length);
+                                        
+                                        return `
+                                            <div class="bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[98vh] overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+                                                <!-- Professional Header -->
+                                                <div class="bg-gradient-to-r ${colors.gradient} p-8 text-white shadow-xl">
+                                                    <div class="flex justify-between items-start gap-6">
+                                                        <div class="flex items-center gap-6">
+                                                            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-lg border-2 border-white/40 shadow-2xl">
+                                                                <span class="text-4xl font-bold text-white">${internData.avatar}</span>
+                                                            </div>
+                                                            <div>
+                                                                <h2 class="text-4xl font-bold">${internData.name}</h2>
+                                                                <p class="text-white/90 mt-2 text-lg"><i class="fas ${colors.icon} mr-2"></i>${internData.course}</p>
+                                                                <p class="text-white/80 text-sm mt-1"><i class="fas fa-school mr-2"></i>${internData.college}</p>
+                                                                <div class="mt-4 flex gap-3 flex-wrap">
+                                                                    <span class="px-4 py-2 bg-white/25 backdrop-blur-md text-white rounded-full text-sm font-semibold border border-white/30 hover:bg-white/35 transition">
+                                                                        <i class="fas fa-calendar-alt mr-2"></i>${internData.batch}
+                                                                    </span>
+                                                                    <span class="px-4 py-2 bg-white/25 backdrop-blur-md text-white rounded-full text-sm font-semibold border border-white/30 hover:bg-white/35 transition">
+                                                                        <i class="fas fa-door-open mr-2"></i>Joined ${internData.joinDate}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button onclick="closeInternPortal()" class="text-3xl hover:bg-white/20 p-3 rounded-full transition flex-shrink-0 backdrop-blur-md border border-white/20">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Navigation Tabs -->
+                                                <div class="flex flex-wrap gap-2 border-b-2 border-gray-200 px-6 py-4 bg-gray-50 shadow-sm overflow-x-auto scroll-smooth">
+                                                    <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap bg-gradient-to-r ${colors.gradient} text-white shadow-md hover:shadow-lg" data-tab="dashboard">
+                                                        <i class="fas fa-home mr-2"></i>Dashboard
+                                                    </button>
+                                                    <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap text-gray-700 hover:bg-gray-100" data-tab="tasks">
+                                                        <i class="fas fa-tasks mr-2"></i>My Tasks<span class="ml-2 px-2 py-1 bg-red-500 text-white rounded-full text-xs font-bold">${tasks.filter(t => t.status === 'In Progress').length}</span>
+                                                    </button>
+                                                    <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap text-gray-700 hover:bg-gray-100" data-tab="profile">
+                                                        <i class="fas fa-user-circle mr-2"></i>Profile
+                                                    </button>
+                                                    <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap text-gray-700 hover:bg-gray-100" data-tab="progress">
+                                                        <i class="fas fa-chart-line mr-2"></i>Progress
+                                                    </button>
+                                                    <button class="portal-tab-btn px-6 py-3 rounded-lg font-bold transition-all whitespace-nowrap text-gray-700 hover:bg-gray-100" data-tab="resources">
+                                                        <i class="fas fa-book mr-2"></i>Resources
+                                                    </button>
+                                                </div>
+
+                                                <!-- Content Area - Scrollable -->
+                                                <div class="flex-1 overflow-y-auto p-8 md:p-12">
+                                                    <!-- Dashboard Tab -->
+                                                    <div class="portal-content hidden" id="dashboard">
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-star text-yellow-500 mr-3"></i>Welcome Back, ${internData.name.split(' ')[0]}!</h3>
+                                                        
+                                                        <!-- Quick Stats Grid -->
+                                                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                                                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600 hover:shadow-lg transition-all">
+                                                                <p class="text-gray-600 text-sm font-bold uppercase tracking-wide">Total Tasks</p>
+                                                                <p class="text-5xl font-bold text-blue-600 mt-3">${tasks.length}</p>
+                                                                <p class="text-gray-600 text-xs mt-3"><i class="fas fa-circle-notch text-blue-500 mr-2 animate-spin"></i>In Your Queue</p>
+                                                            </div>
+                                                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl border-l-4 border-green-600 hover:shadow-lg transition-all">
+                                                                <p class="text-gray-600 text-sm font-bold uppercase tracking-wide">Completed</p>
+                                                                <p class="text-5xl font-bold text-green-600 mt-3">${tasks.filter(t => t.status === 'Completed').length}</p>
+                                                                <p class="text-gray-600 text-xs mt-3"><i class="fas fa-check-circle text-green-500 mr-2"></i>Outstanding Work</p>
+                                                            </div>
+                                                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-2xl border-l-4 border-orange-600 hover:shadow-lg transition-all">
+                                                                <p class="text-gray-600 text-sm font-bold uppercase tracking-wide">In Progress</p>
+                                                                <p class="text-5xl font-bold text-orange-600 mt-3">${tasks.filter(t => t.status === 'In Progress').length}</p>
+                                                                <p class="text-gray-600 text-xs mt-3"><i class="fas fa-hourglass-half text-orange-500 mr-2"></i>Currently Active</p>
+                                                            </div>
+                                                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl border-l-4 border-purple-600 hover:shadow-lg transition-all">
+                                                                <p class="text-gray-600 text-sm font-bold uppercase tracking-wide">Avg. Progress</p>
+                                                                <p class="text-5xl font-bold text-purple-600 mt-3">${avgCompletion}%</p>
+                                                                <p class="text-gray-600 text-xs mt-3"><i class="fas fa-chart-pie text-purple-500 mr-2"></i>Internship Overall</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Info Cards -->
+                                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                                            <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all">
+                                                                <h4 class="text-2xl font-bold text-gray-900 mb-6"><i class="fas fa-building text-${colors.accent}-600 mr-3"></i>Internship Details</h4>
+                                                                <div class="space-y-4">
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">Domain:</span>
+                                                                        <span class="px-4 py-2 bg-gradient-to-r from-${colors.accent}-100 to-${colors.accent}-50 text-${colors.accent}-700 rounded-full font-bold">${internData.domain}</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">Duration:</span>
+                                                                        <span class="font-bold text-gray-900">6 Months</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">Status:</span>
+                                                                        <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full font-bold text-sm"><i class="fas fa-check-circle mr-2"></i>Active</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center">
+                                                                        <span class="text-gray-600 font-bold">Mentor:</span>
+                                                                        <span class="font-bold text-gray-900">Senior Professional</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all">
+                                                                <h4 class="text-2xl font-bold text-gray-900 mb-6"><i class="fas fa-graduation-cap text-blue-600 mr-3"></i>Educational Info</h4>
+                                                                <div class="space-y-4">
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">College:</span>
+                                                                        <span class="font-bold text-gray-900 text-right text-sm">${internData.college}</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">Course:</span>
+                                                                        <span class="font-bold text-gray-900">${internData.course}</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100">
+                                                                        <span class="text-gray-600 font-bold">Batch:</span>
+                                                                        <span class="font-bold text-gray-900">${internData.batch}</span>
+                                                                    </div>
+                                                                    <div class="flex justify-between items-center">
+                                                                        <span class="text-gray-600 font-bold">Joined:</span>
+                                                                        <span class="font-bold text-gray-900">${internData.joinDate}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Tasks Tab -->
+                                                    <div class="portal-content hidden" id="tasks">
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-tasks mr-3" style="color: ${colors.accent}-600"></i>Your Assigned Tasks</h3>
+                                                        
+                                                        <div class="space-y-5">
+                                                            ${tasks.map((task, idx) => `
+                                                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 hover:shadow-lg transition-all duration-300 group">
+                                                                    <div class="flex justify-between items-start mb-5">
+                                                                        <div class="flex-1">
+                                                                            <h4 class="text-xl font-bold text-gray-900 group-hover:text-${colors.accent}-600 transition">#${task.id} ${task.title}</h4>
+                                                                            <p class="text-gray-600 text-sm mt-2"><i class="fas fa-clock text-${colors.accent}-600 mr-2"></i>Duration: ${task.duration}</p>
+                                                                        </div>
+                                                                        <span class="px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap ${
+                                                                            task.status === 'Completed' ? 'bg-green-100 text-green-700' :
+                                                                            task.status === 'In Progress' ? 'bg-orange-100 text-orange-700' :
+                                                                            'bg-blue-100 text-blue-700'
+                                                                        }">
+                                                                            <i class="fas ${
+                                                                                task.status === 'Completed' ? 'fa-check-circle' :
+                                                                                task.status === 'In Progress' ? 'fa-spinner' :
+                                                                                'fa-hourglass-start'
+                                                                            } mr-2"></i>${task.status}
+                                                                        </span>
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-5">
+                                                                        <div class="flex justify-between items-center mb-3">
+                                                                            <span class="font-bold text-gray-700">Progress</span>
+                                                                            <span class="text-${colors.accent}-600 font-bold text-lg">${task.completion}%</span>
+                                                                        </div>
+                                                                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                                                            <div class="bg-gradient-to-r from-${colors.accent}-500 to-${colors.accent}-600 h-full transition-all duration-500" style="width: ${task.completion}%"></div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="flex justify-between items-center">
+                                                                        <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-bold">
+                                                                            <i class="fas fa-flag-${task.priority === 'High' ? 'exclamation' : 'question'} text-${task.priority === 'High' ? 'red' : 'yellow'}-600 mr-2"></i>Priority: ${task.priority}
+                                                                        </span>
+                                                                        <button class="px-6 py-2 bg-gradient-to-r from-${colors.accent}-600 to-${colors.accent}-700 hover:shadow-lg text-white rounded-lg font-bold transition-all duration-300">
+                                                                            <i class="fas fa-chevron-right mr-2"></i>View Details
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            `).join('')}
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Profile Tab -->
+                                                    <div class="portal-content hidden" id="profile">
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-user-circle mr-3" style="color: ${colors.accent}-600"></i>My Profile</h3>
+                                                        
+                                                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                                                            <div class="lg:col-span-1">
+                                                                <div class="bg-gradient-to-br from-${colors.accent}-50 to-${colors.accent}-100 rounded-3xl border-2 border-${colors.accent}-300 p-8 text-center shadow-xl">
+                                                                    <div class="w-32 h-32 bg-gradient-to-br from-${colors.accent}-600 to-${colors.accent}-800 rounded-full flex items-center justify-center text-white text-6xl mx-auto mb-6 shadow-2xl">
+                                                                        ${internData.avatar}
+                                                                    </div>
+                                                                    <h4 class="text-2xl font-bold text-gray-900 mb-3">${internData.name}</h4>
+                                                                    <p class="text-${colors.accent}-700 font-bold mb-2">${internData.course}</p>
+                                                                    <p class="text-gray-600 mb-6">${internData.college}</p>
+                                                                    <button class="w-full bg-gradient-to-r from-${colors.accent}-600 to-${colors.accent}-700 hover:shadow-lg text-white py-3 rounded-lg font-bold transition-all duration-300">
+                                                                        <i class="fas fa-edit mr-2"></i>Edit Profile
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="lg:col-span-2 space-y-6">
+                                                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-lg">
+                                                                    <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-address-card text-${colors.accent}-600 mr-3"></i>Personal Information</h4>
+                                                                    <div class="space-y-3">
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg hover:bg-gray-100 transition">
+                                                                            <span class="text-gray-700 font-bold">Full Name</span>
+                                                                            <span class="text-gray-900 font-bold">${internData.name}</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg hover:bg-gray-100 transition">
+                                                                            <span class="text-gray-700 font-bold">Email</span>
+                                                                            <span class="text-gray-900 font-bold text-sm">${internData.email}</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg hover:bg-gray-100 transition">
+                                                                            <span class="text-gray-700 font-bold">Phone</span>
+                                                                            <span class="text-gray-900 font-bold">+91 98765 43210</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg hover:bg-gray-100 transition">
+                                                                            <span class="text-gray-700 font-bold">City</span>
+                                                                            <span class="text-gray-900 font-bold">New Delhi</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-lg">
+                                                                    <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-building text-${colors.accent}-600 mr-3"></i>Internship Information</h4>
+                                                                    <div class="space-y-3">
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-${colors.accent}-50 to-${colors.accent}-100 rounded-lg border-l-4 border-${colors.accent}-600">
+                                                                            <span class="text-gray-700 font-bold">Domain</span>
+                                                                            <span class="text-${colors.accent}-700 font-bold">${internData.domain}</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-${colors.accent}-50 to-${colors.accent}-100 rounded-lg border-l-4 border-${colors.accent}-600">
+                                                                            <span class="text-gray-700 font-bold">Course</span>
+                                                                            <span class="text-${colors.accent}-700 font-bold">${internData.course}</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-l-4 border-green-600">
+                                                                            <span class="text-gray-700 font-bold">Joined</span>
+                                                                            <span class="text-green-700 font-bold">${internData.joinDate}</span>
+                                                                        </div>
+                                                                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-600">
+                                                                            <span class="text-gray-700 font-bold">Duration</span>
+                                                                            <span class="text-blue-700 font-bold">6 Months Full-Time</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Progress Tab -->
+                                                    <div class="portal-content hidden" id="progress">
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-chart-line mr-3" style="color: ${colors.accent}-600"></i>Progress Analytics</h3>
+                                                        
+                                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-lg">
+                                                                <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-tasks text-${colors.accent}-600 mr-2"></i>Task Completion Breakdown</h4>
+                                                                <div class="space-y-4">
+                                                                    ${tasks.map(task => `
+                                                                        <div>
+                                                                            <div class="flex justify-between items-center mb-2">
+                                                                                <span class="font-bold text-gray-700 text-sm">${task.title}</span>
+                                                                                <span class="text-${colors.accent}-700 font-bold">${task.completion}%</span>
+                                                                            </div>
+                                                                            <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                                                                                <div class="bg-gradient-to-r from-${colors.accent}-500 to-${colors.accent}-600 h-full" style="width: ${task.completion}%"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    `).join('')}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-lg">
+                                                                <h4 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-bar-chart text-${colors.accent}-600 mr-2"></i>Summary</h4>
+                                                                <div class="space-y-4">
+                                                                    <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-600">
+                                                                        <p class="text-gray-600 font-bold">Completed Tasks</p>
+                                                                        <p class="text-4xl font-bold text-green-600 mt-2">${tasks.filter(t => t.status === 'Completed').length}/${tasks.length}</p>
+                                                                    </div>
+                                                                    <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-600">
+                                                                        <p class="text-gray-600 font-bold">Average Progress</p>
+                                                                        <p class="text-4xl font-bold text-orange-600 mt-2">${avgCompletion}%</p>
+                                                                    </div>
+                                                                    <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-600">
+                                                                        <p class="text-gray-600 font-bold">Internship Progress</p>
+                                                                        <p class="text-4xl font-bold text-purple-600 mt-2">75%</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="bg-gradient-to-r from-${colors.accent}-50 to-${colors.accent}-100 p-8 rounded-2xl border-2 border-${colors.accent}-200">
+                                                            <h4 class="text-2xl font-bold text-gray-900 mb-6"><i class="fas fa-star text-yellow-500 mr-3"></i>Performance Rating</h4>
+                                                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                                                <div class="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition">
+                                                                    <p class="text-5xl font-bold text-${colors.accent}-600">4.5</p>
+                                                                    <p class="text-gray-700 font-bold text-sm mt-3">Overall Rating</p>
+                                                                </div>
+                                                                <div class="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition">
+                                                                    <p class="text-5xl font-bold text-green-600">92%</p>
+                                                                    <p class="text-gray-700 font-bold text-sm mt-3">Attendance</p>
+                                                                </div>
+                                                                <div class="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition">
+                                                                    <p class="text-5xl font-bold text-blue-600">88%</p>
+                                                                    <p class="text-gray-700 font-bold text-sm mt-3">Quality Score</p>
+                                                                </div>
+                                                                <div class="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition">
+                                                                    <p class="text-5xl font-bold text-orange-600">96%</p>
+                                                                    <p class="text-gray-700 font-bold text-sm mt-3">Punctuality</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Resources Tab -->
+                                                    <div class="portal-content hidden" id="resources">
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-8"><i class="fas fa-book mr-3" style="color: ${colors.accent}-600"></i>Learning Resources</h3>
+                                                        
+                                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer group">
+                                                                <div class="flex items-start gap-4 mb-4">
+                                                                    <i class="fas fa-video text-${colors.accent}-600 text-4xl group-hover:scale-110 transition"></i>
+                                                                    <div class="flex-1">
+                                                                        <h4 class="text-lg font-bold text-gray-900 group-hover:text-${colors.accent}-600 transition">Video Tutorials</h4>
+                                                                        <p class="text-gray-600 text-sm mt-1">15 professional video guides</p>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="w-full px-4 py-3 bg-gradient-to-r from-${colors.accent}-100 to-${colors.accent}-50 hover:from-${colors.accent}-200 hover:to-${colors.accent}-100 text-${colors.accent}-700 rounded-lg font-bold transition text-sm">
+                                                                    <i class="fas fa-play mr-2"></i>Access Videos
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer group">
+                                                                <div class="flex items-start gap-4 mb-4">
+                                                                    <i class="fas fa-file-pdf text-red-600 text-4xl group-hover:scale-110 transition"></i>
+                                                                    <div class="flex-1">
+                                                                        <h4 class="text-lg font-bold text-gray-900 group-hover:text-${colors.accent}-600 transition">Study Materials</h4>
+                                                                        <p class="text-gray-600 text-sm mt-1">20 PDF documents</p>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="w-full px-4 py-3 bg-gradient-to-r from-red-100 to-red-50 hover:from-red-200 hover:to-red-100 text-red-700 rounded-lg font-bold transition text-sm">
+                                                                    <i class="fas fa-download mr-2"></i>Download
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer group">
+                                                                <div class="flex items-start gap-4 mb-4">
+                                                                    <i class="fas fa-book-open text-blue-600 text-4xl group-hover:scale-110 transition"></i>
+                                                                    <div class="flex-1">
+                                                                        <h4 class="text-lg font-bold text-gray-900 group-hover:text-${colors.accent}-600 transition">Documentation</h4>
+                                                                        <p class="text-gray-600 text-sm mt-1">Complete guides & manuals</p>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="w-full px-4 py-3 bg-gradient-to-r from-blue-100 to-blue-50 hover:from-blue-200 hover:to-blue-100 text-blue-700 rounded-lg font-bold transition text-sm">
+                                                                    <i class="fas fa-eye mr-2"></i>View
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer group">
+                                                                <div class="flex items-start gap-4 mb-4">
+                                                                    <i class="fas fa-code text-green-600 text-4xl group-hover:scale-110 transition"></i>
+                                                                    <div class="flex-1">
+                                                                        <h4 class="text-lg font-bold text-gray-900 group-hover:text-${colors.accent}-600 transition">Code Templates</h4>
+                                                                        <p class="text-gray-600 text-sm mt-1">8 ready-to-use templates</p>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="w-full px-4 py-3 bg-gradient-to-r from-green-100 to-green-50 hover:from-green-200 hover:to-green-100 text-green-700 rounded-lg font-bold transition text-sm">
+                                                                    <i class="fas fa-copy mr-2"></i>Copy
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Professional Footer -->
+                                                <div class="flex flex-col md:flex-row gap-4 p-8 bg-gray-50 border-t-2 border-gray-200 shadow-lg">
+                                                    <button class="flex-1 bg-gradient-to-r from-${colors.accent}-600 to-${colors.accent}-700 hover:shadow-lg text-white py-4 rounded-xl font-bold transition-all duration-300 text-lg">
+                                                        <i class="fas fa-bell mr-2"></i>Notifications
+                                                    </button>
+                                                    <button class="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 hover:shadow-lg text-white py-4 rounded-xl font-bold transition-all duration-300 text-lg">
+                                                        <i class="fas fa-comments mr-2"></i>Contact Mentor
+                                                    </button>
+                                                    <button onclick="closeInternPortal()" class="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold transition-all duration-300 text-lg">
+                                                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                                    </button>
+                                                </div>
+                                            </div>
                                         `;
-                                        document.head.appendChild(animationStyle);
+                                    }
+
+                                    // ==================================================
+                                    // PORTAL EVENT INITIALIZATION
+                                    // ==================================================
+                                    function initializePortalEvents() {
+                                        document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+                                            btn.addEventListener('click', function() {
+                                                const tabName = this.getAttribute('data-tab');
+                                                switchPortalTab(tabName);
+                                            });
+                                        });
+                                    }
+
+                                    // ==================================================
+                                    // TAB SWITCHING LOGIC
+                                    // ==================================================
+                                    function switchPortalTab(tabName) {
+                                        // Hide all content
+                                        document.querySelectorAll('.portal-content').forEach(content => {
+                                            content.classList.add('hidden');
+                                        });
+
+                                        // Remove active state from all buttons
+                                        document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+                                            btn.classList.remove('shadow-md', 'shadow-lg');
+                                            btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+                                            btn.style.background = '';
+                                        });
+
+                                        // Show selected content
+                                        const selectedContent = document.getElementById(tabName);
+                                        if (selectedContent) {
+                                            selectedContent.classList.remove('hidden');
+                                        }
+
+                                        // Activate button
+                                        const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+                                        if (activeBtn) {
+                                            activeBtn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                                            activeBtn.classList.add('shadow-md');
+                                        }
+                                    }
+
+                                    // ==================================================
+                                    // CLOSE PORTAL FUNCTION
+                                    // ==================================================
+                                    function closeInternPortal() {
+                                        const portal = document.getElementById('advancedInternPortal');
+                                        if (portal) {
+                                            portal.style.animation = 'fadeOut 0.3s ease-out';
+                                            setTimeout(() => {
+                                                portal.remove();
+                                                document.body.style.overflow = 'auto';
+                                            }, 300);
+                                        }
+                                        sessionStorage.removeItem('currentIntern');
+                                        displayNotification('✓ Logged out successfully!', 'success');
+                                    }
+
+                                    // ==================================================
+                                    // NOTIFICATION SYSTEM
+                                    // ==================================================
+                                    function displayNotification(message, type) {
+                                        const notification = document.createElement('div');
+                                        const bgGradient = type === 'success' 
+                                            ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-teal-600' 
+                                            : 'bg-gradient-to-r from-red-500 via-pink-500 to-red-600';
+                                        
+                                        notification.className = `fixed top-6 right-6 px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl z-[80] backdrop-blur-lg border border-white/20 ${bgGradient} animate-bounce`;
+                                        notification.innerHTML = `
+                                            <div class="flex items-center gap-3">
+                                                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} text-2xl"></i>
+                                                <span>${message}</span>
+                                            </div>
+                                        `;
+                                        
+                                        document.body.appendChild(notification);
+                                        
+                                        setTimeout(() => {
+                                            notification.style.animation = 'slideOutUp 0.5s ease-out forwards';
+                                            setTimeout(() => notification.remove(), 500);
+                                        }, 4000);
+                                    }
+
+                                    // Add CSS animations
+                                    const style = document.createElement('style');
+                                    style.textContent = `
+                                        @keyframes fadeOut {
+                                            from { opacity: 1; }
+                                            to { opacity: 0; }
+                                        }
+                                        
+                                        @keyframes slideOutUp {
+                                            from {
+                                                opacity: 1;
+                                                transform: translateY(0);
+                                            }
+                                            to {
+                                                opacity: 0;
+                                                transform: translateY(-20px);
+                                            }
+                                        }
+                                    `;
+                                    document.head.appendChild(style);
                                     </script>
-                                        <button onclick="closeModal('internportal')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
-                                            <i class="fas fa-times mr-2"></i>Close
-                                        </button>
-                                    </div>
 
                                     <!-- Login Portal Modal -->
                                     <div id="loginModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('login')">
@@ -5422,7 +6221,8 @@
                                             <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
                                                 <div>
                                                     <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-rocket mr-4"></i>Start Your Internship</h2>
-                                                    <p class="text-emerald-100 mt-3 text-lg">Join 1000+ successful interns</p>
+                                                    <p class="text-emerald-
+100 mt-3 text-lg">Join 1000+ successful interns</p>
                                                 </div>
                                                 <button onclick="closeModal('signup')" class="text-3xl hover:bg-teal-700 p-2 rounded-lg transition flex-shrink-0">
                                                     <i class="fas fa-times"></i>
@@ -6020,39 +6820,7 @@
             }, 4000);
         }
     </script>
-            </div>
-            <div class="p-8 md:p-12">
-                <div class="mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-star text-yellow-500 mr-3"></i>Program Overview</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">Master the art of Human Resource Management with hands-on experience in recruitment, employee relations, and organizational strategy. Our comprehensive 6-month internship program prepares you for a successful HR career with mentorship from industry experts.</p>
-                </div>
-                <div class="mb-8">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"><i class="fas fa-book text-blue-500 mr-3"></i>What You'll Learn</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Talent Acquisition & Recruitment Strategies</span></div>
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Employee Engagement & Retention</span></div>
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Performance Management Systems</span></div>
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>HR Analytics & Data-Driven Decisions</span></div>
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Payroll & Compliance Management</span></div>
-                        <div class="flex text-gray-700 text-lg"><i class="fas fa-check text-green-500 mr-4 flex-shrink-0 mt-1"></i><span>Organizational Development</span></div>
-                    </div>
-                </div>
-                <div class="mb-8 bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3"><i class="fas fa-briefcase text-blue-600 mr-3"></i>Career Opportunities</h3>
-                    <p class="text-gray-700 text-lg">HR Executive, Recruiter, Employee Relations Specialist, Compensation & Benefits Analyst, HR Manager, HR Consultant</p>
-                </div>
-                <div class="flex gap-4">
-                    <button class="flex-1 bg-blue-600 text-white py-4 rounded-xl hover:bg-blue-700 font-bold transition transform hover:scale-105 duration-300 text-lg">
-                        <i class="fas fa-check mr-3"></i>Enroll Now
-                    </button>
-                    <button onclick="closeModal('hr')" class="flex-1 bg-gray-200 text-gray-900 py-4 rounded-xl hover:bg-gray-300 font-bold transition duration-300 text-lg">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+        
     <!-- Graphic Design Modal -->
     <div id="designModal" class="hidden fixed inset-0 bg-black/60 modal-backdrop z-50 flex items-center justify-center p-4" onclick="closeModal('design')">
         <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
