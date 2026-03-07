@@ -3643,7 +3643,7 @@ ext-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl 
                                     <label class="block text-gray-700 font-semibold mb-2 text-lg">
                                         <i class="fas fa-envelope text-purple-600 mr-2"></i>Email Address
                                     </label>
-                                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition text-lg">
+                                    <input type="email" required placeholder="vansh@tse.in" class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-600 focus:outline-none transition text-lg">
                                 </div>
                             </div>
                             
@@ -6826,13 +6826,229 @@ ext-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl 
                             <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full modal-open max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
                                 <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 p-8 text-white rounded-t-3xl flex justify-between items-start sticky top-0">
                                     <div>
-                                        <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-sign-in-alt mr-4"></i>Internship Portal</h2>
+                                         <h2 class="text-3xl md:text-4xl font-bold"><i class="fas fa-sign-in-alt mr-4"></i>Internship Portal</h2>
                                         <p class="text-emerald-100 mt-3 text-lg">Manage Your Internship Journey</p>
                                     </div>
                                     <button onclick="closeModal('internportal')" class="text-3xl hover:bg-teal-700 p-2 rounded-lg transition flex-shrink-0">
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </div>
+                                <div class="p-8 md:p-12">
+
+                                    <!-- Internship Portal Quick Access Section -->
+                                    <div class="bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 p-8 rounded-2xl border-2 border-emerald-200 mb-8">
+                                        <h3 class="text-2xl font-bold text-gray-900 mb-6"><i class="fas fa-rocket text-yellow-500 mr-3"></i>Quick Portal Access</h3>
+                                        
+                                        <!-- Domain Quick Access Cards -->
+                                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+                                            <!-- HR Domain Card -->
+                                            <div class="bg-white rounded-xl border-2 border-blue-300 p-4 shadow-lg hover:shadow-2xl hover:border-blue-600 transition-all duration-300 group cursor-pointer transform hover:scale-105" onclick="fillLoginCredentials('hr001@tse.in', 'HR@2024001'); openModal('login')">
+                                                <div class="text-center">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white mx-auto mb-3 shadow-lg group-hover:rotate-12 transition-transform">
+                                                        <i class="fas fa-users text-lg"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition">HR Management</p>
+                                                    <p class="text-xs text-gray-600 mb-3">10 Interns</p>
+                                                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">Quick Access</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Design Domain Card -->
+                                            <div class="bg-white rounded-xl border-2 border-purple-300 p-4 shadow-lg hover:shadow-2xl hover:border-purple-600 transition-all duration-300 group cursor-pointer transform hover:scale-105" onclick="fillLoginCredentials('design001@tse.in', 'Design@2024001'); openModal('login')">
+                                                <div class="text-center">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full flex items-center justify-center text-white mx-auto mb-3 shadow-lg group-hover:rotate-12 transition-transform">
+                                                        <i class="fas fa-palette text-lg"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 mb-1 group-hover:text-purple-600 transition">Graphic Design</p>
+                                                    <p class="text-xs text-gray-600 mb-3">10 Interns</p>
+                                                    <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold">Quick Access</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Marketing Domain Card -->
+                                            <div class="bg-white rounded-xl border-2 border-pink-300 p-4 shadow-lg hover:shadow-2xl hover:border-pink-600 transition-all duration-300 group cursor-pointer transform hover:scale-105" onclick="fillLoginCredentials('marketing001@tse.in', 'Marketing@2024001'); openModal('login')">
+                                                <div class="text-center">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-pink-600 to-pink-800 rounded-full flex items-center justify-center text-white mx-auto mb-3 shadow-lg group-hover:rotate-12 transition-transform">
+                                                        <i class="fas fa-bullhorn text-lg"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 mb-1 group-hover:text-pink-600 transition">Digital Marketing</p>
+                                                    <p class="text-xs text-gray-600 mb-3">10 Interns</p>
+                                                    <span class="inline-block px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-bold">Quick Access</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Media Domain Card -->
+                                            <div class="bg-white rounded-xl border-2 border-indigo-300 p-4 shadow-lg hover:shadow-2xl hover:border-indigo-600 transition-all duration-300 group cursor-pointer transform hover:scale-105" onclick="fillLoginCredentials('media001@tse.in', 'Media@2024001'); openModal('login')">
+                                                <div class="text-center">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-full flex items-center justify-center text-white mx-auto mb-3 shadow-lg group-hover:rotate-12 transition-transform">
+                                                        <i class="fas fa-video text-lg"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 mb-1 group-hover:text-indigo-600 transition">Video Production</p>
+                                                    <p class="text-xs text-gray-600 mb-3">10 Interns</p>
+                                                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold">Quick Access</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Analytics Domain Card -->
+                                            <div class="bg-white rounded-xl border-2 border-green-300 p-4 shadow-lg hover:shadow-2xl hover:border-green-600 transition-all duration-300 group cursor-pointer transform hover:scale-105" onclick="fillLoginCredentials('analytics001@tse.in', 'Analytics@2024001'); openModal('login')">
+                                                <div class="text-center">
+                                                    <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center text-white mx-auto mb-3 shadow-lg group-hover:rotate-12 transition-transform">
+                                                        <i class="fas fa-chart-line text-lg"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 mb-1 group-hover:text-green-600 transition">Data Analytics</p>
+                                                    <p class="text-xs text-gray-600 mb-3">10 Interns</p>
+                                                    <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Quick Access</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Interactive Stats Row -->
+                                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                            <div class="bg-white rounded-lg p-4 border-l-4 border-blue-600 hover:shadow-lg transition-all group">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="text-gray-600 font-bold text-sm">Total Interns</p>
+                                                        <p class="text-3xl font-bold text-blue-600 mt-2">50+</p>
+                                                    </div>
+                                                    <i class="fas fa-users text-blue-600 text-3xl opacity-20 group-hover:opacity-40 transition"></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="bg-white rounded-lg p-4 border-l-4 border-purple-600 hover:shadow-lg transition-all group">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="text-gray-600 font-bold text-sm">Active Domains</p>
+                                                        <p class="text-3xl font-bold text-purple-600 mt-2">5</p>
+                                                    </div>
+                                                    <i class="fas fa-layer-group text-purple-600 text-3xl opacity-20 group-hover:opacity-40 transition"></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="bg-white rounded-lg p-4 border-l-4 border-green-600 hover:shadow-lg transition-all group">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="text-gray-600 font-bold text-sm">Success Rate</p>
+                                                        <p class="text-3xl font-bold text-green-600 mt-2">98%</p>
+                                                    </div>
+                                                    <i class="fas fa-certificate text-green-600 text-3xl opacity-20 group-hover:opacity-40 transition"></i>
+                                                </div>
+                                            </div>
+
+                                            <div class="bg-white rounded-lg p-4 border-l-4 border-orange-600 hover:shadow-lg transition-all group">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <p class="text-gray-600 font-bold text-sm">Demo Available</p>
+                                                        <p class="text-3xl font-bold text-orange-600 mt-2">✓</p>
+                                                    </div>
+                                                    <i class="fas fa-play-circle text-orange-600 text-3xl opacity-20 group-hover:opacity-40 transition"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Enhanced Instructions Section -->
+                                    <div class="space-y-4">
+                                        <h3 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-info-circle text-blue-600 mr-3"></i>How to Login</h3>
+                                        
+                                        <!-- Step-by-step Instructions -->
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                            <!-- Step 1 -->
+                                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl border-2 border-blue-300 hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('login')">
+                                                <div class="flex items-center gap-4 mb-4">
+                                                    <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">1</div>
+                                                    <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition">Choose Your Domain</h4>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">Click on any domain card above (HR, Design, Marketing, Media, Analytics) to auto-fill demo credentials.</p>
+                                                <div class="mt-4 flex gap-2">
+                                                    <span class="px-3 py-1 text-xs bg-blue-200 text-blue-700 rounded-full font-bold">HR</span>
+                                                    <span class="px-3 py-1 text-xs bg-purple-200 text-purple-700 rounded-full font-bold">Design</span>
+                                                    <span class="px-3 py-1 text-xs bg-pink-200 text-pink-700 rounded-full font-bold">+3 more</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Step 2 -->
+                                            <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 rounded-2xl border-2 border-emerald-300 hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('login')">
+                                                <div class="flex items-center gap-4 mb-4">
+                                                    <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">2</div>
+                                                    <h4 class="font-bold text-gray-900 group-hover:text-emerald-600 transition">Auto-Fill Credentials</h4>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">Email and password auto-populate. Click the eye icon to toggle password visibility securely.</p>
+                                                <div class="mt-4 p-3 bg-white rounded-lg border-l-4 border-emerald-600">
+                                                    <p class="text-xs font-mono text-gray-700">Email: hr001@tse.in</p>
+                                                    <p class="text-xs font-mono text-gray-700">Password: HR@2024001</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Step 3 -->
+                                            <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-2xl border-2 border-cyan-300 hover:shadow-lg transition-all cursor-pointer group" onclick="openModal('login')">
+                                                <div class="flex items-center gap-4 mb-4">
+                                                    <div class="w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">3</div>
+                                                    <h4 class="font-bold text-gray-900 group-hover:text-cyan-600 transition">Launch Portal</h4>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">Click "Sign In Securely" to launch the full-featured portal with dashboard, tasks, analytics, and more.</p>
+                                                <div class="mt-4">
+                                                    <button onclick="openModal('login')" class="w-full px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-bold transition-all duration-300 text-sm">
+                                                        <i class="fas fa-arrow-right mr-2"></i>Launch Now
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Portal Features Showcase -->
+                                    <div class="mt-8 bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all">
+                                        <h3 class="text-xl font-bold text-gray-900 mb-6"><i class="fas fa-sparkles text-yellow-500 mr-3"></i>Portal Features</h3>
+                                        
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                            <div class="text-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-tachometer-alt text-3xl text-blue-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Dashboard</p>
+                                                <p class="text-xs text-gray-600 mt-1">Real-time stats & analytics</p>
+                                            </div>
+                                            
+                                            <div class="text-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-list-check text-3xl text-purple-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Task Board</p>
+                                                <p class="text-xs text-gray-600 mt-1">Manage your projects</p>
+                                            </div>
+                                            
+                                            <div class="text-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-chart-line text-3xl text-green-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Analytics</p>
+                                                <p class="text-xs text-gray-600 mt-1">Progress & performance</p>
+                                            </div>
+                                            
+                                            <div class="text-center p-4 bg-pink-50 rounded-lg hover:bg-pink-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-user-circle text-3xl text-pink-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Profile</p>
+                                                <p class="text-xs text-gray-600 mt-1">Your personal info</p>
+                                            </div>
+
+                                            <div class="text-center p-4 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-graduation-cap text-3xl text-indigo-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Resources</p>
+                                                <p class="text-xs text-gray-600 mt-1">Learning materials</p>
+                                            </div>
+
+                                            <div class="text-center p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-comments text-3xl text-orange-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Mentor</p>
+                                                <p class="text-xs text-gray-600 mt-1">Connect with mentors</p>
+                                            </div>
+
+                                            <div class="text-center p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-certificate text-3xl text-teal-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Certificate</p>
+                                                <p class="text-xs text-gray-600 mt-1">Download credentials</p>
+                                            </div>
+
+                                            <div class="text-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-all group cursor-pointer" onclick="openModal('login')">
+                                                <i class="fas fa-bell text-3xl text-red-600 mb-3 group-hover:scale-125 transition-transform block"></i>
+                                                <p class="font-bold text-gray-900 text-sm">Notifications</p>
+                                                <p class="text-xs text-gray-600 mt-1">Stay updated</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 
                                 <div class="p-8 md:p-12">
                                     <!-- Portal Features Grid -->
@@ -11983,3 +12199,4 @@ ext-white rounded-full font-bold text-lg md:text-xl shadow-2xl hover:shadow-2xl 
 
 </body>
 </html>
+
